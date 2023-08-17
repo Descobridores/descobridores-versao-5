@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drag and Drop</title>
+    <style>
+      html {
+        height: 95%;
+      }
+      body {
+        display: flex;
+        gap: 1rem;
+        margin: 20px;
+        justify-content: space-between;
+        height: 100%;
+      }
+
+      .drop-area {
+        width: 100%;
+        height: 100%;
+      }
+
+      .target-container {
+        width: 60%;
+        height: 90%;
+        background-color: #f2f2f2;
+        border: 2px dashed #ccc;
+        padding: 10px;
+        display: flex;
+      }
+
+      .elements-container {
+        width: 40%;
+        height: 90%;
+        background-color: #f2f2f2;
+        border: 2px dashed #ccc;
+        padding: 10px;
+        display: flex;
+      }
+
+      /* sets cursor */
+      .draggable-by-jquery-ui {
+        cursor: url("https://www.google.com/intl/en_ALL/mapfiles/openhand.cur"),
+          all-scroll;
+        cursor: -webkit-grab;
+        cursor: -moz-grab;
+        cursor: -o-grab;
+        cursor: -ms-grab;
+        cursor: grab;
+      }
+      .draggable-by-jquery-ui:active {
+        cursor: url("https://www.google.com/intl/en_ALL/mapfiles/closedhand.cur"),
+          all-scroll;
+        cursor: -webkit-grabbing;
+        cursor: -moz-grabbing;
+        cursor: -o-grabbing;
+        cursor: -ms-grabbing;
+        cursor: grabbing;
+      }
+
+      .element {
+        width: 6.25rem;
+        height: 6.25rem;
+        padding: 15px;
+      }
+
+      .element:hover {
+        background-color: #007bff;
+        border-radius: 4px;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+  </head>
+  <body>
+    <div class="target-container">
+      <div class="drop-area"></div>
+    </div>
+
+    <div class="elements-container">
+      <div class="drop-area">
+        <img
+          class="element draggable-by-jquery-ui"
+          id="drag-element1"
+          src="./assets/img/boi.png"
+          alt=""
+        />
+        <img
+          class="element draggable-by-jquery-ui"
+          id="drag-element2"
+          src="./assets/img/porco.png"
+          alt=""
+        />
+        <img
+          class="element draggable-by-jquery-ui"
+          id="drag-element3"
+          src="./assets/img/cavalo.png"
+          alt=""
+        />
+        <img
+          class="element draggable-by-jquery-ui"
+          id="drag-element4"
+          src="./assets/img/boi.png"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $(function () {
+        $(".draggable-by-jquery-ui").draggable({
+          revert: "invalid",
+        });
+        $(".drop-area").droppable({
+          accept: ".draggable-by-jquery-ui",
+          drop: function (event, element) {
+            element.draggable[0].classList.add("in-place");
+            this.appendChild(element.draggable[0]);
+            element.draggable[0].style.left = "0";
+            element.draggable[0].style.top = "0";
+            element.draggable[0].style.bottom = "0";
+            element.draggable[0].style.right = "0";
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
