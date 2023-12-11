@@ -1,0 +1,183 @@
+* {
+  --primary__1: #348f6d;
+  --secondary__1: #e7ecef;
+  --third__1: #274c77;
+  --fourth__1: #a3cef1;
+  --fifth__1: #e9b44c;
+}
+
+body {
+  /* background-color: #e9e9e97d; */
+  background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
+}
+
+.container {
+  display: flex;
+  margin: 4rem 6rem;
+  gap: 1rem;
+}
+
+.games__container {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0 0.5rem;
+  height: fit-content;
+  width: 20rem;
+  font-family: cursive;
+  text-align: center;
+}
+
+.games__container h3 {
+  font-size: 1.5rem;
+  color: #1c203f;
+  margin-bottom: 0;
+  border-bottom: solid 1px gray;
+  padding-bottom: 36px;
+}
+
+#g__1 {
+  color: #b4191c;
+  border-bottom: 1px solid #b4191c;
+}
+
+#g__2 {
+  color: #ff8421;
+  border-bottom: 1px solid #ff8421;
+  background-color: #ff842138;
+}
+
+#g__3 {
+  color: #1a181a;
+  border-bottom: 1px solid #1a181a;
+}
+
+#g__4 {
+  color: #00bf77;
+  border-bottom: 1px solid #00bf77;
+}
+
+.game {
+  padding: 1rem 1.3rem;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.1rem;
+  align-items: center;
+  margin: 0 5px;
+}
+
+.game:hover,
+.game label:hover {
+  cursor: pointer;
+  background-color: #dce0fd7d;
+}
+
+.game:active {
+  background-color: #dce0fd7d;
+}
+
+.game img {
+  width: 55px;
+}
+
+.game label {
+  font-weight: bold;
+}
+
+.messages {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  height: 38rem;
+  width: 50rem;
+  padding-top: 18px;
+  font-family: monospace;
+}
+
+.message__container {
+  width: 45%;
+  height: 65px;
+  border-radius: 10px;
+  margin: 15px;
+  padding-left: 8px;
+}
+
+.message__div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message__container img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.message__container p {
+  margin-left: 10px;
+  padding: 9px 17px;
+  border-radius: 26px;
+}
+
+.message__container span:first-of-type {
+  color: white;
+  position: relative;
+  bottom: 0.8rem;
+  left: 0.2rem;
+  font-size: 0.7rem;
+}
+
+.message__container span:last-of-type {
+  color: lightgrey;
+  position: relative;
+  bottom: 0.8rem;
+  left: 3rem;
+  font-size: 0.7rem;
+}
+
+.mic {
+  position: relative;
+  top: 17px;
+  right: 6px;
+}
+
+.user__message {
+  margin-top: 35px;
+}
+
+.user__message p {
+  background-color: #82ccdd;
+}
+
+.monitor__message {
+  position: relative;
+  left: 410px;
+}
+
+.monitor__message p {
+  background-color: #78e08f;
+}
+
+.player__container {
+  width: 80%;
+  position: relative;
+  top: 8px;
+  left: 15px;
+}
+
+.player__line {
+  border-top: #1c203f solid 2px;
+  width: inherit;
+}
+
+.player__circle {
+  height: 13px;
+  width: 13px;
+  background-color: #1c203f;
+  border-radius: 50%;
+  position: relative;
+  bottom: 8px;
+  left: 0%; /* this is the atribute! */
+}
