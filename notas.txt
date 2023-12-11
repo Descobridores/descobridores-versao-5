@@ -1,0 +1,16 @@
+Arquivos alterados:
+curral.html
+
+Arquivos criados:
+curral.css
+enviarResposta.html
+monstros.html
+triangulosAmigos
+triangulosNumericos
+torre
+...
+...
+
+
+Arquivos sem uso:
+tic-tac-toe.js

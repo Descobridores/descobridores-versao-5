@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag and Drop</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .container {
+        display: flex;
+        margin: 20px;
+      }
+      .game {
+        width: 600px;
+        height: 600px;
+        display: grid;
+        grid-template: repeat(3, 0.26fr) / repeat(3, 0.26fr);
+      }
+      .item__container {
+        border: 6px solid black;
+        font-weight: bold;
+        font-size: 4em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="game">
+        <div class="item__container"></div>
+        <div class="item__container"></div>
+        <div class="item__container"></div>
+
+        <div class="item__container"></div>
+        <div class="item__container"></div>
+        <div class="item__container"></div>
+
+        <div class="item__container"></div>
+        <div class="item__container"></div>
+        <div class="item__container"></div>
+      </div>
+
+      <div id="botoes">
+        <img
+          class="item"
+          draggable="true"
+          src="../assets/img/porco.png"
+          style="height: 100px; width: 100px"
+        />
+
+        <!-- <button id="porco1" class="btn botaoCurral" onclick="tic_tac_toe.symbols.change(0, 1)" style="height: 100px; width: 100px;"> <img src="./assets/img/porco.png" style="height: 70px; width: 70px" /></button> -->
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

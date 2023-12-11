@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -10,7 +9,7 @@
     <meta name="description" content="Viver é aprender" />
     <meta name="author" content="WebDevelopers" />
     <title>Os Descobridores da Matemática</title>
-    <link rel="icon" type="image/x-icon" href="./assets/img/Logos/Logo.jpg" />
+    <link rel="icon" type="image/x-icon" href="assets/img/Logos/Logo.jpg" />
     <!-- Font Awesome icons (free version)-->
     <script
       src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"
@@ -35,68 +34,15 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/little_styles.css" rel="stylesheet" />
-    <link href="css/conffeti.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Allura&display=swap"
       rel="stylesheet"
     />
-
-    <style>
-      .game__container {
-        display: flex;
-        justify-content: end;
-        /* align-items: center; */
-        min-height: 100vh;
-        margin: 2rem 5rem;
+    <script>
+      window.onload = function () {
+        shuffle_images()
       }
-
-      .circle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 7.5rem;
-        height: 7.5rem;
-        background-color: white;
-        border: solid 2px #030d48;
-        border-radius: 50%;
-        position: absolute;
-        transform-origin: center center;
-      }
-
-      .big__circle {
-        border: solid 2px #030d48;
-        border-radius: 50%;
-        width: 30rem;
-        height: 30rem;
-        position: absolute;
-        right: 45rem;
-        top: 35rem;
-        z-index: -1;
-      }
-
-      .element {
-        width: 4rem;
-        height: 6.53rem;
-        z-index: 1;
-      }
-
-      .monsters__container {
-        display: flex;
-      }
-
-      .monsters__container div {
-        display: flex;
-        flex-direction: column;
-        margin-right: 2rem;
-        min-width: 4rem;
-      }
-
-      .wrong__btn,
-      .correct__btn {
-        left: 5rem;
-        width: 20rem;
-      }
-    </style>
+    </script>
   </head>
   <body id="page-top">
     <div
@@ -549,299 +495,306 @@
             </div>
           </div>
         </nav>
-        <!-- Pagina -->
-        <section class="container">
-          <hr class="linha" />
-          <h1 class="TituloPagina">Monstros na Roda</h1>
-          <hr class="linha" />
-        </section>
-      </main>
-      <br />
-      <div class="container">
-        <div style="margin-right: -0.75rem; margin-left: -0.75rem">
-          <!-- GAME CONTAINER -->
-          <div class="game__container">
-            <div class="circle drop__area"></div>
-            <div class="circle drop__area"></div>
-            <div class="circle drop__area"></div>
-            <div class="circle drop__area"></div>
-            <div class="circle drop__area"></div>
-            <div class="circle drop__area"></div>
-            <div class="circle drop__area"></div>
-            <div class="circle drop__area"></div>
-            <div class="circle drop__area"></div>
-            <div class="circle drop__area"></div>
-
-            <div class="big__circle"></div>
-
-            <div class="monsters__container">
-              <div class="drop__area">
-                <img
-                  class="element monster_1 draggable-by-jquery-ui"
-                  src="./assets/img/Desafios-img/monstro-1.png"
-                  alt="imagem do monstro de uma perna"
-                />
-                <img
-                  class="element monster_1 draggable-by-jquery-ui"
-                  src="./assets/img/Desafios-img/monstro-1.png"
-                  alt="imagem do monstro de uma perna"
-                />
-                <img
-                  class="element monster_1 draggable-by-jquery-ui"
-                  src="./assets/img/Desafios-img/monstro-1.png"
-                  alt="imagem do monstro de uma perna"
-                />
-                <img
-                  class="element monster_1 draggable-by-jquery-ui"
-                  src="./assets/img/Desafios-img/monstro-1.png"
-                  alt="imagem do monstro de uma perna"
-                />
-              </div>
-
-              <div class="drop__area">
-                <img
-                  class="element monster_2 draggable-by-jquery-ui"
-                  src="./assets/img/Desafios-img/monstro-2.png"
-                  alt="imagem do monstro de uma perna"
-                />
-                <img
-                  class="element monster_2 draggable-by-jquery-ui"
-                  src="./assets/img/Desafios-img/monstro-2.png"
-                  alt="imagem do monstro de uma perna"
-                />
-                <img
-                  class="element monster_2 draggable-by-jquery-ui"
-                  src="./assets/img/Desafios-img/monstro-2.png"
-                  alt="imagem do monstro de uma perna"
-                />
-              </div>
-
-              <div class="drop__area">
-                <img
-                  class="element monster_3 draggable-by-jquery-ui"
-                  src="./assets/img/Desafios-img/monstro-3.png"
-                  alt="imagem do monstro de uma perna"
-                />
-                <img
-                  class="element monster_3 draggable-by-jquery-ui"
-                  src="./assets/img/Desafios-img/monstro-3.png"
-                  alt="imagem do monstro de uma perna"
-                />
-                <img
-                  class="element monster_3 draggable-by-jquery-ui"
-                  src="./assets/img/Desafios-img/monstro-3.png"
-                  alt="imagem do monstro de uma perna"
-                />
-              </div>
-            </div>
-
-            <button
-              class="correct__btn"
-              style="display: none; margin-top: 30px"
-            >
-              Você descobriu! Parabéns!
-            </button>
-            <button class="wrong__btn" style="display: none; margin-top: 30px">
-              Tente de novo!
-            </button>
-          </div>
-          <!-- end of GAME CONTAINER -->
-
-          <div class="centreImage" style="text-align: center">
-            <button
-              class="btn btn-primary"
-              onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 12);"
-              style="background-color: #3298ff"
-            >
+        <br />
+        <!-- Page -->
+        <div id="imagensIndex" class="container">
+          <div class="row">
+            <!-- Aposte na soma -->
+            <div id="vinheta0" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
               <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 0);"
                 href="./desafio.html"
-                style="text-decoration: none; color: white; font-size: 20px"
               >
-                Voltar ao desafio
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-00.svg"
+                />
               </a>
-            </button>
+            </div>
+            <!-- Construindo Pipas -->
+            <div id="vinheta1" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 1);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-01.svg"
+                />
+              </a>
+            </div>
+            <!-- Desafio da Escada -->
+            <div id="vinheta2" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 2);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-02.svg"
+                />
+              </a>
+            </div>
+            <!-- Desafio da Ilha -->
+            <div id="vinheta3" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 3);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-03.svg"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Desafio da Pá Suja -->
+            <div id="vinheta4" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 4);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-04.svg"
+                />
+              </a>
+            </div>
+            <!-- Desafio das Bandeiras -->
+            <div id="vinheta5" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 5);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-05.svg"
+                />
+              </a>
+            </div>
+            <!-- Desafio das Varetas -->
+            <div id="vinheta6" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 6);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-06.svg"
+                />
+              </a>
+            </div>
+            <!-- Desafio do Dragão -->
+            <div id="vinheta7" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 7);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-07.svg"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Flores no jardim -->
+            <div id="vinheta8" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 8);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-08.svg"
+                />
+              </a>
+            </div>
+            <!-- Gincana das Alturas -->
+            <div id="vinheta9" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 9);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-09.svg"
+                />
+              </a>
+            </div>
+            <!-- Milu e Nala -->
+            <div id="vinheta10" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 10);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-10.svg"
+                />
+              </a>
+            </div>
+            <!-- Monstros na Roda -->
+            <div id="vinheta11" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 11);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-11.svg"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- Organizando o Curral -->
+            <div id="vinheta12" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 12);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-12.svg"
+                />
+              </a>
+            </div>
+            <!-- Palitos coloridos -->
+            <div id="vinheta13" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 13);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-13.svg"
+                />
+              </a>
+            </div>
+            <!-- Quantos Retângulos? -->
+            <div id="vinheta14" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 14);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-14.svg"
+                />
+              </a>
+            </div>
+            <!-- Sequência de Triângulos -->
+            <div id="vinheta15" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 15);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-15.svg"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- Torre da Matilda -->
+            <div id="vinheta16" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 16);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-16.svg"
+                />
+              </a>
+            </div>
+            <!-- Triângulos amigos -->
+            <div id="vinheta17" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 17);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-17.svg"
+                />
+              </a>
+            </div>
+            <!-- Triângulos no Pentágono -->
+            <div id="vinheta18" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 18);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-18.svg"
+                />
+              </a>
+            </div>
+            <!-- Triângulos numéricos -->
+            <div id="vinheta19" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+                onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 19);"
+                href="./desafio.html"
+              >
+                <img
+                  class="img-fluid img-thumbnail zoom VinhetasIMG"
+                  src="./assets/img/Vinhetas/vinheta-19.svg"
+                />
+              </a>
+            </div>
           </div>
         </div>
-
-        <footer class="footer py-2">
-          <div class="container">
-            <div class="row mt-3">
-              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-                <a target="_blank" href="https://ufmg.br/">
-                  <img
-                    class="logo img-thumbnail"
-                    src="./assets/img/Logos/ufmg.png"
-                  />
-                </a>
-              </div>
-              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-                <a target="_blank" href="http://www.cp.ufmg.br/">
-                  <img
-                    class="logo img-thumbnail"
-                    src="./assets/img/Logos/cp.svg"
-                  />
-                </a>
-              </div>
-              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-                <a target="_blank" href="https://www.icex.ufmg.br/">
-                  <img
-                    class="logo img-thumbnail"
-                    src="./assets/img/Logos/icex.svg"
-                  />
-                </a>
-              </div>
+        <hr />
+      </main>
+      <footer class="footer py-2">
+        <div class="container">
+          <div class="row mt-3">
+            <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+              <a target="_blank" href="https://ufmg.br/">
+                <img
+                  class="logo img-thumbnail"
+                  src="assets/img/Logos/ufmg.png"
+                />
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+              <a target="_blank" href="http://www.cp.ufmg.br/">
+                <img class="logo img-thumbnail" src="assets/img/Logos/cp.svg" />
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+              <a target="_blank" href="https://www.icex.ufmg.br/">
+                <img
+                  class="logo img-thumbnail"
+                  src="assets/img/Logos/icex.svg"
+                />
+              </a>
             </div>
           </div>
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-12">Copyright © Descobridores 2021</div>
-            </div>
+        </div>
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-12">Copyright © Descobridores 2021</div>
           </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </div>
+    <!-- Footer-->
+    <script src="./js/desafio.js"></script>
+    <script src="./js/popUp.js"></script>
     <!-- Bootstrap core JS-->
-    <script src="js/popUp.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-      /* DISPLAY CIRCLE */
-      const circles = document.querySelectorAll(".circle");
-      const totalCircles = circles.length;
-      const radius = 15; // Adjust this value to control the size of the circle
-
-      circles.forEach((circle, index) => {
-        const angle = (index / totalCircles) * 2 * Math.PI;
-        const x = Math.cos(angle) * radius + 20;
-        const y = Math.sin(angle) * radius + 46;
-        circle.style.left = x + "rem";
-        circle.style.top = y + "rem";
-      });
-
-      /* GAME LOGIC */
-      const containers = document.querySelectorAll(".circle");
-
-      const checkSolution = () => {
-        const answer = [];
-
-        // loop trough the spaces to get the user's answer
-        containers.forEach((el) =>
-          answer.push(parseInt(el.firstElementChild.className.split("_")[1]))
-        );
-
-        const strAnswer = JSON.stringify(answer);
-
-        // I know this isn't the most sophisticated way to check the answer, but I'm in a hurry! You understand, right?
-        if (answer[0] == 3) {
-          if (
-            strAnswer == "[3,3,1,3,1,1,2,1,2,2]" ||
-            strAnswer == "[3,1,3,1,1,2,1,2,2,3]" ||
-            strAnswer == "[3,1,1,2,1,2,2,3,3,1]"
-          ) {
-            return true;
-          }
-        } else if (answer[0] == 2) {
-          if (
-            strAnswer == "[2,1,2,2,3,3,1,3,1,1]" ||
-            strAnswer == "[2,2,3,3,1,3,1,1,2,1]" ||
-            strAnswer == "[2,3,3,1,3,1,1,2,1,2]"
-          )
-            return true;
-        } else {
-          if (
-            strAnswer == "[1,2,2,3,3,1,3,1,1,2]" ||
-            strAnswer == "[1,3,1,1,2,1,2,2,3,3]" ||
-            strAnswer == "[1,1,2,1,2,2,3,3,1,3]" ||
-            strAnswer == "[1,2,1,2,2,3,3,1,3,1]"
-          )
-            return true;
-        }
-        return false;
-      };
-
-      const checkEndGame = () => {
-        // check if all elements have been placed
-        let endGame = true;
-        containers.forEach((el) => {
-          if (el.childNodes.length == 0) endGame = false;
-        });
-
-        if (endGame) {
-          // show result
-          let result = checkSolution();
-
-          // correct answer
-          if (result) {
-            console.log("here");
-            // change border color
-            containers.forEach((el) => {
-              el.style.borderColor = "#00e400";
-            });
-            document.querySelector(".big__circle").style.borderColor =
-              "#00e400";
-
-            // show conffeti effect
-            addConfettiEffect();
-
-            // fix answer - dont allow changes anymore
-            document.querySelectorAll(".element").forEach((el) => {
-              el.classList.remove("draggable-by-jquery-ui");
-              el.classList.remove("ui-draggable");
-              el.classList.remove("ui-draggable-handle");
-              el.style.position = "static";
-            });
-
-            // add correct button
-            const correctBtn = document.querySelector(".correct__btn");
-            correctBtn.style.display = "block";
-            correctBtn.addEventListener("click", () => location.reload());
-          }
-          // wrong answer
-          else {
-            // change border color
-            containers.forEach((el) => {
-              el.style.borderColor = "#cc1a1a";
-            });
-            document.querySelector(".big__circle").style.borderColor =
-              "#cc1a1a";
-
-            // add wrong button
-            const correctBtn = document.querySelector(".wrong__btn");
-            correctBtn.style.display = "block";
-            correctBtn.addEventListener("click", () => location.reload());
-          }
-        }
-      };
-
-      // make drag cursor icon
-      $(function () {
-        $(".draggable-by-jquery-ui").draggable({
-          revert: "invalid",
-        });
-        $(".drop__area").droppable({
-          accept: ".draggable-by-jquery-ui",
-
-          // called when element is dropped
-          drop: function (event, element) {
-            // check if drop area already has an element
-            if (this.childNodes.length == 1) {
-              // remove current element from area
-              elementsContainer.appendChild(this.firstChild);
-            }
-
-            // adds new element to area
-            this.appendChild(element.draggable[0]);
-            element.draggable[0].style.left = "0";
-            element.draggable[0].style.top = "0";
-            element.draggable[0].style.bottom = "0";
-            element.draggable[0].style.right = "0";
-
-            checkEndGame();
-          },
-        });
-      });
-    </script>
-    <script src="js/desafios/confetti.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
   </body>
 </html>

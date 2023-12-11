@@ -35,371 +35,13 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/little_styles.css" rel="stylesheet" />
     <link href="css/conffeti.css" rel="stylesheet" />
+    <link href="css/curral.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Allura&display=swap"
       rel="stylesheet"
     />
 
-    <style>
-      .container {
-        margin: 0 9rem;
-      }
-
-      .game__container {
-        height: 90vh;
-        display: flex;
-        gap: 8rem;
-      }
-
-      .target__container {
-        display: flex;
-        flex-direction: column;
-        gap: 4.6rem;
-      }
-
-      .target {
-        position: relative;
-        z-index: -1;
-      }
-
-      .line {
-        width: 165px;
-        height: 23px;
-        border-bottom: 6px solid black;
-        border-right: 12px transparent solid;
-        border-left: 12px transparent solid;
-        position: relative;
-      }
-
-      .solutionTriangle {
-        position: absolute;
-        display: none;
-      }
-
-      .line_sol {
-        width: 513px;
-        height: 23px;
-        border-bottom: 6px solid red;
-        border-right: 12px transparent solid;
-        border-left: 12px transparent solid;
-        position: relative;
-      }
-
-      .l1_sol {
-        transform: rotate(120deg);
-        top: 189px;
-        left: -99px;
-      }
-
-      .l2_sol {
-        transform: rotate(240deg);
-        top: 167px;
-        left: 138px;
-      }
-
-      .l3_sol {
-        top: 349px;
-        left: 19px;
-      }
-
-      .l1 {
-        transform: rotate(120deg);
-        top: 50px;
-        left: -12px;
-      }
-
-      .l2 {
-        transform: rotate(240deg);
-        top: 27px;
-        left: 50px;
-      }
-
-      .l3 {
-        top: 58px;
-        left: 19px;
-      }
-
-      .triangle__row {
-        display: flex;
-        justify-content: center;
-      }
-
-      .elements__container .drop__area {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
-        min-height: 10.4rem;
-      }
-
-      .elements__container .drop__area img {
-        width: 5.3rem;
-      }
-
-      .elements__container {
-        display: flex;
-        flex-direction: column;
-        gap: 6rem;
-      }
-
-      #regras {
-        width: 25rem;
-        margin-left: 6rem;
-      }
-
-      .element {
-        /* position: relative; */
-      }
-
-      .drop__container .drop__area {
-        display: flex;
-        flex-direction: column;
-        border: #1b2038 solid 2px;
-        width: 8rem;
-        height: 7rem;
-        width: 7.6rem;
-        height: 8.6rem;
-      }
-
-      .drop__area__container {
-        border: #1b2038 solid 2px;
-        position: absolute;
-        left: 9rem;
-        top: 33rem;
-        width: 29rem;
-        height: 26rem;
-      }
-
-      .drop__container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .img_1 {
-        bottom: 713.6875px;
-        left: 104.5px;
-        right: 599.5px;
-        top: 135px;
-        x: 104.5px;
-        y: 135px;
-      }
-
-      .target__container .drop__area {
-        position: relative;
-        height: 8.9rem;
-      }
-
-      .target__container .drop__area img {
-        position: relative;
-        width: 10.5rem;
-      }
-
-      .triangles__drop__area {
-        position: relative;
-        bottom: 28rem;
-      }
-
-      .triangles__drop__area div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .rotate0 {
-        transform: rotate(0deg);
-      }
-
-      #da1 {
-        left: 1.2rem;
-        width: 9rem;
-        height: 8.9rem;
-      }
-
-      #da1 .rotate0 {
-        right: 5.7rem;
-        bottom: 4.7rem;
-      }
-
-      #da1 .rotate120 {
-        right: 4.7rem;
-        bottom: 2.8rem;
-      }
-
-      #da1 .rotate240 {
-        right: 6.8rem;
-        bottom: 2.8rem;
-      }
-
-      #da2 {
-        width: 8rem;
-        left: 2rem;
-        height: 7rem;
-        top: 1rem;
-      }
-
-      #da2 .rotate0 {
-        right: 4.7rem;
-        bottom: 6.5rem;
-      }
-
-      #da2 .rotate120 {
-        right: 3.7rem;
-        bottom: 4.7rem;
-      }
-
-      #da2 .rotate240 {
-        right: 5.8rem;
-        bottom: 4.8rem;
-      }
-
-      #da3 {
-        width: 7rem;
-        left: 2rem;
-      }
-
-      #da3 .rotate0 {
-        right: 6.534rem;
-        bottom: 6.9rem;
-      }
-
-      #da3 .rotate180 {
-        right: 7.6rem;
-        bottom: 5.1rem;
-      }
-
-      #da3 .rotate300 {
-        right: 8.6rem;
-        bottom: 6.95rem;
-      }
-
-      #da4 {
-        width: 8rem;
-        left: 1rem;
-      }
-
-      #da4 .rotate0 {
-        right: 8.45rem;
-        bottom: 4.7rem;
-      }
-
-      #da4 .rotate120 {
-        right: 7.3rem;
-        bottom: 2.7rem;
-      }
-
-      #da4 .rotate240 {
-        right: 9.4rem;
-        bottom: 2.7rem;
-      }
-
-      #da5 {
-        width: 8rem;
-        left: 1.7rem;
-        height: 6rem;
-        top: 1.8rem;
-      }
-
-      #da5 .rotate0 {
-        right: 5.1rem;
-        bottom: 7.8rem;
-      }
-
-      #da5 .rotate120 {
-        right: 4rem;
-        bottom: 5.9rem;
-      }
-
-      #da5 .rotate240 {
-        right: 6.2rem;
-        bottom: 6rem;
-      }
-
-      #da6 {
-        height: 7rem;
-        width: 6rem;
-        left: 1rem;
-        bottom: 1rem;
-      }
-
-      #da6 .rotate0 {
-        right: 6.1rem;
-        bottom: 6.85rem;
-      }
-
-      #da6 .rotate180 {
-        right: 7.25rem;
-        bottom: 5.05rem;
-      }
-
-      #da6 .rotate300 {
-        right: 8.25rem;
-        bottom: 6.85rem;
-      }
-
-      #da7 {
-        width: 6rem;
-        left: 0rem;
-        height: 6.5rem;
-        top: 1rem;
-      }
-
-      #da7 .rotate0 {
-        right: 7.1rem;
-        bottom: 6.7rem;
-      }
-
-      #da7 .rotate120 {
-      }
-
-      #da7 .rotate240 {
-        top: 7.6rem;
-        left: 1.2rem;
-      }
-
-      #da8 {
-        width: 6rem;
-        left: -0.8rem;
-        height: 7rem;
-        bottom: 1rem;
-      }
-
-      #da8 .rotate0 {
-        right: 5.95rem;
-        bottom: 6.85rem;
-      }
-
-      #da8 .rotate180 {
-        right: 7.1rem;
-        bottom: 5rem;
-      }
-
-      #da8 .rotate300 {
-        right: 8.15rem;
-        bottom: 6.9rem;
-      }
-
-      #da9 {
-        width: 6rem;
-        left: -1rem;
-      }
-
-      #da9 .rotate0 {
-        right: 7.6rem;
-        bottom: 4.5rem;
-      }
-
-      #da9 .rotate120 {
-        right: 6.6rem;
-        bottom: 2.6rem;
-      }
-
-      #da9 .rotate240 {
-        right: 8.9rem;
-        bottom: 2.7rem;
-      }
-    </style>
+    <style></style>
   </head>
   <body id="page-top">
     <div
@@ -855,7 +497,7 @@
         <!-- Pagina -->
         <section class="container">
           <hr class="linha" />
-          <h1 class="TituloPagina">Triângulos Amigos</h1>
+          <h1 class="TituloPagina">Organizando o Curral</h1>
           <hr class="linha" />
         </section>
       </main>
@@ -864,144 +506,82 @@
         <div style="margin-right: -0.75rem; margin-left: -0.75rem">
           <!-- GAME CONTAINER -->
           <div class="game__container">
-            <div class="triangle solutionTriangle">
-              <div class="line_sol l1_sol"></div>
-              <div class="line_sol l2_sol"></div>
-              <div class="line_sol l3_sol"></div>
-            </div>
             <div class="target__container">
-              <div class="triangle__row">
-                <div id="t1" class="triangle">
-                  <div class="line l1"></div>
-                  <div class="line l2"></div>
-                  <div class="line l3"></div>
-                </div>
-              </div>
-              <div class="triangle__row">
-                <div id="t2" class="triangle">
-                  <div class="line l1"></div>
-                  <div class="line l2"></div>
-                  <div class="line l3"></div>
-                </div>
+              <div class="drop__area row1 col1"></div>
+              <div class="drop__area row1 col2"></div>
 
-                <div id="t4" class="triangle">
-                  <div class="line l1"></div>
-                  <div class="line l2"></div>
-                  <div class="line l3"></div>
-                </div>
+              <div class="fixed__element__container row1 col3">
+                <img
+                  class="fixed__element porco"
+                  draggable="false"
+                  src="./assets/img/porco.png"
+                />
               </div>
 
-              <div class="triangle__row">
-                <div id="t5" class="triangle">
-                  <div class="line l1"></div>
-                  <div class="line l2"></div>
-                  <div class="line l3"></div>
-                </div>
+              <div class="drop__area row2 col1"></div>
+              <div class="drop__area row2 col2"></div>
+              <div class="drop__area row2 col3"></div>
 
-                <div id="t7" class="triangle">
-                  <div class="line l1"></div>
-                  <div class="line l2"></div>
-                  <div class="line l3"></div>
-                </div>
-
-                <div id="t9" class="triangle">
-                  <div class="line l1"></div>
-                  <div class="line l2"></div>
-                  <div class="line l3"></div>
-                </div>
+              <div class="fixed__element__container row3 col1">
+                <img
+                  class="fixed__element porco"
+                  draggable="false"
+                  src="./assets/img/cavalo.png"
+                />
               </div>
-
-              <div class="triangles__drop__area">
-                <div>
-                  <div id="da1" class="drop__area"></div>
-                </div>
-                <div>
-                  <div id="da2" class="drop__area"></div>
-                  <div id="da3" class="drop__area"></div>
-                  <div id="da4" class="drop__area"></div>
-                </div>
-                <div>
-                  <div id="da5" class="drop__area"></div>
-                  <div id="da6" class="drop__area"></div>
-                  <div id="da7" class="drop__area"></div>
-                  <div id="da8" class="drop__area"></div>
-                  <div id="da9" class="drop__area"></div>
-                </div>
-              </div>
+              <div class="drop__area row3 col2"></div>
+              <div class="drop__area row3 col3"></div>
             </div>
 
             <div class="elements__container">
-              <div class="drop__area initial__drop__area">
-                <div class="element draggable-by-jquery-ui brown">
+              <div class="drop__area">
+                <div>
                   <img
-                    id="img1"
-                    src="assets/img/Desafios-img/t_amigo_1.png"
-                    class="rotate0"
+                    class="element porco draggable-by-jquery-ui"
+                    id="drag-element1"
+                    src="./assets/img/porco.png"
+                    alt=""
+                  />
+                  <img
+                    class="element porco draggable-by-jquery-ui"
+                    id="drag-element2"
+                    src="./assets/img/porco.png"
+                    alt=""
                   />
                 </div>
-                <div class="element draggable-by-jquery-ui brown">
+                <div>
                   <img
-                    id="img2"
-                    src="assets/img/Desafios-img/t_amigo_2.png"
-                    class="rotate0"
+                    class="element cavalo draggable-by-jquery-ui"
+                    id="drag-element4"
+                    src="./assets/img/cavalo.png"
+                    alt=""
+                  />
+                  <img
+                    class="element cavalo draggable-by-jquery-ui"
+                    id="drag-element4"
+                    src="./assets/img/cavalo.png"
+                    alt=""
                   />
                 </div>
-                <div class="element draggable-by-jquery-ui brown">
-                  <img
-                    id="img3"
-                    src="assets/img/Desafios-img/t_amigo_3.png"
-                    class="rotate0"
-                  />
-                </div>
-                <div class="element draggable-by-jquery-ui brown">
-                  <img
-                    id="img4"
-                    src="assets/img/Desafios-img/t_amigo_4.png"
-                    class="rotate0"
-                  />
-                </div>
-                <div class="element draggable-by-jquery-ui blue">
-                  <img
-                    id="img5"
-                    src="assets/img/Desafios-img/t_amigo_5.png"
-                    class="rotate0"
-                  />
-                </div>
-                <div class="element draggable-by-jquery-ui blue">
-                  <img
-                    id="img6"
-                    src="assets/img/Desafios-img/t_amigo_6.png"
-                    class="rotate0"
-                  />
-                </div>
-                <div class="element draggable-by-jquery-ui orange">
-                  <img
-                    id="img7"
-                    src="assets/img/Desafios-img/t_amigo_7.png"
-                    class="rotate0"
-                  />
-                </div>
-                <div class="element draggable-by-jquery-ui orange">
-                  <img
-                    id="img8"
-                    src="assets/img/Desafios-img/t_amigo_8.png"
-                    class="rotate0"
-                  />
-                </div>
-                <div class="element draggable-by-jquery-ui green">
-                  <img
-                    id="img9"
-                    src="assets/img/Desafios-img/t_amigo_9.png"
-                    class="rotate0"
-                  />
-                </div>
+                <img
+                  class="element boi draggable-by-jquery-ui"
+                  id="drag-element4"
+                  src="./assets/img/boi.png"
+                  alt=""
+                />
+                <img
+                  class="element boi draggable-by-jquery-ui"
+                  id="drag-element4"
+                  src="./assets/img/boi.png"
+                  alt=""
+                />
+                <img
+                  class="element boi draggable-by-jquery-ui"
+                  id="drag-element4"
+                  src="./assets/img/boi.png"
+                  alt=""
+                />
               </div>
-
-              <img
-                id="regras"
-                src="assets/img/Desafios-img/triangulos_amigos_regras.png"
-              />
-
               <button
                 class="correct__btn"
                 style="display: none; margin-top: 30px"
@@ -1076,170 +656,64 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- JS Game Logic -->
     <script>
       const elementsContainer = document.querySelector(
         ".elements__container div"
       );
 
-      // const containers = document.querySelectorAll(
-      //   ".drop__area__container .drop__area"
-      // );
+      const containers = document.querySelectorAll(
+        ".target__container .drop__area"
+      );
 
-      // const fixedContainers = document.querySelectorAll(
-      //   ".fixed__element__container"
-      // );
-
-      //
-      const solutionAreas = document.querySelectorAll('[id^="da"]');
-
-      // allow triangles to rotate when clicking and scrolling the mouse's wheel
-      let isMousePressed = false;
-
-      const triangles = document.querySelectorAll(".element");
+      const fixedContainers = document.querySelectorAll(
+        ".fixed__element__container"
+      );
 
       // verifies if solution is correct or wrong - if every animal item was put in right position
       const checkSolution = () => {
-        // this array is the correct sequence of for the only correct solution
-        const solution1 = [
-          "img3",
-          "img4",
-          "img1", // elements img1 and img5 have the same pattern
-          "img6",
-          "img8",
-          "img5",
-          "img9",
-          "img7",
-          "img2",
-        ];
-        const solution1Rot = [120, 120, 60, 240, 120, 180, null, 180, null];
-
-        const solution2 = [
-          "img8",
-          "img9",
-          "img1",
-          "img4",
-          "img2",
-          "img7",
-          "img6",
-          "img5",
-          "img3",
-        ];
-        const solution2Rot = [240, 120, 180, 240, 120, 300, null, 300, 240];
-
-        const solution3 = [
-          "img2",
-          "img6",
-          "img7",
-          "img9",
-          "img3",
-          "img1",
-          "img4",
-          "img5",
-          "img8",
-        ];
-        const solution3Rot = [240, 120, 60, 240, null, 300, null, 60, null];
-
-        solutions = [
-          solution1,
-          solution1Rot,
-          solution2,
-          solution2Rot,
-          solution3,
-          solution3Rot,
+        // this array is the correct sequence of animals for the only correct solution
+        const solution = [
+          "boi",
+          "cavalo",
+          "porco",
+          "boi",
+          "cavalo",
+          "porco",
+          "boi",
         ];
 
-        let isCorrect = true;
-
-        for (j = 0; j < 6; j += 2) {
-          isCorrect = true;
-          console.log("loop");
-
-          // loop trough the spaces and checks if the sequence of triangles is the same as the correct solution
-          for (i = 0; i < 9; i++) {
-            if (
-              solutionAreas[i].firstElementChild.firstElementChild.id !=
-                solutions[j][i] ||
-              solutionAreas[i].firstElementChild.firstElementChild.style
-                .transform != `rotate(${solutions[j + 1][i]}deg)`
-            ) {
-              if (
-                !(
-                  solutions[j + 1][i] == null &&
-                  solutionAreas[
-                    i
-                  ].firstElementChild.firstElementChild.classList.contains(
-                    "rotate0"
-                  )
-                )
-              ) {
-                if (
-                  // case 1
-                  (solutions[j][i] == "img1" &&
-                    solutionAreas[i].firstElementChild.firstElementChild.id ==
-                      "img5" &&
-                    solutionAreas[i].firstElementChild.firstElementChild.style
-                      .transform !=
-                      `rotate(${(solutions[j + 1][i] + 120) % 360}deg)`) ||
-                  // or
-                  // case 2
-                  (solutions[j][i] == "img5" &&
-                    solutionAreas[i].firstElementChild.firstElementChild.id ==
-                      "img1" &&
-                    solutionAreas[i].firstElementChild.firstElementChild.style
-                      .transform !=
-                      `rotate(${(solutions[j + 1][i] + 240) % 360}deg)`)
-                ) {
-                  // for img1 and img5 have the same pattern so they can be placed in 2 different spots with different rotation values
-                  // the rotation values have a 120° difference
-
-                  console.log(
-                    "id: ",
-                    solutionAreas[i].firstElementChild.firstElementChild.id
-                  );
-                  console.log(solutions[j][i]);
-                  console.log(`rotate(${solutions[j + 1][i]}deg)`);
-                  console.log(
-                    "here",
-                    solutionAreas[i].firstElementChild.firstElementChild.style
-                      .transform,
-                    (solutions[j + 1][i] + 120) % 360
-                  );
-
-                  isCorrect = false;
-                  break;
-                }
-              }
-            }
-          }
-
-          console.log("solution isCorrect: ", isCorrect);
-          if (isCorrect) return isCorrect;
+        // loop trough the spaces and checks if the sequence of animals is the same as the correct solution
+        for (i = 0; i < 7; i++) {
+          if (
+            !containers[i].firstChild.className
+              .split(" ")[1]
+              .startsWith(solution[i])
+          )
+            return false;
         }
-
-        return isCorrect;
+        return true;
       };
 
       const checkEndGame = () => {
         // check if all elements have been placed
         let endGame = true;
-        solutionAreas.forEach((el) => {
+        containers.forEach((el) => {
           if (el.childNodes.length == 0) endGame = false;
         });
 
         if (endGame) {
           // show result
           let result = checkSolution();
-          /////////////////////////////////////////////////////////////////////////////////////////////
-          // TODO
 
-          document.querySelector(".solutionTriangle").style.display = "block";
+          const allContainers = [...containers].concat([...fixedContainers]);
 
           // correct answer
           if (result) {
             // change border color
-
-            document.querySelectorAll(".line_sol").forEach((el) => {
-              el.style.borderBottomColor = "rgb(101, 223, 63)";
+            allContainers.forEach((el) => {
+              el.style.borderColor = "#00e400";
             });
 
             // show conffeti effect
@@ -1250,7 +724,7 @@
               el.classList.remove("draggable-by-jquery-ui");
               el.classList.remove("ui-draggable");
               el.classList.remove("ui-draggable-handle");
-              // el.style.position = "static";
+              el.style.position = "static";
             });
 
             // add correct button
@@ -1261,8 +735,8 @@
           // wrong answer
           else {
             // change border color
-            document.querySelectorAll(".line_sol").forEach((el) => {
-              el.style.borderBottomColor = "#f70c0cf0";
+            allContainers.forEach((el) => {
+              el.style.borderColor = "#cc1a1a";
             });
 
             // add wrong button
@@ -1274,122 +748,33 @@
       };
 
       $(function () {
-        $(".draggable-by-jquery-ui")
-          .draggable({
-            revert: "invalid",
-
-            drag: function (event, element) {
-              isMousePressed = true;
-            },
-          })
-          // ROTATE IMAGE when wheel event happen
-          .on("wheel", function (event) {
-            if (isMousePressed) {
-              event.preventDefault();
-
-              if (
-                this.firstElementChild.style.transform == "" ||
-                this.firstElementChild.style.transform == "rotate(0deg)"
-              ) {
-                this.firstElementChild.style.transform = "rotate(60deg)";
-              } else {
-                currentValue =
-                  parseInt(
-                    this.firstElementChild.style.transform
-                      .split("rotate(")[1]
-                      .replace("deg)", "")
-                  ) + 60;
-
-                if (currentValue == 360) {
-                  currentValue = 0;
-                }
-
-                this.firstElementChild.style.transform = `rotate(${currentValue}deg)`;
-
-                // remove current rotation class
-                this.firstElementChild.classList.remove(
-                  this.firstElementChild.classList[0]
-                );
-
-                // add new rotation class accordingly to the new applied rotation
-                this.firstElementChild.classList.add(`rotate${currentValue}`);
-              }
-            }
-          });
-
+        $(".draggable-by-jquery-ui").draggable({
+          revert: "invalid",
+        });
         $(".drop__area").droppable({
-          accept: function (element) {
-            // drop areas that only accepts a triangle if it is rotated
-            if (this.id == "da3" || this.id == "da6" || this.id == "da8") {
-              if (
-                element[0].firstElementChild.style.transform ==
-                  "rotate(60deg)" ||
-                element[0].firstElementChild.style.transform ==
-                  "rotate(180deg)" ||
-                element[0].firstElementChild.style.transform == "rotate(300deg)"
-              ) {
-                return $(element[0]).hasClass("draggable-by-jquery-ui");
-              }
-
-              // accepts only NOT rotated triangles
-            } else {
-              if (
-                element[0].firstElementChild.style.transform !=
-                  "rotate(60deg)" &&
-                element[0].firstElementChild.style.transform !=
-                  "rotate(180deg)" &&
-                element[0].firstElementChild.style.transform != "rotate(300deg)"
-              ) {
-                return $(element[0]).hasClass("draggable-by-jquery-ui");
-              }
-            }
-
-            return false;
-          },
+          accept: ".draggable-by-jquery-ui",
 
           // called when element is dropped
           drop: function (event, element) {
-            isMousePressed = false;
-
             // check if drop area already has an element
             if (this.childNodes.length == 1) {
               // remove current element from area
               elementsContainer.appendChild(this.firstChild);
             }
 
-            // check if element had already been placed in a triangle area before
-            let prevParentID =
-              element.draggable[0].parentElement.id.split("")[2];
-            if (prevParentID) {
-              document.getElementById(`t${prevParentID}`).style.opacity = "1";
-            }
-
             // adds new element to area
             this.appendChild(element.draggable[0]);
-
-            if (!this.classList.contains("initial__drop__area")) {
-              element.draggable[0].style.position = "absolute";
-              element.draggable[0].style.zIndex = "1";
-              element.draggable[0].style.x = this.getBoundingClientRect().x;
-              element.draggable[0].style.y = this.getBoundingClientRect().y;
-              element.draggable[0].style.left = "5rem";
-              element.draggable[0].style.top = "5rem";
-
-              const triangleID = this.getAttribute("id").split("")[2];
-              if (document.getElementById(`t${triangleID}`)) {
-                document.getElementById(`t${triangleID}`).style.opacity = "0";
-              }
-            }
-
-            let left = parseInt(
-              element.draggable[0].firstElementChild.style.right.split("rem")[0]
-            );
+            element.draggable[0].style.left = "0";
+            element.draggable[0].style.top = "0";
+            element.draggable[0].style.bottom = "0";
+            element.draggable[0].style.right = "0";
 
             checkEndGame();
           },
         });
       });
     </script>
+
     <script src="js/desafios/confetti.js"></script>
   </body>
 </html>
