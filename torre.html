@@ -528,23 +528,35 @@
             </div>
 
             <div class="elements__container">
-              <div class="drop__area">
-                <div>
+              <div class="elements__container__child">
+                <div
+                  class="drop__area elements__container__child"
+                  style="flex-direction: row"
+                >
                   <div class="element draggable-by-jquery-ui brown"></div>
                   <div class="element draggable-by-jquery-ui brown"></div>
                   <div class="element draggable-by-jquery-ui brown"></div>
                   <div class="element draggable-by-jquery-ui brown"></div>
                 </div>
-                <div>
+                <div
+                  class="drop__area elements__container__child"
+                  style="flex-direction: row"
+                >
                   <div class="element draggable-by-jquery-ui blue"></div>
                   <div class="element draggable-by-jquery-ui blue"></div>
                   <div class="element draggable-by-jquery-ui blue"></div>
                 </div>
-                <div>
+                <div
+                  class="drop__area elements__container__child"
+                  style="flex-direction: row"
+                >
                   <div class="element draggable-by-jquery-ui orange"></div>
                   <div class="element draggable-by-jquery-ui orange"></div>
                 </div>
-                <div>
+                <div
+                  class="drop__area elements__container__child"
+                  style="flex-direction: row"
+                >
                   <div class="element draggable-by-jquery-ui green"></div>
                 </div>
               </div>
@@ -634,6 +646,18 @@
       const fixedContainers = document.querySelectorAll(
         ".fixed__element__container"
       );
+
+      // allows elements to go back to the initial container position
+      // (() => {
+      //   const width = elementsContainer.firstElementChild.offsetWidth;
+      //   const height = elementsContainer.firstElementChild.offsetHeight;
+
+      //   document.querySelectorAll(".drop__area__child").forEach((el) => {
+      //     el.style.minHeight = height;
+      //     el.style.minWidth = width;
+      //   });
+
+      // })();
 
       // verifies if solution is correct or wrong - if every animal item was put in right position
       const checkSolution = () => {

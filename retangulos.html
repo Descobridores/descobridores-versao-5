@@ -9,7 +9,7 @@
     <meta name="description" content="Viver é aprender" />
     <meta name="author" content="WebDevelopers" />
     <title>Os Descobridores da Matemática</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/Logos/Logo.jpg" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/Logos/Logo.jpg" />
     <!-- Font Awesome icons (free version)-->
     <script
       src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"
@@ -34,11 +34,92 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/little_styles.css" rel="stylesheet" />
-    <link href="css/chat.css" rel="stylesheet" />
+    <link href="css/conffeti.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Allura&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      .drawing__board {
+        height: 90%;
+      }
+
+      #board {
+        height: 100%;
+      }
+
+      #drawing-board {
+        background-image: url("./assets/img/Desafios-img/quadro.png");
+        background-size: contain;
+        /* width: 100%;
+        height: 100%; */
+      }
+
+      #board {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(255, 255, 255, 0.7);
+      }
+
+      #board img {
+        position: relative;
+        top: -72%;
+        left: -3%;
+      }
+
+      #fechar {
+        background-color: #1c0202;
+        border-radius: 10px;
+        padding: 0px 6px;
+      }
+
+      .answer__container {
+        display: flex;
+      }
+
+      #open__canvas__btn {
+        color: white;
+        height: 10rem;
+      }
+
+      #open__canvas__btn img:first-of-type {
+        width: 17rem;
+      }
+
+      #open__canvas__btn img:last-of-type {
+        width: 1.5rem;
+        position: relative;
+        right: 65px;
+        top: 13px;
+      }
+
+      .answers {
+        display: flex;
+        margin-bottom: 3rem;
+      }
+
+      .answers img {
+        width: 8rem;
+        height: fit-content;
+      }
+
+      .answers div {
+        display: flex;
+        flex-direction: column;
+        padding: 2px 16px;
+        margin-bottom: 26px;
+        align-items: center;
+        text-align: center;
+      }
+    </style>
   </head>
   <body id="page-top">
     <div
@@ -494,279 +575,302 @@
         <!-- Pagina -->
         <section class="container">
           <hr class="linha" />
-          <h1 class="TituloPagina">Título para essa área aqui</h1>
+          <h1 class="TituloPagina">Quantos Retângulos?</h1>
           <hr class="linha" />
         </section>
-        <div class="page__container">
-          <div>
-            <h3>DESAFIOS</h3>
-            <div class="desafios__container">
-              <div class="desafio d__1">
-                <img src="./assets/img/Desafios-img/aposte na soma.png" />
-                <label>APOSTE NA SOMA</label>
-              </div>
-              <div class="desafio d__6">
-                <img src="./assets/img/Desafios-img/triangulos numericos.png" />
-                <label>TRIÂNGULOS NUMÉRICOS</label>
-              </div>
-              <div class="desafio d__5">
-                <img src="./assets/img/Desafios-img/monstros.png" />
-                <label>MONSTROS NA RODA</label>
-              </div>
-              <div class="desafio d__3">
-                <img src="./assets/img/Desafios-img/escada.png" />
-                <label>DESAFIO DA ESCADA</label>
-              </div>
-              <div class="desafio" id="d__2">
-                <img src="./assets/img/Desafios-img/construindo pipas.png" />
-                <label>CONSTRUINDO PIPAS</label>
-              </div>
-              <div class="desafio d__4">
-                <img src="./assets/img/Desafios-img/jardim.png" />
-                <label>FLORES NO JARDIM</label>
-              </div>
-              <div class="desafio d__3">
-                <img src="./assets/img/Desafios-img/sequencia triangulos.png" />
-                <label>SEQUÊNCIA DE TRIÂNGULOS</label>
-              </div>
-              <div class="desafio d__5">
-                <img src="./assets/img/Desafios-img/gincana.png" />
-                <label>GINCANA NAS ALTURAS</label>
-              </div>
-              <div class="desafio d__3">
-                <img src="./assets/img/Desafios-img/pa suja.png" />
-                <label>DESAFIO DA PÁ SUJA</label>
-              </div>
-              <div class="desafio d__6">
-                <img src="./assets/img/Desafios-img/quantos retangulos.png" />
-                <label>QUANTOS RETÂNGULOS?</label>
-              </div>
-              <div class="desafio d__5">
-                <img src="./assets/img/Desafios-img/milu e nala.png" />
-                <label>MILU E NALA</label>
-              </div>
-              <div class="desafio d__3">
-                <img src="./assets/img/Desafios-img/organizando o curral.png" />
-                <label>ORGANIZANDO O CURRAL</label>
-              </div>
-              <div class="desafio d__4">
-                <img src="./assets/img/Desafios-img/desafio da ilha.png" />
-                <label>DESAFIO DA ILHA</label>
-              </div>
-              <div class="desafio d__3">
-                <img src="./assets/img/Desafios-img/varetas.png" />
-                <label>DESAFIO DAS VARETAS</label>
-              </div>
-            </div>
-          </div>
-          <div class="messages__wrap">
-            <div id="current__chat">
-              <img src="./assets/img/Desafios-img/construindo pipas.png" />
-              <h5>Construindo Pipas</h5>
-            </div>
-            <div class="messages">
-              <img
-                id="background__img"
-                src="./assets/img/Desafios-img/construindo pipas.png"
-              />
-
-              <div class="user__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/descobridor.png" alt="" />
-                  <p>
-                    Oi, Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-                    ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-                    ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-                    ipsum lorem ipsum lorem ipsum
-                  </p>
-                </div>
-                <span>Marcos</span>
-                <span>4:00 PM, ontem</span>
-              </div>
-              <div class="monitor__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/me.jpeg" alt="" />
-                  <p>Ei Marcos, muito boa essa sua ideia, você acha ......</p>
-                </div>
-                <span>Sarah</span>
-                <span>8:50 AM, hoje</span>
-              </div>
-              <div class="user__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/monitor.png" alt="" />
-                  <p>
-                    Olá, eu tenho essa opinião sobre esse desafio. Eu acho que
-                    ...
-                  </p>
-                </div>
-                <span>João</span>
-                <span>1:00 PM, hoje</span>
-              </div>
-              <div class="user__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/beatrice.jpg" alt="" />
-                  <p>
-                    Olá, eu tenho essa opinião sobre esse desafio e é assim ...
-                  </p>
-                </div>
-                <span>Nina</span>
-                <span>1:00 PM, hoje</span>
-              </div>
-              <div class="monitor__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/Marcelo.jpg" alt="" />
-                  <p>Ei Marcos, muito boa essa sua ideia, você acha ......</p>
-                </div>
-                <span>Marcelo</span>
-                <span>8:50 AM, hoje</span>
-              </div>
-              <div class="user__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/descobridor.png" alt="" />
-                  <p>
-                    Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                    lorem ipsum lorem ipsum
-                  </p>
-                </div>
-                <span>Marcos</span>
-                <span>4:00 PM, ontem</span>
-              </div>
-              <div class="monitor__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/me.jpeg" alt="" />
-                  <p>Ei Marcos, muito boa essa sua ideia, você acha ......</p>
-                </div>
-                <span>Sarah</span>
-                <span>8:50 AM, hoje</span>
-              </div>
-              <div class="user__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/monitor.png" alt="" />
-                  <p>
-                    Olá, eu tenho essa opinião sobre esse desafio e é assim ...
-                  </p>
-                </div>
-                <span>João</span>
-                <span>1:00 PM, hoje</span>
-              </div>
-              <div class="user__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/beatrice.jpg" alt="" />
-                  <p>
-                    Olá, eu tenho essa opinião sobre esse desafio e é assim ...
-                  </p>
-                </div>
-                <span>Nina</span>
-                <span>1:00 PM, hoje</span>
-              </div>
-              <div class="monitor__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/Marcelo.jpg" alt="" />
-                  <p>Ei Marcos, muito boa essa sua ideia, você acha ......</p>
-                </div>
-                <span>Marcelo</span>
-                <span>8:50 AM, hoje</span>
-              </div>
-              <div class="user__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/descobridor.png" alt="" />
-                  <p>
-                    Oi, eu pensei em uma solução melhor para esse problema
-                    ......
-                  </p>
-                </div>
-                <span>Marcos</span>
-                <span>4:00 PM, ontem</span>
-              </div>
-              <div class="monitor__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/me.jpeg" alt="" />
-                  <p>Ei Marcos, muito boa essa sua ideia, você acha ......</p>
-                </div>
-                <span>Sarah</span>
-                <span>8:50 AM, hoje</span>
-              </div>
-              <div class="user__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/monitor.png" alt="" />
-                  <p>
-                    Olá, eu tenho essa opinião sobre esse desafio e é assim ...
-                  </p>
-                </div>
-                <span>João</span>
-                <span>1:00 PM, hoje</span>
-              </div>
-              <div class="user__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/beatrice.jpg" alt="" />
-                  <p>
-                    Olá, eu tenho essa opinião sobre esse desafio e é assim ...
-                  </p>
-                </div>
-                <span>Nina</span>
-                <span>1:00 PM, hoje</span>
-              </div>
-              <div class="monitor__message message__container">
-                <div class="message__div">
-                  <img src="./assets/img/Desafios-img/Marcelo.jpg" alt="" />
-                  <p>Ei Marcos, muito boa essa sua ideia, você acha ......</p>
-                </div>
-                <span>Marcelo</span>
-                <span>8:50 AM, hoje</span>
-              </div>
-            </div>
-            <div class="send__message__area">
-              <input
-                id="send__message__input"
-                placeholder="Digite sua mensagem"
-              />
-              <img id="send__icon" src="./assets/img/send.png" />
-            </div>
-          </div>
-        </div>
       </main>
-      <footer class="footer py-2">
-        <div class="container">
-          <div class="row mt-3">
-            <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-              <a target="_blank" href="https://ufmg.br/">
-                <img
-                  class="logo img-thumbnail"
-                  src="assets/img/Logos/ufmg.png"
-                />
+
+      <div class="container">
+        <div style="margin-right: -0.75rem; margin-left: -0.75rem">
+          <!-- GAME CONTAINER -->
+          <div class="game__container">
+            <section class="container">
+              <div class="drawing-board">
+                <div id="board">
+                  <span id="fechar" class="close">&times;</span>
+                  <canvas id="drawing-board"></canvas>
+                  <img src="./assets/img/Desafios-img/retangulos_img1.png" />
+                </div>
+              </div>
+              <div class="answer__container">
+                <div id="open__canvas__btn">
+                  <img src="./assets/img/Desafios-img/quadro3.png" />
+                  <img src="./assets/img/Desafios-img/arrow.png" />
+                  <span> Use o quadro para desenhar </span>
+                </div>
+                <div>
+                  <div class="answers">
+                    <img src="./assets/img//Desafios-img/retangulos_img3.png" />
+                    <div>
+                      <div>
+                        <h6>
+                          Com 3 quadrados, quantos retângulos você consegue
+                          formar?
+                        </h6>
+                        <input type="number" />
+                      </div>
+                      <div>
+                        <h6>E com 12?</h6>
+                        <input type="number" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="answers">
+                    <div>
+                      <div>
+                        <h6 style="margin-bottom: 2rem">
+                          Tenho menos que 15 quadrados, e com essa quantidade só
+                          consigo formar um retângulo. Quais são as
+                          possibilidades?
+                        </h6>
+                        <input type="text" />
+                      </div>
+                    </div>
+                    <img src="./assets/img//Desafios-img/retangulos_img2.png" />
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <!-- end of GAME CONTAINER -->
+
+          <div class="centreImage" style="text-align: center">
+            <button
+              class="btn btn-primary"
+              onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 12);"
+              style="background-color: #3298ff"
+            >
+              <a
+                href="./desafio.html"
+                style="text-decoration: none; color: white; font-size: 20px"
+              >
+                Voltar ao desafio
               </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-              <a target="_blank" href="http://www.cp.ufmg.br/">
-                <img class="logo img-thumbnail" src="assets/img/Logos/cp.svg" />
-              </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-              <a target="_blank" href="https://www.icex.ufmg.br/">
-                <img
-                  class="logo img-thumbnail"
-                  src="assets/img/Logos/icex.svg"
-                />
-              </a>
-            </div>
+            </button>
           </div>
         </div>
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-12">Copyright © Descobridores 2021</div>
+
+        <footer class="footer py-2">
+          <div class="container">
+            <div class="row mt-3">
+              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+                <a target="_blank" href="https://ufmg.br/">
+                  <img
+                    class="logo img-thumbnail"
+                    src="./assets/img/Logos/ufmg.png"
+                  />
+                </a>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+                <a target="_blank" href="http://www.cp.ufmg.br/">
+                  <img
+                    class="logo img-thumbnail"
+                    src="./assets/img/Logos/cp.svg"
+                  />
+                </a>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+                <a target="_blank" href="https://www.icex.ufmg.br/">
+                  <img
+                    class="logo img-thumbnail"
+                    src="./assets/img/Logos/icex.svg"
+                  />
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-      </footer>
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-12">Copyright © Descobridores 2021</div>
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
-    <script src="./js/popUp.js"></script>
     <!-- Bootstrap core JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Third party plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="js/popUp.js"></script>
+    <script src="./js/challengesLogic.js"></script>
+
+    <!-- JS Game Logic -->
+    <script>
+      const body = document.querySelector("body");
+      const container = document.querySelector(".game__container");
+      const canvas = document.getElementById("drawing-board");
+      const toolbar = document.getElementById("toolbar");
+      const ctx = canvas.getContext("2d");
+
+      document
+        .getElementById("open__canvas__btn")
+        .addEventListener("click", () => {
+          const modal = document.getElementById("board");
+          modal.style.display = "block";
+          modal.style.overflow = "hidden";
+
+          // When the user clicks on <span> (x), close the modal
+          const span = document.getElementById("fechar");
+          span.onclick = function () {
+            modal.style.display = "none";
+          };
+        });
+
+      const canvasOffsetX = canvas.getBoundingClientRect().left;
+      const canvasOffsetY = canvas.getBoundingClientRect().top;
+
+      canvas.width = 1000;
+      canvas.height = 580;
+
+      let isPainting = false;
+      let lineWidth = 5;
+      let startX;
+      let startY;
+
+      // if (e.target.id === "clear") {
+      //   ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // }
+
+      const draw = (e) => {
+        if (!isPainting) {
+          return;
+        }
+
+        ctx.lineWidth = 2;
+        ctx.lineCap = "round";
+        ctx.strokeStyle = "#FFFFFF";
+
+        ctx.lineTo(e.clientX - canvasOffsetX, e.clientY - canvasOffsetY);
+        ctx.stroke();
+      };
+
+      canvas.addEventListener("mousedown", (e) => {
+        isPainting = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        // body.style.overflowY = "hidden";
+      });
+
+      window.addEventListener("mouseup", (e) => {
+        isPainting = false;
+        ctx.stroke();
+        ctx.beginPath();
+        // body.style.overflowY = "visible";
+      });
+
+      canvas.addEventListener("mousemove", draw);
+    </script>
+    <!-- <script>
+      const container = document.querySelector(".game__container");
+      const cleanBtn = document.getElementById("clean__btn");
+
+      // drawing board logic
+      const canvas = document.getElementById("board");
+      const context = canvas.getContext("2d");
+      context.strokeStyle = "#dc3545";
+      context.lineWidth = 5;
+      context.lineCap = "round";
+
+      // canva's distance from the viewboard
+      const canvasOffsetX = canvas.offsetLeft;
+      const canvasOffsetY = canvas.offsetTop;
+
+      canvas.width = container.innerWidth - canvasOffsetX;
+      canvas.height = window.innerHeight - canvasOffsetY;
+
+      // stores if user is drawing (pressing the mouse button)
+      let isPainting = false;
+      let startX;
+      let startY;
+
+      // clean screen
+      cleanBtn.addEventListener("click", () => {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+      });
+
+      const draw = (e) => {
+        if (!isPainting) {
+          return;
+        }
+        context.lineWidth = 5;
+        context.lineCap = "round";
+        context.lineTo(e.clientX - canvasOffsetX, e.clientY);
+        context.stroke();
+      };
+
+      // define start of drawing event
+      canvas.addEventListener("mousedown", (e) => {
+        isPainting = true;
+        startX = e.clientX;
+        startY = e.clientY;
+      });
+
+      // define end of drawing event
+      canvas.addEventListener("mousedown", (e) => {
+        isPainting = false;
+
+        // colors the line drawn
+        context.stroke();
+
+        // clears the line - "reset" it
+        context.beginPath();
+      });
+
+      canvas.addEventListener("mousemove", draw);
+
+      // verifies if solution is correct or wrong
+      const checkSolution = () => {};
+
+      const checkEndGame = () => {
+        // check if all elements have been placed
+        let endGame = true;
+        containers.forEach((el) => {
+          if (el.childNodes.length == 0) endGame = false;
+        });
+
+        if (endGame) {
+          // show result
+          let result = checkSolution();
+
+          const allContainers = [...containers].concat([...fixedContainers]);
+
+          // correct answer
+          if (result) {
+            // change border color
+            allContainers.forEach((el) => {
+              el.style.borderColor = "#00e400";
+            });
+
+            // show conffeti effect
+            addConfettiEffect();
+
+            // fix answer - dont allow changes anymore
+            document.querySelectorAll(".element").forEach((el) => {
+              el.classList.remove("draggable-by-jquery-ui");
+              el.classList.remove("ui-draggable");
+              el.classList.remove("ui-draggable-handle");
+              el.style.position = "static";
+            });
+
+            // add correct button
+            const correctBtn = document.querySelector(".correct__btn");
+            correctBtn.style.display = "block";
+            correctBtn.addEventListener("click", () => location.reload());
+          }
+          // wrong answer
+          else {
+            // change border color
+            allContainers.forEach((el) => {
+              el.style.borderColor = "#cc1a1a";
+            });
+
+            // add wrong button
+            const correctBtn = document.querySelector(".wrong__btn");
+            correctBtn.style.display = "block";
+            correctBtn.addEventListener("click", () => location.reload());
+          }
+        }
+      };
+    </script> -->
+
+    <script src="js/desafios/confetti.js"></script>
   </body>
 </html>
