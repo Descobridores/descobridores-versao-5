@@ -11040,3 +11040,28 @@ section#contact form#contactForm :-ms-input-placeholder {
 .divider-custom.divider-light .divider-custom-icon {
   color: #fff !important;
 }
+
+#iniciar__desafio__btn {
+  background-color: #3298ff;
+  font-size: 20px;
+  margin: auto;
+  margin-top: 20px;
+  display: none;
+}
+
+.desafio__btn__primary a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+.desafio__btn__primary {
+  background-color: #3298ff;
+}
+
+.desafio__btn__container {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+
+}
