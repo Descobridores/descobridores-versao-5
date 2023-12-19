@@ -120,12 +120,13 @@ function AntesProximo(elem, type, random, setIndice) {
   var img1 = new Image();
   img1.src = "./assets/img/Desafios/" + indice + ".svg";
 
-  // Para testar texto e imagem separados no desafio do curral
+  // display "iniciar desafio" button with there is a interactive implementation for that challenge
   if (arquivosHtml[indice] != "") {
-    $(
-      `<a id="iniciar__desafio__btn" class="btn btn-primary" href="${arquivosHtml[indice]}.html" style="background-color: #3298ff; font-size: 20px; margin: auto; margin-top:20px;">Iniciar desafio</a>`
-    ).insertAfter("#ImagemDesafio");
-  } else $("a#iniciar__desafio__btn").remove();
+    document.getElementById("iniciar__desafio__btn").style.display = "block";
+    document
+      .getElementById("iniciar__desafio__btn")
+      .setAttribute("href", `${arquivosHtml[indice]}.html`);
+  }
 
   img1.onerror = function () {
     document
