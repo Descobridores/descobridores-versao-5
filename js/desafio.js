@@ -31,7 +31,7 @@ var arquivosHtml = [
   "", //6
   "", //7
   "", //8
-  "", //9
+  "gincana", //9
   "", //10
   "monstros", //11
   "curral", //12
