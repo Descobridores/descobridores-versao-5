@@ -41,21 +41,60 @@
     />
 
     <style>
+      .game__container {
+        height: 90vh;
+      }
+
       .target__container {
         display: flex;
-        align-items: center;
+        align-items: self-end;
         justify-content: space-around;
-        margin: 0 45px;
+        margin: 0 15rem;
+        height: 100%;
+        padding-bottom: 10rem;
       }
 
       #player__1 {
-        width: 4rem;
+        width: 6rem;
       }
       #player__2 {
         width: 8rem;
       }
       #player__3 {
         width: 6rem;
+      }
+
+      .drop__area {
+        height: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      .element {
+        position: relative;
+        left: 24%;
+        top: 15%;
+      }
+
+      .element__2 {
+        left: 5%;
+      }
+
+      .game__container h2 {
+        color: #000a46;
+        margin: 0rem 5rem;
+        position: absolute;
+      }
+
+      #movements__header {
+        font-size: 3.5rem;
+        margin: 1rem;
+      }
+
+      .wrong__btn {
+        top: -5rem;
+        left: 35%;
+        width: 30%;
       }
     </style>
   </head>
@@ -517,60 +556,83 @@
           <hr class="linha" />
         </section>
       </main>
-      <br />
+
       <div class="container">
         <div style="margin-right: -0.75rem; margin-left: -0.75rem">
           <!-- GAME CONTAINER -->
           <div class="game__container">
+            <h2>
+              Deslocamentos restantes: <span id="movements__header">5</span>
+            </h2>
             <div class="target__container">
               <div class="drop__area">
+                <img src="./assets/img/Desafios-img/gincana_img1.png" />
                 <div class="element draggable-by-jquery-ui brown">
                   <img
                     id="player__1"
                     src="./assets/img/Desafios-img/gincana_img2.png"
                   />
                 </div>
-                <img src="./assets/img/Desafios-img/gincana_img1.png" />
               </div>
               <div class="drop__area">
-                <div class="element draggable-by-jquery-ui brown">
+                <img src="./assets/img/Desafios-img/gincana_img1.png" />
+                <div class="element element__2 draggable-by-jquery-ui brown">
                   <img
                     id="player__2"
                     src="./assets/img/Desafios-img/gincana_img3.png"
                   />
                 </div>
-                <img src="./assets/img/Desafios-img/gincana_img1.png" />
               </div>
               <div class="drop__area">
+                <img src="./assets/img/Desafios-img/gincana_img1.png" />
                 <div class="element draggable-by-jquery-ui brown">
                   <img
                     id="player__3"
                     src="./assets/img/Desafios-img/gincana_img4.png"
                   />
                 </div>
-                <img src="./assets/img/Desafios-img/gincana_img1.png" />
               </div>
               <div class="drop__area">
                 <img src="./assets/img/Desafios-img/gincana_img1.png" />
               </div>
             </div>
+            <button class="wrong__btn" style="display: none">
+              Tente de novo!
+            </button>
           </div>
           <!-- end of GAME CONTAINER -->
 
-          <div class="centreImage" style="text-align: center">
+          <div class="desafio__btn__container">
+            <button class="btn btn-primary desafio__btn__primary">
+              <a id="replay__btn"> Reiniciar </a>
+            </button>
+
             <button
-              class="btn btn-primary"
-              onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 16);"
-              style="background-color: #3298ff"
+              class="btn btn-primary desafio__btn__primary"
+              onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 9);"
             >
-              <a
-                href="./desafio.html"
-                style="text-decoration: none; color: white; font-size: 20px"
-              >
-                Voltar ao desafio
-              </a>
+              <a href="./desafio.html"> Voltar </a>
+            </button>
+
+            <button class="btn btn-primary desafio__btn__primary">
+              <a id="show__rules__btn">Regras do Desafio</a>
+            </button>
+
+            <button
+              id="proximo__desafio__btn"
+              class="btn btn-primary desafio__btn__primary"
+              style="display: none"
+            >
+              <a href="./desafio.html"> Próximo desafio </a>
             </button>
           </div>
+        </div>
+
+        <!-- challenge RULES -->
+        <div id="myModal" class="modal">
+          <span id="fechar" class="close">&times;</span>
+          <img class="modal-content" id="img01" />
+          <div id="caption"></div>
         </div>
 
         <footer class="footer py-2">
@@ -615,99 +677,52 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./js/challengesLogic.js"></script>
     <script>
-      const elementsContainer = document.querySelector(
-        ".elements__container div"
-      );
+      // MODEL with the rules of the challange (its an image that pops up, basically)
+      showRulesModel(9); // receives challenge index as param
 
-      const containers = document.querySelectorAll(
-        ".target__container .drop__area"
-      );
+      const dropAreas = document.querySelectorAll(".drop__area");
+      const movementsHeader = document.getElementById("movements__header");
+      let movementsLeft = 5;
 
-      const fixedContainers = document.querySelectorAll(
-        ".fixed__element__container"
-      );
-
-      // allows elements to go back to the initial container position
-      // (() => {
-      //   const width = elementsContainer.firstElementChild.offsetWidth;
-      //   const height = elementsContainer.firstElementChild.offsetHeight;
-
-      //   document.querySelectorAll(".drop__area__child").forEach((el) => {
-      //     el.style.minHeight = height;
-      //     el.style.minWidth = width;
-      //   });
-
-      // })();
-
-      // verifies if solution is correct or wrong - if every animal item was put in right position
+      // verifies if solution is correct or wrong
       const checkSolution = () => {
-        // this array is the correct sequence of animals for the only correct solution
         if (
-          containers[0].firstChild.classList.contains("brown") &&
-          containers[4].firstChild.classList.contains("brown") &&
-          containers[6].firstChild.classList.contains("brown") &&
-          containers[9].firstChild.classList.contains("brown") &&
-          ((containers[2].firstChild.classList.contains("blue") &&
-            containers[3].firstChild.classList.contains("blue") &&
-            containers[8].firstChild.classList.contains("blue")) ||
-            (containers[1].firstChild.classList.contains("blue") &&
-              containers[5].firstChild.classList.contains("blue") &&
-              containers[7].firstChild.classList.contains("blue")))
+          dropAreas[0].getElementsByClassName("element")[0] &&
+          dropAreas[1].getElementsByClassName("element")[0] &&
+          dropAreas[2].getElementsByClassName("element")[0] &&
+          dropAreas[0].getElementsByClassName("element")[0].firstElementChild
+            .id == "player__3" &&
+          dropAreas[1].getElementsByClassName("element")[0].firstElementChild
+            .id == "player__2" &&
+          dropAreas[2].getElementsByClassName("element")[0].firstElementChild
+            .id == "player__1"
         ) {
           return true;
         }
         return false;
       };
 
-      const checkEndGame = () => {
-        // check if all elements have been placed
-        let endGame = true;
-        containers.forEach((el) => {
-          if (el.childNodes.length == 0) endGame = false;
+      const endGame = () => {
+        // fix answer - dont allow changes anymore
+        document.querySelectorAll(".element").forEach((el) => {
+          el.classList.remove("draggable-by-jquery-ui");
+          el.classList.remove("ui-draggable");
+          el.classList.remove("ui-draggable-handle");
         });
 
-        if (endGame) {
-          // show result
-          let result = checkSolution();
-
-          const allContainers = [...containers].concat([...fixedContainers]);
-
-          // correct answer
-          if (result) {
-            // change border color
-            allContainers.forEach((el) => {
-              el.style.borderColor = "#00e400";
-            });
-
-            // show conffeti effect
-            addConfettiEffect();
-
-            // fix answer - dont allow changes anymore
-            document.querySelectorAll(".element").forEach((el) => {
-              el.classList.remove("draggable-by-jquery-ui");
-              el.classList.remove("ui-draggable");
-              el.classList.remove("ui-draggable-handle");
-              el.style.position = "static";
-            });
-
-            // add correct button
-            const correctBtn = document.querySelector(".correct__btn");
-            correctBtn.style.display = "block";
-            correctBtn.addEventListener("click", () => location.reload());
-          }
-          // wrong answer
-          else {
-            // change border color
-            allContainers.forEach((el) => {
-              el.style.borderColor = "#cc1a1a";
-            });
-
-            // add wrong button
-            const correctBtn = document.querySelector(".wrong__btn");
-            correctBtn.style.display = "block";
-            correctBtn.addEventListener("click", () => location.reload());
-          }
+        // correct answer
+        if (checkSolution()) {
+          // show conffeti effect
+          addConfettiEffect();
+          movementsHeader.parentElement.style.color = "#00e400";
+        }
+        // wrong answer
+        else {
+          // add wrong button
+          document.querySelector(".wrong__btn").style.display = "block";
+          movementsHeader.parentElement.style.color = "#cc1a1a";
         }
       };
 
@@ -716,27 +731,43 @@
           revert: "invalid",
         });
         $(".drop__area").droppable({
-          accept: ".draggable-by-jquery-ui",
+          accept: function (element) {
+            // check if drop area already has an element - if so, doesnt allow new item to be dropped
+            if (this.childElementCount < 2)
+              return $(element[0]).hasClass("draggable-by-jquery-ui");
+            else return false;
+          },
 
           // called when element is dropped
           drop: function (event, element) {
-            // check if drop area already has an element
-            if (this.childNodes.length == 1) {
-              // remove current element from area
-              elementsContainer.appendChild(this.firstChild);
-            }
-
-            // adds new element to area
+            // remove element from its current area andd adds it to its new area
+            element.draggable[0].parentElement.removeChild(
+              element.draggable[0]
+            );
             this.appendChild(element.draggable[0]);
-            element.draggable[0].style.left = "0";
-            element.draggable[0].style.top = "0";
-            element.draggable[0].style.bottom = "0";
-            element.draggable[0].style.right = "0";
 
-            checkEndGame();
+            // overwrite jquery default css style
+            element.draggable[0].style.top = "15%";
+            if (element.draggable[0].classList.contains("element__2"))
+              element.draggable[0].style.left = "5%";
+            else element.draggable[0].style.left = "24%";
+
+            // updade movements
+            movementsLeft -= 1;
+            movementsHeader.innerHTML = movementsLeft;
+            if (movementsLeft == 0) endGame();
           },
         });
       });
+
+      // reset game
+      document
+        .getElementById("replay__btn")
+        .addEventListener("click", () => location.reload());
+
+      document
+        .querySelector(".wrong__btn")
+        .addEventListener("click", () => location.reload());
     </script>
     <script src="js/desafios/confetti.js"></script>
   </body>
