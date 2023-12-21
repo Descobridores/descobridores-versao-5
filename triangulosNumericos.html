@@ -819,7 +819,7 @@
 
                 <div>
                   <h4>Veja mensagens no</h4>
-                  <button>Chat</button>
+                  <button onclick="redirect()">Chat</button>
                   <h4>sobre esse desafio</h4>
                 </div>
               </div>
@@ -907,6 +907,12 @@
     <script>
       // MODEL with the rules of the challange (its an image that pops up, basically)
       showRulesModel(19); // receives challenge index as param
+
+      // chat
+      function redirect() {
+        // You can replace 'target-page.html' with the URL of the page you want to redirect to
+        window.location.href = "chat.html";
+      }
 
       // challenge logic
       const triangles = [
