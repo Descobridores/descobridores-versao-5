@@ -36,7 +36,7 @@ var arquivosHtml = [
   "monstros", //11
   "curral", //12
   "palitos", //13
-  "", //14
+  "retangulos", //14
   "", //15
   "torre", //16
   "triangulosAmigos", //17
