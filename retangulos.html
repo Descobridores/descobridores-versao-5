@@ -75,10 +75,11 @@
         left: -3%;
       }
 
-      #fechar {
-        background-color: #1c0202;
+      #close__board {
+        background-color: #348f6d;
         border-radius: 10px;
         padding: 0px 6px;
+        opacity: 1;
       }
 
       .answer__container {
@@ -88,6 +89,10 @@
       #open__canvas__btn {
         color: white;
         height: 10rem;
+      }
+
+      #open__canvas__btn:hover {
+        cursor: pointer;
       }
 
       #open__canvas__btn img:first-of-type {
@@ -103,7 +108,11 @@
 
       .answers {
         display: flex;
-        margin-bottom: 3rem;
+        margin-bottom: 1.8rem;
+      }
+
+      .answers input:focus {
+        outline: none;
       }
 
       .answers img {
@@ -118,6 +127,60 @@
         margin-bottom: 26px;
         align-items: center;
         text-align: center;
+      }
+
+      #input__container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px 0px;
+        margin: 0;
+      }
+
+      #input__container input {
+        width: 15%;
+      }
+      #input__container div {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        gap: 10px;
+      }
+
+      #clean {
+        position: relative;
+        bottom: 5rem;
+        left: 5rem;
+        color: #fff;
+        font-size: 1.3rem;
+        padding: 6px 12px;
+        font-weight: 600;
+        background-color: #348f6d;
+        border-radius: 25px;
+        box-shadow: #348f6d 4px 4px 3px;
+        margin-top: -9px;
+        border: 2px solid #fff;
+      }
+
+      .answer__btn {
+        background-color: #fac402;
+        border-radius: 13px;
+        font-size: 0.8rem;
+        border: none;
+        box-shadow: 1px 1px 3px 0px black;
+        padding: 2px 8px;
+        margin-left: 1rem;
+        margin-top: 15px;
+      }
+
+      .answer__btn:active {
+        transform: scale(1.2);
+        transition: all 1s;
+        outline: none;
+        border: none;
+      }
+      .answer__btn:focus {
+        outline: none;
+        border: none;
       }
     </style>
   </head>
@@ -587,9 +650,10 @@
             <section class="container">
               <div class="drawing-board">
                 <div id="board">
-                  <span id="fechar" class="close">&times;</span>
+                  <span id="close__board" class="close">&times;</span>
                   <canvas id="drawing-board"></canvas>
                   <img src="./assets/img/Desafios-img/retangulos_img1.png" />
+                  <button id="clean">Limpar</button>
                 </div>
               </div>
               <div class="answer__container">
@@ -607,12 +671,15 @@
                           Com 3 quadrados, quantos retângulos você consegue
                           formar?
                         </h6>
-                        <input type="number" />
+                        <input id="input__1" type="number" />
                       </div>
                       <div>
                         <h6>E com 12?</h6>
-                        <input type="number" />
+                        <input id="input__2" type="number" />
                       </div>
+                      <button id="answer__btn__1" class="answer__btn">
+                        Responder
+                      </button>
                     </div>
                   </div>
 
@@ -624,7 +691,46 @@
                           consigo formar um retângulo. Quais são as
                           possibilidades?
                         </h6>
-                        <input type="text" />
+                        <div id="input__container">
+                          <div>
+                            <input id="input__3" type="number" /><label
+                              >retângulos</label
+                            >
+                          </div>
+                          <div>
+                            <input id="input__4" type="number" /><label
+                              >retângulos</label
+                            >
+                          </div>
+                          <div>
+                            <input id="input__5" type="number" /><label
+                              >retângulos</label
+                            >
+                          </div>
+                          <div>
+                            <input id="input__6" type="number" /><label
+                              >retângulos</label
+                            >
+                          </div>
+                          <div>
+                            <input id="input__7" type="number" /><label
+                              >retângulos</label
+                            >
+                          </div>
+                          <div>
+                            <input id="input__8" type="number" /><label
+                              >retângulos</label
+                            >
+                          </div>
+                          <div>
+                            <input id="input__9" type="number" /><label
+                              >retângulos</label
+                            >
+                          </div>
+                          <button id="answer__btn__2" class="answer__btn">
+                            Responder
+                          </button>
+                        </div>
                       </div>
                     </div>
                     <img src="./assets/img//Desafios-img/retangulos_img2.png" />
@@ -635,18 +741,36 @@
           </div>
           <!-- end of GAME CONTAINER -->
 
-          <div class="centreImage" style="text-align: center">
+          <!-- challenge RULES -->
+          <div id="myModal" class="modal">
+            <span id="fechar" class="close">&times;</span>
+            <img class="modal-content" id="img01" />
+            <div id="caption"></div>
+          </div>
+
+          <!-- footer buttons -->
+          <div class="desafio__btn__container">
+            <button class="btn btn-primary desafio__btn__primary">
+              <a id="replay__btn" onclick="location.reload();"> Reiniciar </a>
+            </button>
+
             <button
-              class="btn btn-primary"
-              onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 12);"
-              style="background-color: #3298ff"
+              class="btn btn-primary desafio__btn__primary"
+              onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 14);"
             >
-              <a
-                href="./desafio.html"
-                style="text-decoration: none; color: white; font-size: 20px"
-              >
-                Voltar ao desafio
-              </a>
+              <a href="./desafio.html"> Voltar </a>
+            </button>
+
+            <button class="btn btn-primary desafio__btn__primary">
+              <a id="show__rules__btn">Regras do Desafio</a>
+            </button>
+
+            <button
+              id="proximo__desafio__btn"
+              class="btn btn-primary desafio__btn__primary"
+              style="display: none"
+            >
+              <a href="./desafio.html"> Próximo desafio </a>
             </button>
           </div>
         </div>
@@ -693,6 +817,8 @@
     <script src="./js/challengesLogic.js"></script>
 
     <!-- JS Game Logic -->
+
+    <!-- // DRAWING BOARD logic -->
     <script>
       const body = document.querySelector("body");
       const container = document.querySelector(".game__container");
@@ -708,7 +834,7 @@
           modal.style.overflow = "hidden";
 
           // When the user clicks on <span> (x), close the modal
-          const span = document.getElementById("fechar");
+          const span = document.getElementById("close__board");
           span.onclick = function () {
             modal.style.display = "none";
           };
@@ -725,9 +851,9 @@
       let startX;
       let startY;
 
-      // if (e.target.id === "clear") {
-      //   ctx.clearRect(0, 0, canvas.width, canvas.height);
-      // }
+      document.getElementById("clean").addEventListener("click", () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      });
 
       const draw = (e) => {
         if (!isPainting) {
@@ -758,119 +884,89 @@
 
       canvas.addEventListener("mousemove", draw);
     </script>
-    <!-- <script>
-      const container = document.querySelector(".game__container");
-      const cleanBtn = document.getElementById("clean__btn");
 
-      // drawing board logic
-      const canvas = document.getElementById("board");
-      const context = canvas.getContext("2d");
-      context.strokeStyle = "#dc3545";
-      context.lineWidth = 5;
-      context.lineCap = "round";
+    <!-- // OTHER game logic -->
+    <script>
+      // MODEL with the rules of the challange (its an image that pops up, basically)
+      showRulesModel(14); // receives challenge index as param
 
-      // canva's distance from the viewboard
-      const canvasOffsetX = canvas.offsetLeft;
-      const canvasOffsetY = canvas.offsetTop;
-
-      canvas.width = container.innerWidth - canvasOffsetX;
-      canvas.height = window.innerHeight - canvasOffsetY;
-
-      // stores if user is drawing (pressing the mouse button)
-      let isPainting = false;
-      let startX;
-      let startY;
-
-      // clean screen
-      cleanBtn.addEventListener("click", () => {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-      });
-
-      const draw = (e) => {
-        if (!isPainting) {
-          return;
+      // for adding correct or wrong sytle
+      const addAnswerStyle = (correct, array) => {
+        if (correct) {
+          array.forEach((el) => {
+            el.style.boxShadow = "rgb(62 204 26) 0px 0px 5px 2px";
+            el.style.border = "green";
+          });
+        } else {
+          array.forEach((el) => {
+            el.style.boxShadow = "rgb(204, 26, 26) 0px 0px 5px 1px";
+            el.style.border = "red";
+          });
         }
-        context.lineWidth = 5;
-        context.lineCap = "round";
-        context.lineTo(e.clientX - canvasOffsetX, e.clientY);
-        context.stroke();
       };
 
-      // define start of drawing event
-      canvas.addEventListener("mousedown", (e) => {
-        isPainting = true;
-        startX = e.clientX;
-        startY = e.clientY;
+      const answers = [];
+
+      document.querySelectorAll(".answers").forEach((el) => {
+        answers.push(el.querySelectorAll("input"));
       });
 
-      // define end of drawing event
-      canvas.addEventListener("mousedown", (e) => {
-        isPainting = false;
+      // problem 1
 
-        // colors the line drawn
-        context.stroke();
-
-        // clears the line - "reset" it
-        context.beginPath();
-      });
-
-      canvas.addEventListener("mousemove", draw);
-
-      // verifies if solution is correct or wrong
-      const checkSolution = () => {};
-
-      const checkEndGame = () => {
-        // check if all elements have been placed
-        let endGame = true;
-        containers.forEach((el) => {
-          if (el.childNodes.length == 0) endGame = false;
+      document
+        .getElementById("answer__btn__1")
+        .addEventListener("click", () => {
+          if (answers[0][0].value != "" && answers[0][1].value != "") {
+            // check answer and add correct or wrong style
+            addAnswerStyle(
+              answers[0][0].value == 1 && answers[0][1].value == 3,
+              answers[0]
+            );
+          } else {
+            answers[0].forEach((el) => {
+              el.style.boxShadow = "none";
+              el.style.border = "revert";
+            });
+          }
         });
 
-        if (endGame) {
-          // show result
-          let result = checkSolution();
+      // problem 2
+      document
+        .getElementById("answer__btn__2")
+        .addEventListener("click", () => {
+          if (
+            answers[1][0].value != "" &&
+            answers[1][1].value != "" &&
+            answers[1][2].value != "" &&
+            answers[1][3].value != "" &&
+            answers[1][4].value != "" &&
+            answers[1][5].value != "" &&
+            answers[1][6].value != ""
+          ) {
+            // check answer
+            let correct = true;
 
-          const allContainers = [...containers].concat([...fixedContainers]);
+            const values = Array.from(answers[1]).map((el) => el.value);
 
-          // correct answer
-          if (result) {
-            // change border color
-            allContainers.forEach((el) => {
-              el.style.borderColor = "#00e400";
+            console.log(values);
+
+            ["1", "2", "3", "5", "7", "11", "13"].forEach((el) => {
+              if (!values.includes(el)) {
+                correct = false;
+                console.log(el, correct);
+              }
             });
 
-            // show conffeti effect
-            addConfettiEffect();
-
-            // fix answer - dont allow changes anymore
-            document.querySelectorAll(".element").forEach((el) => {
-              el.classList.remove("draggable-by-jquery-ui");
-              el.classList.remove("ui-draggable");
-              el.classList.remove("ui-draggable-handle");
-              el.style.position = "static";
+            // add correct or wrong style
+            addAnswerStyle(correct, answers[1]);
+          } else {
+            answers[1].forEach((el) => {
+              el.style.boxShadow = "none";
+              el.style.border = "revert";
             });
-
-            // add correct button
-            const correctBtn = document.querySelector(".correct__btn");
-            correctBtn.style.display = "block";
-            correctBtn.addEventListener("click", () => location.reload());
           }
-          // wrong answer
-          else {
-            // change border color
-            allContainers.forEach((el) => {
-              el.style.borderColor = "#cc1a1a";
-            });
-
-            // add wrong button
-            const correctBtn = document.querySelector(".wrong__btn");
-            correctBtn.style.display = "block";
-            correctBtn.addEventListener("click", () => location.reload());
-          }
-        }
-      };
-    </script> -->
-
+        });
+    </script>
     <script src="js/desafios/confetti.js"></script>
   </body>
 </html>

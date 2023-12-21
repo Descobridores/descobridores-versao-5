@@ -14,3 +14,15 @@ torre
 
 Arquivos sem uso:
 tic-tac-toe.js
+
+coisas que podem ser comuns nos desafios:
+game__container{
+ height: 70vh
+}
+
+
+Seme:
+novos botoes de reiniciar, voltar...
+desafios que eu nao soube como implementar
+nova tela de sucesso
+o que é o "banco de problemas"

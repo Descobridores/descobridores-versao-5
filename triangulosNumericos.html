@@ -51,10 +51,6 @@
         justify-content: center;
       }
 
-      .instructions {
-        width: 23rem;
-      }
-
       .circles__container {
         display: flex;
         flex-direction: column;
@@ -215,16 +211,6 @@
       #success__card__footer button {
         display: flex;
         justify-content: space-between;
-      }
-
-      .sucess__centreImage {
-        display: flex;
-        margin-left: auto;
-        margin-right: auto;
-        justify-content: space-around;
-        position: relative;
-        top: 50%;
-        transform: translateY(-100%);
       }
 
       /* .circles__container {
@@ -821,12 +807,7 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="instructions">
-              <img
-                src="assets/img/Desafios-img/t_numerico_instructions.png"
-                alt="imagem com instruções do jogo"
-              />
-            </div> -->
+
             <div id="success__card">
               <h3>Parabéns!<br />Você descobriu!</h3>
 
@@ -843,24 +824,20 @@
                 </div>
               </div>
             </div>
-
-            <button class="wrong__btn" style="display: none; margin-top: 30px">
-              Tente de novo!
-            </button>
-
-            <!-- challenge RULES -->
-            <div id="myModal" class="modal">
-              <span id="fechar" class="close">&times;</span>
-              <img class="modal-content" id="img01" />
-              <div id="caption"></div>
-            </div>
           </div>
 
           <!-- end of GAME CONTAINER -->
 
+          <!-- challenge RULES -->
+          <div id="myModal" class="modal">
+            <span id="fechar" class="close">&times;</span>
+            <img class="modal-content" id="img01" />
+            <div id="caption"></div>
+          </div>
+
           <div class="desafio__btn__container">
             <button class="btn btn-primary desafio__btn__primary">
-              <a id="replay__btn"> Reiniciar </a>
+              <a id="replay__btn" onclick="location.reload();"> Reiniciar </a>
             </button>
 
             <button
@@ -1033,21 +1010,6 @@
       });
       inputs[2].forEach((el) => {
         el.addEventListener("change", () => checkEndGame(2));
-      });
-
-      // clean / replay
-      document.getElementById("replay__btn").addEventListener("click", () => {
-        console.log(inputs);
-        inputs.forEach((array) => {
-          array.forEach((el) => (el.value = ""));
-        });
-
-        // reset border style
-        circles.forEach((array) =>
-          array.forEach((el) => {
-            el.style.boxShadow = "-4px 0px 2px #1c203f";
-          })
-        );
       });
     </script>
     <script src="js/desafios/confetti.js"></script>

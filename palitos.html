@@ -35,7 +35,6 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/little_styles.css" rel="stylesheet" />
     <link href="css/conffeti.css" rel="stylesheet" />
-    <link href="css/palitos.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Allura&display=swap"
       rel="stylesheet"
@@ -46,11 +45,6 @@
         --blue: #36a9e1;
         --green: #31ae74;
         --red: #b4191c;
-      }
-
-      body {
-        /* cursor: url("assets/img/Desafios-img/blue-brush.png"), auto; */
-        /* cursor: url("assets/img/Desafios-img/blue-brush-bigger.png"), auto; */
       }
 
       .stick__container {
@@ -763,21 +757,47 @@
                 src="assets/img/Desafios-img/palitos_1.png"
               />
             </div>
+            <button
+              class="correct__btn"
+              style="display: none; margin-top: 30px"
+            >
+              Você descobriu! Parabéns!
+            </button>
+            <button class="wrong__btn" style="display: none; margin-top: 30px">
+              Tente de novo!
+            </button>
           </div>
           <!-- end of GAME CONTAINER -->
 
-          <div class="centreImage" style="text-align: center">
+          <!-- challenge RULES -->
+          <div id="myModal" class="modal">
+            <span id="fechar" class="close">&times;</span>
+            <img class="modal-content" id="img01" />
+            <div id="caption"></div>
+          </div>
+
+          <div class="desafio__btn__container">
+            <button class="btn btn-primary desafio__btn__primary">
+              <a id="replay__btn" onclick="location.reload();"> Reiniciar </a>
+            </button>
+
             <button
-              class="btn btn-primary"
+              class="btn btn-primary desafio__btn__primary"
               onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 13);"
-              style="background-color: #3298ff"
             >
-              <a
-                href="./desafio.html"
-                style="text-decoration: none; color: white; font-size: 20px"
-              >
-                Voltar ao desafio
-              </a>
+              <a href="./desafio.html"> Voltar </a>
+            </button>
+
+            <button class="btn btn-primary desafio__btn__primary">
+              <a id="show__rules__btn">Regras do Desafio</a>
+            </button>
+
+            <button
+              id="proximo__desafio__btn"
+              class="btn btn-primary desafio__btn__primary"
+              style="display: none"
+            >
+              <a href="./desafio.html"> Próximo desafio </a>
             </button>
           </div>
         </div>
@@ -824,7 +844,11 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./js/challengesLogic.js"></script>
     <script>
+      // MODEL with the rules of the challange (its an image that pops up, basically)
+      showRulesModel(13); // receives challenge index as param
+
       /* CUSTOM CURSOR */
       const customCursor = document.getElementById("custom-cursor");
 
@@ -846,7 +870,7 @@
 
       const bucketImg = document.getElementById("paint__bucket__img");
       const circles = document.querySelectorAll(".color");
-      console.log(circles);
+
       circles.forEach((circle) => {
         circle.addEventListener("click", () => {
           currentColor = circle.id.split("__")[0];
@@ -875,112 +899,55 @@
               `w${s.id.split("")[1]}`
             ).style.borderBottomColor = `var(--${currentColor})`;
           else s.style.borderBottomColor = `var(--${currentColor})`;
+
+          if (checkEndGame()) endGame();
         });
       });
 
-      /* GAME LOGIC */
-      // verifies if solution is correct or wrong - if every animal item was put in right position
+      // verifies if solution is correct or wrong
       const checkSolution = () => {
-        // this array is the correct sequence of animals for the only correct solution
-        const solution = [
-          "boi",
-          "cavalo",
-          "porco",
-          "boi",
-          "cavalo",
-          "porco",
-          "boi",
-        ];
-
-        // loop trough the spaces and checks if the sequence of animals is the same as the correct solution
-        for (i = 0; i < 7; i++) {
-          if (
-            !containers[i].firstChild.className
-              .split(" ")[1]
-              .startsWith(solution[i])
-          )
-            return false;
+        if (
+          document.getElementById("w1").style.borderBottomColor == "36a9e1" &&
+          document.getElementById("w2").style.borderBottomColor == "31ae74" &&
+          document.getElementById("w3").style.borderBottomColor == "36a9e1" &&
+          document.getElementById("w4").style.borderBottomColor == "31ae74" &&
+          document.getElementById("w5").style.borderBottomColor == "b4191c" &&
+          document.getElementById("w6").style.borderBottomColor == "b4191c"
+        ) {
+          return true;
         }
-        return true;
+        return false;
       };
 
       const checkEndGame = () => {
-        // check if all elements have been placed
-        let endGame = true;
-        containers.forEach((el) => {
-          if (el.childNodes.length == 0) endGame = false;
+        console.log(document.querySelectorAll(".white")[0].style);
+        // check if all elements have been painted
+        document.querySelectorAll(".white").forEach((el) => {
+          if (el.style.borderBottom == "0.81rem solid white") return false;
         });
 
-        if (endGame) {
-          // show result
-          let result = checkSolution();
-
-          const allContainers = [...containers].concat([...fixedContainers]);
-
-          // correct answer
-          if (result) {
-            // change border color
-            allContainers.forEach((el) => {
-              el.style.borderColor = "#00e400";
-            });
-
-            // show conffeti effect
-            addConfettiEffect();
-
-            // fix answer - dont allow changes anymore
-            document.querySelectorAll(".element").forEach((el) => {
-              el.classList.remove("draggable-by-jquery-ui");
-              el.classList.remove("ui-draggable");
-              el.classList.remove("ui-draggable-handle");
-              el.style.position = "static";
-            });
-
-            // add correct button
-            const correctBtn = document.querySelector(".correct__btn");
-            correctBtn.style.display = "block";
-            correctBtn.addEventListener("click", () => location.reload());
-          }
-          // wrong answer
-          else {
-            // change border color
-            allContainers.forEach((el) => {
-              el.style.borderColor = "#cc1a1a";
-            });
-
-            // add wrong button
-            const correctBtn = document.querySelector(".wrong__btn");
-            correctBtn.style.display = "block";
-            correctBtn.addEventListener("click", () => location.reload());
-          }
-        }
+        return true;
       };
 
-      $(function () {
-        $(".draggable-by-jquery-ui").draggable({
-          revert: "invalid",
-        });
-        $(".drop__area").droppable({
-          accept: ".draggable-by-jquery-ui",
+      const endGame = () => {
+        // correct answer
+        if (checkSolution()) {
+          // show conffeti effect
+          addConfettiEffect();
 
-          // called when element is dropped
-          drop: function (event, element) {
-            // check if drop area already has an element
-            if (this.childNodes.length == 1) {
-              // remove current element from area
-              elementsContainer.appendChild(this.firstChild);
-            }
-
-            // adds new element to area
-            this.appendChild(element.draggable[0]);
-            element.draggable[0].style.left = "0";
-            element.draggable[0].style.top = "0";
-            element.draggable[0].style.bottom = "0";
-            element.draggable[0].style.right = "0";
-
-            checkEndGame();
-          },
-        });
-      });
+          // add correct button
+          const correctBtn = document.querySelector(".correct__btn");
+          correctBtn.style.display = "block";
+          correctBtn.addEventListener("click", () => location.reload());
+        }
+        // wrong answer
+        else {
+          // add wrong button
+          const correctBtn = document.querySelector(".wrong__btn");
+          correctBtn.style.display = "block";
+          correctBtn.addEventListener("click", () => location.reload());
+        }
+      };
     </script>
     <script src="js/desafios/confetti.js"></script>
   </body>
