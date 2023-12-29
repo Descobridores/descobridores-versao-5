@@ -1015,6 +1015,23 @@
                 Tente de novo!
               </button>
             </div>
+
+            <div id="success__card">
+              <h3>Parabéns!<br />Você descobriu!</h3>
+
+              <div id="success__card__text">
+                <div>
+                  <button>Compartilhe</button>
+                  <h4>sua solução com os monitores</h4>
+                </div>
+
+                <div>
+                  <h4>Veja mensagens no</h4>
+                  <button onclick="redirect('amigos')">Chat</button>
+                  <h4>sobre esse desafio</h4>
+                </div>
+              </div>
+            </div>
           </div>
           <!-- end of GAME CONTAINER -->
 
@@ -1026,27 +1043,26 @@
           </div>
 
           <div class="desafio__btn__container">
-            <button class="btn btn-primary desafio__btn__primary">
-              <a id="replay__btn" onclick="location.reload();"> Reiniciar </a>
+            <button
+              class="btn btn-primary desafio__btn__primary"
+              onclick="location.reload();"
+            >
+              <a id="replay__btn"> Reiniciar </a>
             </button>
 
             <button
               class="btn btn-primary desafio__btn__primary"
+              onclick="location.assign('./desafio.html');"
               onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 17);"
             >
-              <a href="./desafio.html"> Voltar </a>
-            </button>
-
-            <button class="btn btn-primary desafio__btn__primary">
-              <a id="show__rules__btn">Regras do Desafio</a>
+              <a> Voltar </a>
             </button>
 
             <button
-              id="proximo__desafio__btn"
+              id="show__rules__btn"
               class="btn btn-primary desafio__btn__primary"
-              style="display: none"
             >
-              <a href="./desafio.html"> Próximo desafio </a>
+              <a>Regras do Desafio</a>
             </button>
           </div>
         </div>
@@ -1095,8 +1111,9 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/challengesLogic.js"></script>
     <script>
-      // MODEL with the rules of the challange (its an image that pops up, basically)
+      // MODEL with the rules of the challenge (its an image that pops up, basically)
       showRulesModel(17); // receives challenge index as param
+
       const elementsContainer = document.querySelector(
         ".elements__container div"
       );

@@ -44,148 +44,94 @@
       .game__container {
         height: 90vh;
         display: flex;
-        justify-content: center;
-      }
-      .drawing__board {
-        height: 90%;
+        justify-content: space-between;
       }
 
-      #board {
+      .target__container {
+        width: 55%;
         height: 100%;
+        margin: 1rem 1rem;
       }
 
-      #drawing-board {
-        background-image: url("./assets/img/Desafios-img/quadro.png");
-        background-size: contain;
-        /* width: 100%;
-        height: 100%; */
-      }
-
-      #board {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0, 0, 0);
-        background-color: rgba(255, 255, 255, 0.7);
-      }
-
-      #board img {
-        position: relative;
-        top: -72%;
-        left: -3%;
-      }
-
-      #close__board {
-        background-color: #348f6d;
-        border-radius: 10px;
-        padding: 0px 6px;
-        opacity: 1;
-      }
-
-      .answer__container {
-        display: flex;
-      }
-
-      #open__canvas__btn {
-        color: white;
-        height: 10rem;
-      }
-
-      #open__canvas__btn:hover {
-        cursor: pointer;
-      }
-
-      #open__canvas__btn img:first-of-type {
-        width: 17rem;
-      }
-
-      #open__canvas__btn img:last-of-type {
-        width: 1.5rem;
-        position: relative;
-        right: 65px;
-        top: 13px;
-      }
-
-      .answers {
-        display: flex;
-        margin-bottom: 1.8rem;
-      }
-
-      .answers input:focus {
-        outline: none;
-      }
-
-      .answers img {
-        width: 8rem;
-        height: fit-content;
-      }
-
-      .answers div {
-        display: flex;
-        flex-direction: column;
-        padding: 2px 16px;
-        margin-bottom: 26px;
-        align-items: center;
+      .target__container .drop__area {
+        width: 16%;
+        height: 17%;
         text-align: center;
       }
 
-      #input__container {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 4px 0px;
-        margin: 0;
+      #jardim_img {
+        width: 100%;
       }
 
-      #input__container input {
-        width: 15%;
-      }
-      #input__container div {
+      .elements__container {
         display: flex;
-        flex-direction: row;
-        margin: 0;
-        gap: 10px;
+        flex-direction: column;
+        gap: 3rem;
+        margin-top: 2rem;
+        min-width: 40%;
       }
 
-      #clean {
+      .elements__container .drop__area {
+        min-width: 40%;
+      }
+
+      #area__1 {
         position: relative;
-        bottom: 5rem;
-        left: 5rem;
-        color: #fff;
-        font-size: 1.3rem;
-        padding: 6px 12px;
-        font-weight: 600;
-        background-color: #348f6d;
-        border-radius: 25px;
-        box-shadow: #348f6d 4px 4px 3px;
-        margin-top: -9px;
-        border: 2px solid #fff;
+        left: 3.7rem;
+        top: -25.6rem;
+      }
+      #area__2 {
+        position: relative;
+        left: 3.9rem;
+        top: -22.1rem;
+      }
+      #area__3 {
+        position: relative;
+        left: 3.8rem;
+        top: -18.7rem;
+      }
+      #area__4 {
+        position: relative;
+        left: 13.3rem;
+        top: -24.8rem;
       }
 
-      .answer__btn {
-        background-color: #fac402;
-        border-radius: 13px;
-        font-size: 0.8rem;
-        border: none;
-        box-shadow: 1px 1px 3px 0px black;
-        padding: 2px 8px;
-        margin-left: 1rem;
-        margin-top: 15px;
+      #area__5 {
+        position: relative;
+        left: 22.8rem;
+        top: -30.8rem;
+      }
+      #area__6 {
+        position: relative;
+        left: 32.4rem;
+        top: -37rem;
+      }
+      #area__7 {
+        position: relative;
+        left: 32.3rem;
+        top: -52.5rem;
+      }
+      #area__8 {
+        position: relative;
+        left: 32.3rem;
+        top: -68.1rem;
+      }
+      #area__9 {
+        position: relative;
+        left: 22.5rem;
+        top: -74rem;
+      }
+      #area__10 {
+        position: relative;
+        left: 13.3rem;
+        top: -80.1rem;
       }
 
-      .answer__btn:active {
-        transform: scale(1.2);
-        transition: all 1s;
-        outline: none;
-        border: none;
-      }
-      .answer__btn:focus {
-        outline: none;
-        border: none;
+      .wrong__correct_btns {
+        position: absolute;
+        top: 54rem;
+        left: 55rem; /*differetn*/
+        width: 25%;
       }
     </style>
   </head>
@@ -643,106 +589,108 @@
         <!-- Pagina -->
         <section class="container">
           <hr class="linha" />
-          <h1 class="TituloPagina">Quantos Retângulos?</h1>
+          <h1 class="TituloPagina">Flores no Jardim</h1>
           <hr class="linha" />
         </section>
       </main>
-
+      <br />
       <div class="container">
         <div style="margin-right: -0.75rem; margin-left: -0.75rem">
           <!-- GAME CONTAINER -->
           <div class="game__container">
-            <div class="container game__wrapper">
-              <div class="drawing-board">
-                <div id="board">
-                  <span id="close__board" class="close">&times;</span>
-                  <canvas id="drawing-board"></canvas>
-                  <img src="./assets/img/Desafios-img/retangulos_img1.png" />
-                  <button id="clean">Limpar</button>
-                </div>
-              </div>
-              <div class="answer__container">
-                <div id="open__canvas__btn">
-                  <img src="./assets/img/Desafios-img/quadro3.png" />
-                  <img src="./assets/img/Desafios-img/arrow.png" />
-                  <span> Use o quadro para desenhar </span>
-                </div>
-                <div>
-                  <div class="answers">
-                    <img src="./assets/img//Desafios-img/retangulos_img3.png" />
-                    <div>
-                      <div>
-                        <h6>
-                          Com 3 quadrados, quantos retângulos você consegue
-                          formar?
-                        </h6>
-                        <input id="input__1" type="number" min="0" />
-                      </div>
-                      <div>
-                        <h6>E com 12?</h6>
-                        <input id="input__2" type="number" min="0" />
-                      </div>
-                      <button id="answer__btn__1" class="answer__btn">
-                        Responder
-                      </button>
-                    </div>
-                  </div>
+            <div class="target__container">
+              <img
+                id="jardim_img"
+                src="assets/img/Desafios-img/jardim_img1.png"
+              />
+              <div id="area__1" class="drop__area"></div>
+              <div id="area__2" class="drop__area"></div>
+              <div id="area__3" class="drop__area"></div>
+              <div id="area__4" class="drop__area"></div>
+              <div id="area__5" class="drop__area"></div>
+              <div id="area__6" class="drop__area"></div>
+              <div id="area__7" class="drop__area"></div>
+              <div id="area__8" class="drop__area"></div>
+              <div id="area__9" class="drop__area"></div>
+              <div id="area__10" class="drop__area"></div>
+            </div>
 
-                  <div class="answers">
-                    <div>
-                      <div>
-                        <h6 style="margin-bottom: 2rem">
-                          Tenho menos que 15 quadrados, e com essa quantidade só
-                          consigo formar um retângulo. Quais são as
-                          possibilidades?
-                        </h6>
-                        <div id="input__container">
-                          <div>
-                            <input id="input__3" type="number" min="0" /><label
-                              >quadrados</label
-                            >
-                          </div>
-                          <div>
-                            <input id="input__4" type="number" min="0" /><label
-                              >quadrados</label
-                            >
-                          </div>
-                          <div>
-                            <input id="input__5" type="number" min="0" /><label
-                              >quadrados</label
-                            >
-                          </div>
-                          <div>
-                            <input id="input__6" type="number" min="0" /><label
-                              >quadrados</label
-                            >
-                          </div>
-                          <div>
-                            <input id="input__7" type="number" min="0" /><label
-                              >quadrados</label
-                            >
-                          </div>
-                          <div>
-                            <input id="input__8" type="number" min="0" /><label
-                              >quadrados</label
-                            >
-                          </div>
-                          <div>
-                            <input id="input__9" type="number" min="0" /><label
-                              >quadrados</label
-                            >
-                          </div>
-                          <button id="answer__btn__2" class="answer__btn">
-                            Responder
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <img src="./assets/img//Desafios-img/retangulos_img2.png" />
-                  </div>
-                </div>
+            <div class="elements__container">
+              <div class="drop__area">
+                <img
+                  class="elemen draggable-by-jquery-ui"
+                  id="drag-element1"
+                  src="./assets/img/Desafios-img/jardim_1.png"
+                  alt=""
+                />
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element2"
+                  src="./assets/img/Desafios-img/jardim_2.png"
+                  alt=""
+                />
+
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element3"
+                  src="./assets/img/Desafios-img/jardim_3.png"
+                  alt=""
+                />
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element4"
+                  src="./assets/img/Desafios-img/jardim_4.png"
+                  alt=""
+                />
+
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element5"
+                  src="./assets/img/Desafios-img/jardim_5.png"
+                  alt=""
+                />
+              </div>
+              <div class="drop__area">
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element6"
+                  src="./assets/img/Desafios-img/jardim_6.png"
+                  alt=""
+                />
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element7"
+                  src="./assets/img/Desafios-img/jardim_7.png"
+                  alt=""
+                />
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element8"
+                  src="./assets/img/Desafios-img/jardim_8.png"
+                  alt=""
+                />
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element9"
+                  src="./assets/img/Desafios-img/jardim_9.png"
+                  alt=""
+                />
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element10"
+                  src="./assets/img/Desafios-img/jardim_10.png"
+                  alt=""
+                />
               </div>
             </div>
+
+            <button
+              class="wrong__btn wrong__correct_btns"
+              style="display: none; margin-top: 30px"
+            >
+              Tente de novo!
+            </button>
+
             <div id="success__card">
               <h3>Parabéns!<br />Você descobriu!</h3>
 
@@ -754,7 +702,7 @@
 
                 <div>
                   <h4>Veja mensagens no</h4>
-                  <button onclick="redirect('retangulos')">Chat</button>
+                  <button onclick="redirect('jardim')">Chat</button>
                   <h4>sobre esse desafio</h4>
                 </div>
               </div>
@@ -769,7 +717,6 @@
             <div id="caption"></div>
           </div>
 
-          <!-- footer buttons -->
           <div class="desafio__btn__container">
             <button
               class="btn btn-primary desafio__btn__primary"
@@ -781,7 +728,7 @@
             <button
               class="btn btn-primary desafio__btn__primary"
               onclick="location.assign('./desafio.html');"
-              onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 14);"
+              onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 8);"
             >
               <a> Voltar </a>
             </button>
@@ -791,6 +738,14 @@
               class="btn btn-primary desafio__btn__primary"
             >
               <a>Regras do Desafio</a>
+            </button>
+
+            <button
+              id="proximo__desafio__btn"
+              class="btn btn-primary desafio__btn__primary"
+              style="display: none"
+            >
+              <a> Próximo desafio </a>
             </button>
           </div>
         </div>
@@ -834,166 +789,122 @@
     </div>
     <!-- Bootstrap core JS-->
     <script src="js/popUp.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/challengesLogic.js"></script>
 
     <!-- JS Game Logic -->
-
-    <!-- // DRAWING BOARD logic -->
-    <script>
-      const body = document.querySelector("body");
-      const container = document.querySelector(".game__container");
-      const canvas = document.getElementById("drawing-board");
-      const toolbar = document.getElementById("toolbar");
-      const ctx = canvas.getContext("2d");
-
-      document
-        .getElementById("open__canvas__btn")
-        .addEventListener("click", () => {
-          const modal = document.getElementById("board");
-          modal.style.display = "block";
-          modal.style.overflow = "hidden";
-
-          // When the user clicks on <span> (x), close the modal
-          const span = document.getElementById("close__board");
-          span.onclick = function () {
-            modal.style.display = "none";
-          };
-        });
-
-      const canvasOffsetX = canvas.getBoundingClientRect().left;
-      const canvasOffsetY = canvas.getBoundingClientRect().top;
-
-      canvas.width = 1000;
-      canvas.height = 580;
-
-      let isPainting = false;
-      let lineWidth = 5;
-      let startX;
-      let startY;
-
-      document.getElementById("clean").addEventListener("click", () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-      });
-
-      const draw = (e) => {
-        if (!isPainting) {
-          return;
-        }
-
-        ctx.lineWidth = 2;
-        ctx.lineCap = "round";
-        ctx.strokeStyle = "#FFFFFF";
-
-        ctx.lineTo(e.clientX - canvasOffsetX, e.clientY - canvasOffsetY);
-        ctx.stroke();
-      };
-
-      canvas.addEventListener("mousedown", (e) => {
-        isPainting = true;
-        startX = e.clientX;
-        startY = e.clientY;
-        // body.style.overflowY = "hidden";
-      });
-
-      window.addEventListener("mouseup", (e) => {
-        isPainting = false;
-        ctx.stroke();
-        ctx.beginPath();
-        // body.style.overflowY = "visible";
-      });
-
-      canvas.addEventListener("mousemove", draw);
-    </script>
-
-    <!-- // OTHER game logic -->
     <script>
       // MODEL with the rules of the challenge (its an image that pops up, basically)
-      showRulesModel(14); // receives challenge index as param
+      showRulesModel(8); // receives challenge index as param
 
-      // for adding correct or wrong sytle
-      const addAnswerStyle = (correct, array) => {
-        if (correct) {
-          array.forEach((el) => {
-            el.style.boxShadow = "rgb(62 204 26) 0px 0px 5px 2px";
-            el.style.border = "green";
-          });
-        } else {
-          array.forEach((el) => {
-            el.style.boxShadow = "rgb(204, 26, 26) 0px 0px 5px 1px";
-            el.style.border = "red";
-          });
+      const elementsContainer = document.querySelector(
+        ".elements__container div"
+      );
+
+      const containers = document.querySelectorAll(
+        ".target__container .drop__area"
+      );
+
+      // verifies if solution is correct or wrong
+      let array = new Array(10);
+      const checkSolution = () => {
+        let correct = false;
+
+        const possibleSolutions = [
+          "1048239765",
+          "5048239761",
+          "1048329765",
+          "5048329761", //
+          "2840156793",
+          "2840516793",
+          "3840156792",
+          "3840516792", //
+          "2976150483",
+          "2976510483",
+          "3976150482",
+          "3976510482", //
+          "1679238405",
+          "1679328405",
+          "5679238401",
+          "5679328401",
+        ];
+
+        containers.forEach((el) => {
+          array[el.id[el.id.length - 1]] =
+            el.firstElementChild.id[el.firstElementChild.id.length - 1];
+        });
+
+        const solution = array.join("");
+
+        possibleSolutions.forEach((el) => {
+          if (el == solution) correct = true;
+        });
+
+        return correct;
+      };
+
+      const checkEndGame = () => {
+        // check if all elements have been placed
+        let endGame = true;
+        containers.forEach((el) => {
+          if (el.childNodes.length == 0) endGame = false;
+        });
+
+        if (endGame) {
+          // show result
+          let result = checkSolution();
+
+          // correct answer
+          if (result) {
+            // show conffeti effect and success card
+            showSucessCard([".target__container", ".elements__container"]);
+
+            // fix answer - dont allow changes anymore
+            document.querySelectorAll(".element").forEach((el) => {
+              el.classList.remove("draggable-by-jquery-ui");
+              el.classList.remove("ui-draggable");
+              el.classList.remove("ui-draggable-handle");
+              el.style.position = "static";
+            });
+          }
+          // wrong answer
+          else {
+            // add wrong button
+            const correctBtn = document.querySelector(".wrong__btn");
+            correctBtn.style.display = "block";
+            correctBtn.addEventListener("click", () => location.reload());
+          }
         }
       };
 
-      const answers = [];
-      let endGame = [false, false];
+      $(function () {
+        $(".draggable-by-jquery-ui").draggable({
+          revert: "invalid",
+        });
+        $(".drop__area").droppable({
+          accept: ".draggable-by-jquery-ui",
 
-      document.querySelectorAll(".answers").forEach((el) => {
-        answers.push(el.querySelectorAll("input"));
+          // called when element is dropped
+          drop: function (event, element) {
+            // check if drop area already has an element
+            if (this.childNodes.length == 1) {
+              // remove current element from area
+              elementsContainer.appendChild(this.firstChild);
+            }
+
+            // adds new element to area
+            this.appendChild(element.draggable[0]);
+            element.draggable[0].style.left = "0";
+            element.draggable[0].style.top = "0";
+            element.draggable[0].style.bottom = "0";
+            element.draggable[0].style.right = "0";
+
+            checkEndGame();
+          },
+        });
       });
-
-      // problem 1
-      document
-        .getElementById("answer__btn__1")
-        .addEventListener("click", () => {
-          if (answers[0][0].value != "" && answers[0][1].value != "") {
-            // check answer and add correct or wrong style
-            endGame[0] = answers[0][0].value == 1 && answers[0][1].value == 3;
-            addAnswerStyle(endGame[0], answers[0]);
-
-            if ((endGame[0] == true && endGame[1]) == true) {
-              // show conffeti effect and success card
-              showSucessCard([".game__wrapper"]);
-            }
-          } else {
-            answers[0].forEach((el) => {
-              el.style.boxShadow = "none";
-              el.style.border = "revert";
-            });
-          }
-        });
-
-      // problem 2
-      document
-        .getElementById("answer__btn__2")
-        .addEventListener("click", () => {
-          if (
-            answers[1][0].value != "" &&
-            answers[1][1].value != "" &&
-            answers[1][2].value != "" &&
-            answers[1][3].value != "" &&
-            answers[1][4].value != "" &&
-            answers[1][5].value != "" &&
-            answers[1][6].value != ""
-          ) {
-            // check answer
-            let correct = true;
-
-            const values = Array.from(answers[1]).map((el) => el.value);
-
-            ["1", "2", "3", "5", "7", "11", "13"].forEach((el) => {
-              if (!values.includes(el)) {
-                correct = false;
-              }
-            });
-
-            // add correct or wrong style
-            addAnswerStyle(correct, answers[1]);
-
-            endGame[1] = correct;
-
-            if ((endGame[0] == true && endGame[1]) == true) {
-              console.log(endGame);
-              // show conffeti effect and success card
-              showSucessCard([".game__wrapper"]);
-            }
-          } else {
-            answers[1].forEach((el) => {
-              el.style.boxShadow = "none";
-              el.style.border = "revert";
-            });
-          }
-        });
     </script>
   </body>
 </html>

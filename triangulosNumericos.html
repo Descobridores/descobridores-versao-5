@@ -51,14 +51,14 @@
         justify-content: center;
       }
 
-      .circles__container {
+      .game__elements__container {
         display: flex;
         flex-direction: column;
         /* width: 92%; */
         align-items: center;
       }
 
-      .circles__container div {
+      .game__elements__container div {
         display: flex;
       }
 
@@ -140,70 +140,8 @@
         top: 58rem;
         right: 33rem;
       }
-      #success__card {
-        position: absolute;
-        color: #348f6d;
-        text-align: center;
-        font-size: 3.8rem;
-        letter-spacing: 0.01em;
-        display: none;
-        /* display: flex; */
-        flex-direction: column;
-        width: 50rem;
-        gap: 6.5rem;
-      }
 
-      #success__card button {
-        color: #fff;
-        font-size: 1.3rem;
-        padding: 6px 12px;
-        font-weight: 600;
-        background-color: #274c77d9;
-        border-radius: 25px;
-        box-shadow: #348f6d 4px 4px 3px;
-        margin-top: -9px;
-        border: 2px solid #fff;
-      }
-
-      #success__card button:hover {
-        transform: scale(0.9);
-      }
-
-      #success__card button:active {
-        transform: scale(1.2);
-        transition: all 1s;
-        outline: none;
-      }
-
-      #success__card button:focus {
-        outline: none;
-      }
-
-      #success__card h3 {
-        color: #348f6d;
-        font-size: 3.8rem;
-        letter-spacing: 0.01em;
-      }
-
-      #success__card h4 {
-        color: #274c77;
-        font-size: 1.5rem;
-        /* letter-spacing: 0.01em; */
-      }
-
-      #success__card__text {
-        gap: 4.5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #success__card__text div {
-        display: flex;
-        gap: 15px;
-      }
-
-      #success__card__footer {
+      /* #success__card__footer {
         display: flex;
         justify-content: space-between;
       }
@@ -211,9 +149,9 @@
       #success__card__footer button {
         display: flex;
         justify-content: space-between;
-      }
+      } */
 
-      /* .circles__container {
+      /* .game__elements__container {
         opacity: 0.2;
       } */
     </style>
@@ -681,7 +619,7 @@
         <div style="margin-right: -0.75rem; margin-left: -0.75rem">
           <!-- GAME CONTAINER -->
           <div class="game__container">
-            <div class="circles__container">
+            <div class="game__elements__container">
               <div>
                 <div id="t1" class="triangle">
                   <div class="row">
@@ -819,7 +757,9 @@
 
                 <div>
                   <h4>Veja mensagens no</h4>
-                  <button onclick="redirect()">Chat</button>
+                  <button onclick="redirect('triangulos_numericos')">
+                    Chat
+                  </button>
                   <h4>sobre esse desafio</h4>
                 </div>
               </div>
@@ -836,27 +776,26 @@
           </div>
 
           <div class="desafio__btn__container">
-            <button class="btn btn-primary desafio__btn__primary">
-              <a id="replay__btn" onclick="location.reload();"> Reiniciar </a>
+            <button
+              class="btn btn-primary desafio__btn__primary"
+              onclick="location.reload();"
+            >
+              <a id="replay__btn"> Reiniciar </a>
             </button>
 
             <button
               class="btn btn-primary desafio__btn__primary"
+              onclick="location.assign('./desafio.html');"
               onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 19);"
             >
-              <a href="./desafio.html"> Voltar </a>
-            </button>
-
-            <button class="btn btn-primary desafio__btn__primary">
-              <a id="show__rules__btn">Regras do Desafio</a>
+              <a> Voltar </a>
             </button>
 
             <button
-              id="proximo__desafio__btn"
+              id="show__rules__btn"
               class="btn btn-primary desafio__btn__primary"
-              style="display: none"
             >
-              <a href="./desafio.html"> Próximo desafio </a>
+              <a>Regras do Desafio</a>
             </button>
           </div>
         </div>
@@ -905,14 +844,8 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/challengesLogic.js"></script>
     <script>
-      // MODEL with the rules of the challange (its an image that pops up, basically)
+      // MODEL with the rules of the challenge (its an image that pops up, basically)
       showRulesModel(19); // receives challenge index as param
-
-      // chat
-      function redirect() {
-        // You can replace 'target-page.html' with the URL of the page you want to redirect to
-        window.location.href = "chat.html";
-      }
 
       // challenge logic
       const triangles = [
@@ -988,14 +921,8 @@
                 el.classList.remove("circle__input");
               });
 
-              // show conffeti effect
-              addConfettiEffect();
-
-              setTimeout(() => {
-                document.querySelector(".circles__container").style.opacity =
-                  "0.1";
-                document.getElementById("success__card").style.display = "flex";
-              }, 4000);
+              // show conffeti effect and success card
+              showSucessCard([".game__elements__container"]);
             }
           }
           // wrong answer
@@ -1018,6 +945,5 @@
         el.addEventListener("change", () => checkEndGame(2));
       });
     </script>
-    <script src="js/desafios/confetti.js"></script>
   </body>
 </html>

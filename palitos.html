@@ -56,7 +56,8 @@
         height: 90vh;
         display: flex;
         margin: 0 3rem;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 10rem;
       }
 
       .stick__content {
@@ -246,6 +247,13 @@
         position: relative;
         top: 3.5rem;
         left: 14.3rem;
+      }
+
+      .wrong__correct_btns {
+        position: absolute;
+        top: 54rem;
+        left: 15rem;
+        width: 25%;
       }
     </style>
   </head>
@@ -732,6 +740,19 @@
 
               <div class="black stick__bw change" id="b6"></div>
               <div class="white stick__bw change" id="w6"></div>
+
+              <button
+                class="correct__btn wrong__correct_btns"
+                style="display: none; margin-top: 30px"
+              >
+                Você descobriu! Parabéns!
+              </button>
+              <button
+                class="wrong__btn wrong__correct_btns"
+                style="display: none; margin-top: 30px"
+              >
+                Tente de novo!
+              </button>
             </div>
 
             <div class="ink__container">
@@ -757,15 +778,23 @@
                 src="assets/img/Desafios-img/palitos_1.png"
               />
             </div>
-            <button
-              class="correct__btn"
-              style="display: none; margin-top: 30px"
-            >
-              Você descobriu! Parabéns!
-            </button>
-            <button class="wrong__btn" style="display: none; margin-top: 30px">
-              Tente de novo!
-            </button>
+
+            <div id="success__card">
+              <h3>Parabéns!<br />Você descobriu!</h3>
+
+              <div id="success__card__text">
+                <div>
+                  <button>Compartilhe</button>
+                  <h4>sua solução com os monitores</h4>
+                </div>
+
+                <div>
+                  <h4>Veja mensagens no</h4>
+                  <button onclick="redirect('palitos')">Chat</button>
+                  <h4>sobre esse desafio</h4>
+                </div>
+              </div>
+            </div>
           </div>
           <!-- end of GAME CONTAINER -->
 
@@ -777,27 +806,26 @@
           </div>
 
           <div class="desafio__btn__container">
-            <button class="btn btn-primary desafio__btn__primary">
-              <a id="replay__btn" onclick="location.reload();"> Reiniciar </a>
+            <button
+              class="btn btn-primary desafio__btn__primary"
+              onclick="location.reload();"
+            >
+              <a id="replay__btn"> Reiniciar </a>
             </button>
 
             <button
               class="btn btn-primary desafio__btn__primary"
+              onclick="location.assign('./desafio.html');"
               onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 13);"
             >
-              <a href="./desafio.html"> Voltar </a>
-            </button>
-
-            <button class="btn btn-primary desafio__btn__primary">
-              <a id="show__rules__btn">Regras do Desafio</a>
+              <a> Voltar </a>
             </button>
 
             <button
-              id="proximo__desafio__btn"
+              id="show__rules__btn"
               class="btn btn-primary desafio__btn__primary"
-              style="display: none"
             >
-              <a href="./desafio.html"> Próximo desafio </a>
+              <a>Regras do Desafio</a>
             </button>
           </div>
         </div>
@@ -846,7 +874,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/challengesLogic.js"></script>
     <script>
-      // MODEL with the rules of the challange (its an image that pops up, basically)
+      // MODEL with the rules of the challenge (its an image that pops up, basically)
       showRulesModel(13); // receives challenge index as param
 
       /* CUSTOM CURSOR */
@@ -894,12 +922,16 @@
 
       sticks.forEach((s) => {
         s.addEventListener("click", () => {
-          if (s.id.startsWith("b"))
-            document.getElementById(
-              `w${s.id.split("")[1]}`
-            ).style.borderBottomColor = `var(--${currentColor})`;
-          else s.style.borderBottomColor = `var(--${currentColor})`;
-
+          if (s.id.startsWith("b")) {
+            let element = document.getElementById(`w${s.id.split("")[1]}`);
+            element.style.borderBottomColor = `var(--${currentColor})`;
+            element.classList.add("painted");
+            element.classList.add(`painted_${currentColor}`);
+          } else {
+            s.style.borderBottomColor = `var(--${currentColor})`;
+            s.classList.add("painted");
+            s.classList.add(`painted_${currentColor}`);
+          }
           if (checkEndGame()) endGame();
         });
       });
@@ -907,12 +939,12 @@
       // verifies if solution is correct or wrong
       const checkSolution = () => {
         if (
-          document.getElementById("w1").style.borderBottomColor == "36a9e1" &&
-          document.getElementById("w2").style.borderBottomColor == "31ae74" &&
-          document.getElementById("w3").style.borderBottomColor == "36a9e1" &&
-          document.getElementById("w4").style.borderBottomColor == "31ae74" &&
-          document.getElementById("w5").style.borderBottomColor == "b4191c" &&
-          document.getElementById("w6").style.borderBottomColor == "b4191c"
+          document.getElementById("w1").classList.contains("painted_blue") &&
+          document.getElementById("w2").classList.contains("painted_green") &&
+          document.getElementById("w3").classList.contains("painted_blue") &&
+          document.getElementById("w4").classList.contains("painted_green") &&
+          document.getElementById("w5").classList.contains("painted_red") &&
+          document.getElementById("w6").classList.contains("painted_red")
         ) {
           return true;
         }
@@ -920,35 +952,36 @@
       };
 
       const checkEndGame = () => {
-        console.log(document.querySelectorAll(".white")[0].style);
+        let painted = true;
         // check if all elements have been painted
         document.querySelectorAll(".white").forEach((el) => {
-          if (el.style.borderBottom == "0.81rem solid white") return false;
+          if (!el.classList.contains("painted")) painted = false;
         });
 
-        return true;
+        return painted;
       };
 
       const endGame = () => {
         // correct answer
         if (checkSolution()) {
-          // show conffeti effect
-          addConfettiEffect();
+          // show conffeti effect and success card
+          showSucessCard([".stick__container", ".ink__container"]);
 
           // add correct button
           const correctBtn = document.querySelector(".correct__btn");
           correctBtn.style.display = "block";
+          document.querySelector(".wrong__btn").style.display = "none";
           correctBtn.addEventListener("click", () => location.reload());
+          document.querySelector(".game__container").style.gap = "5rem";
         }
         // wrong answer
         else {
           // add wrong button
-          const correctBtn = document.querySelector(".wrong__btn");
-          correctBtn.style.display = "block";
-          correctBtn.addEventListener("click", () => location.reload());
+          const wrongBtn = document.querySelector(".wrong__btn");
+          wrongBtn.style.display = "block";
+          wrongBtn.addEventListener("click", () => location.reload());
         }
       };
     </script>
-    <script src="js/desafios/confetti.js"></script>
   </body>
 </html>
