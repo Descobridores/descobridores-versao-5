@@ -30,7 +30,7 @@ var arquivosHtml = [
   "", //5
   "", //6
   "", //7
-  "", //8
+  "jardim", //8
   "gincana", //9
   "", //10
   "monstros", //11
@@ -126,6 +126,9 @@ function AntesProximo(elem, type, random, setIndice) {
     document
       .getElementById("iniciar__desafio__btn")
       .setAttribute("href", `${arquivosHtml[indice]}.html`);
+  } else {
+    if (document.getElementById("iniciar__desafio__btn"))
+      document.getElementById("iniciar__desafio__btn").style.display = "none";
   }
 
   img1.onerror = function () {
