@@ -1,16 +1,13 @@
-* {
-  --primary__1: #348f6d;
-  --primary__1: #9a1b20;
-  --secondary__1: #e7ecef;
-  --third__1: #274c77;
-  --fourth__1: #a3cef1;
-  --fifth__1: #e9b44c;
-}
+:root {
+  --red: #b4191c;
+  --orange: #ff8421;
+  --black: #1a181a;
+  --green: #00bf77;
+  --pink: #e8607a;
+  --dark-blue: #000a46;
+  --blue: #36a9e1;
 
-body {
-  /* background-color: #e9e9e97d; */
-  /* background: linear-gradient(to right, #e7ecef, #a3cef1, #348f6d); */
-  /* background-color: #f5f6f7; */
+  --primary-color: #1a181a;
 }
 
 .page__container {
@@ -20,8 +17,6 @@ body {
 }
 
 .desafios__container {
-  /* background-color: var(--secondary__1); */
-  /* border: 2px solid #9a1b20; */
   background-color: #fff;
   box-shadow: #9a1b20 1px 1px 2px 1px;
   border-bottom-left-radius: 15px;
@@ -61,39 +56,51 @@ body {
   text-align: center;
 }
 
-.d__1 {
+.red {
+  --background: #f1423633;
   color: #b4191c;
   border-top: 1px solid #b4191c;
 }
 
-#d__2 {
+.orange {
+  --background: #ff842138;
   color: #ff8421;
   border-top: 1px solid #ff8421;
-  background-color: #ff842138;
 }
 
-.d__3 {
+.black {
+  --background: #6477eb33;
   color: #1a181a;
   border-top: 1px solid #1a181a;
 }
 
-.d__4 {
+.green {
+  --background: #00bf771a;
   color: #00bf77;
   border-top: 1px solid #00bf77;
 }
 
 /* #E8607A */
-.d__5 {
+.pink {
+  --background: #f142361a;
   color: #e8607a;
   border-top: 1px solid #e8607a;
 }
 
-.d__6 {
+.dark__blue {
+  /* --background: #fec5034a; */
+  --background: #6477eb33;
   color: #000a46;
   border-top: 1px solid #000a46;
 }
 
-.desafio {
+.blue {
+  --background: #28a7452b;
+  color: #36a9e1;
+  border-top: 1px solid #36a9e1;
+}
+
+.game__selector {
   padding: 1rem 1.3rem;
   font-size: 0.95rem;
   display: flex;
@@ -103,21 +110,29 @@ body {
   margin: 0 5px;
 }
 
-.desafio:hover,
-.desafio label:hover {
+.active__game {
+  /* background-color: #ff842138; */
+  background-color: var(--background);
+}
+
+.game__selector:hover,
+.game__selector label:hover {
   cursor: pointer;
+}
+
+.game__selector:hover {
   background-color: #dce0fd7d;
 }
 
-.desafio:active {
+.game__selector:active {
   background-color: #dce0fd7d;
 }
 
-.desafio img {
+.game__selector img {
   width: 55px;
 }
 
-.desafio label {
+.game__selector label {
   font-weight: bold;
 }
 
@@ -127,6 +142,7 @@ body {
 }
 
 .messages {
+  background-image: url("../assets/img/Desafios-img/soma.png");
   background-repeat: no-repeat;
   background-position: center;
   background-color: #fff;
@@ -185,7 +201,6 @@ body {
 
 #current__chat h5 {
   font-size: 1rem;
-  color: orange;
 }
 
 .message__container {
