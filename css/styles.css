@@ -11063,5 +11063,67 @@ section#contact form#contactForm :-ms-input-placeholder {
   display: flex;
   justify-content: space-around;
   position: relative;
+}
 
+#success__card {
+  position: absolute;
+  color: #348f6d;
+  text-align: center;
+  font-size: 3.8rem;
+  letter-spacing: 0.01em;
+  display: none;
+  /* display: flex; */
+  flex-direction: column;
+  width: 50rem;
+  gap: 6.5rem;
+}
+
+#success__card button {
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 6px 12px;
+  font-weight: 600;
+  background-color: #274c77d9;
+  border-radius: 25px;
+  box-shadow: #348f6d 4px 4px 3px;
+  margin-top: -9px;
+  border: 2px solid #fff;
+}
+
+#success__card button:hover {
+  transform: scale(0.9);
+}
+
+#success__card button:active {
+  transform: scale(1.2);
+  transition: all 1s;
+  outline: none;
+}
+
+#success__card button:focus {
+  outline: none;
+}
+
+#success__card h3 {
+  color: #348f6d;
+  font-size: 3.8rem;
+  letter-spacing: 0.01em;
+}
+
+#success__card h4 {
+  color: #274c77;
+  font-size: 1.5rem;
+  /* letter-spacing: 0.01em; */
+}
+
+#success__card__text {
+  gap: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#success__card__text div {
+  display: flex;
+  gap: 15px;
 }
