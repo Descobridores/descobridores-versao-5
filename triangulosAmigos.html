@@ -217,7 +217,8 @@
         height: 8.9rem;
       }
 
-      #da1 .rotate0 {
+      #da1 .rotate0,
+      #da1 .rotate60 {
         right: 5.7rem;
         bottom: 4.7rem;
       }
@@ -239,7 +240,8 @@
         top: 1rem;
       }
 
-      #da2 .rotate0 {
+      #da2 .rotate0,
+      #da2 .rotate60 {
         right: 4.7rem;
         bottom: 6.5rem;
       }
@@ -259,7 +261,8 @@
         left: 2rem;
       }
 
-      #da3 .rotate0 {
+      #da3 .rotate0,
+      #da3 .rotate60 {
         right: 6.534rem;
         bottom: 6.9rem;
       }
@@ -279,7 +282,8 @@
         left: 1rem;
       }
 
-      #da4 .rotate0 {
+      #da4 .rotate0,
+      #da4 .rotate60 {
         right: 8.45rem;
         bottom: 4.7rem;
       }
@@ -301,7 +305,8 @@
         top: 1.8rem;
       }
 
-      #da5 .rotate0 {
+      #da5 .rotate0,
+      #da5 .rotate60 {
         right: 5.1rem;
         bottom: 7.8rem;
       }
@@ -323,7 +328,8 @@
         bottom: 1rem;
       }
 
-      #da6 .rotate0 {
+      #da6 .rotate0,
+      #da6 .rotate60 {
         right: 6.1rem;
         bottom: 6.85rem;
       }
@@ -345,7 +351,8 @@
         top: 1rem;
       }
 
-      #da7 .rotate0 {
+      #da7 .rotate0,
+      #da7 .rotate60 {
         right: 7.1rem;
         bottom: 6.7rem;
       }
@@ -365,7 +372,8 @@
         bottom: 1rem;
       }
 
-      #da8 .rotate0 {
+      #da8 .rotate0,
+      #da8 .rotate60 {
         right: 5.95rem;
         bottom: 6.85rem;
       }
@@ -385,7 +393,8 @@
         left: -1rem;
       }
 
-      #da9 .rotate0 {
+      #da9 .rotate0,
+      #da9 .rotate60 {
         right: 7.6rem;
         bottom: 4.5rem;
       }
@@ -1118,15 +1127,6 @@
         ".elements__container div"
       );
 
-      // const containers = document.querySelectorAll(
-      //   ".drop__area__container .drop__area"
-      // );
-
-      // const fixedContainers = document.querySelectorAll(
-      //   ".fixed__element__container"
-      // );
-
-      //
       const solutionAreas = document.querySelectorAll('[id^="da"]');
 
       // allow triangles to rotate when clicking and scrolling the mouse's wheel
@@ -1134,126 +1134,52 @@
 
       const triangles = document.querySelectorAll(".element");
 
-      // verifies if solution is correct or wrong - if every animal item was put in right position
+      // verifies if solution is correct or wrong
       const checkSolution = () => {
-        // this array is the correct sequence of for the only correct solution
-        const solution1 = [
-          "img3",
-          "img4",
-          "img1", // elements img1 and img5 have the same pattern
-          "img6",
-          "img8",
-          "img5",
-          "img9",
-          "img7",
-          "img2",
+        // element's correct order
+        const solutions = [
+          "341685972",
+          "345681972",
+          "891427653",
+          "895427613",
+          "267931458",
+          "267935418",
         ];
-        const solution1Rot = [120, 120, 60, 240, 120, 180, null, 180, null];
-
-        const solution2 = [
-          "img8",
-          "img9",
-          "img1",
-          "img4",
-          "img2",
-          "img7",
-          "img6",
-          "img5",
-          "img3",
-        ];
-        const solution2Rot = [240, 120, 180, 240, 120, 300, null, 300, 240];
-
-        const solution3 = [
-          "img2",
-          "img6",
-          "img7",
-          "img9",
-          "img3",
-          "img1",
-          "img4",
-          "img5",
-          "img8",
-        ];
-        const solution3Rot = [240, 120, 60, 240, null, 300, null, 60, null];
-
-        solutions = [
-          solution1,
-          solution1Rot,
-          solution2,
-          solution2Rot,
-          solution3,
-          solution3Rot,
+        // element's correct rotation
+        const solutionsRot = [
+          "120,120,60,240,120,180,0,180,0",
+          "120,120,180,240,120,60,0,180,0",
+          "240,120,180,240,120,300,0,300,240",
+          "240,120,300,240,120,300,0,180,240",
+          "240,120,60,240,0,300,0,60,0",
+          "240,120,60,240,0,60,0,300,0",
         ];
 
-        let isCorrect = true;
+        // get user's answer - loop trough the spaces and get the elements placed
+        let solutionElementsOrder = [];
+        let solutionElementsRotation = [];
 
-        for (j = 0; j < 6; j += 2) {
-          isCorrect = true;
-          console.log("loop");
+        [...solutionAreas].forEach((el) => {
+          solutionElementsOrder.push(
+            el.firstElementChild.firstElementChild.id[3]
+          );
+          solutionElementsRotation.push(
+            el.firstElementChild.firstElementChild.className.split("rotate")[1]
+          );
+        });
 
-          // loop trough the spaces and checks if the sequence of triangles is the same as the correct solution
-          for (i = 0; i < 9; i++) {
-            if (
-              solutionAreas[i].firstElementChild.firstElementChild.id !=
-                solutions[j][i] ||
-              solutionAreas[i].firstElementChild.firstElementChild.style
-                .transform != `rotate(${solutions[j + 1][i]}deg)`
-            ) {
-              if (
-                !(
-                  solutions[j + 1][i] == null &&
-                  solutionAreas[
-                    i
-                  ].firstElementChild.firstElementChild.classList.contains(
-                    "rotate0"
-                  )
-                )
-              ) {
-                if (
-                  // case 1
-                  (solutions[j][i] == "img1" &&
-                    solutionAreas[i].firstElementChild.firstElementChild.id ==
-                      "img5" &&
-                    solutionAreas[i].firstElementChild.firstElementChild.style
-                      .transform !=
-                      `rotate(${(solutions[j + 1][i] + 120) % 360}deg)`) ||
-                  // or
-                  // case 2
-                  (solutions[j][i] == "img5" &&
-                    solutionAreas[i].firstElementChild.firstElementChild.id ==
-                      "img1" &&
-                    solutionAreas[i].firstElementChild.firstElementChild.style
-                      .transform !=
-                      `rotate(${(solutions[j + 1][i] + 240) % 360}deg)`)
-                ) {
-                  // for img1 and img5 have the same pattern so they can be placed in 2 different spots with different rotation values
-                  // the rotation values have a 120° difference
+        solutionElementsOrder = solutionElementsOrder.join("");
+        solutionElementsRotation = solutionElementsRotation.join();
 
-                  console.log(
-                    "id: ",
-                    solutionAreas[i].firstElementChild.firstElementChild.id
-                  );
-                  console.log(solutions[j][i]);
-                  console.log(`rotate(${solutions[j + 1][i]}deg)`);
-                  console.log(
-                    "here",
-                    solutionAreas[i].firstElementChild.firstElementChild.style
-                      .transform,
-                    (solutions[j + 1][i] + 120) % 360
-                  );
-
-                  isCorrect = false;
-                  break;
-                }
-              }
+        for (let i = 0; i < 6; i++) {
+          if (solutionElementsOrder == solutions[i]) {
+            if (solutionElementsRotation == solutionsRot[i]) {
+              return true;
             }
+            return false;
           }
-
-          console.log("solution isCorrect: ", isCorrect);
-          if (isCorrect) return isCorrect;
         }
-
-        return isCorrect;
+        return false;
       };
 
       const checkEndGame = () => {
@@ -1266,8 +1192,6 @@
         if (endGame) {
           // show result
           let result = checkSolution();
-          /////////////////////////////////////////////////////////////////////////////////////////////
-          // TODO
 
           document.querySelector(".solutionTriangle").style.display = "block";
 
@@ -1329,6 +1253,7 @@
                 this.firstElementChild.style.transform == "rotate(0deg)"
               ) {
                 this.firstElementChild.style.transform = "rotate(60deg)";
+                currentValue = 60;
               } else {
                 currentValue =
                   parseInt(
@@ -1342,15 +1267,14 @@
                 }
 
                 this.firstElementChild.style.transform = `rotate(${currentValue}deg)`;
-
-                // remove current rotation class
-                this.firstElementChild.classList.remove(
-                  this.firstElementChild.classList[0]
-                );
-
-                // add new rotation class accordingly to the new applied rotation
-                this.firstElementChild.classList.add(`rotate${currentValue}`);
               }
+              // remove current rotation class
+              this.firstElementChild.classList.remove(
+                this.firstElementChild.classList[0]
+              );
+
+              // add new rotation class accordingly to the new applied rotation
+              this.firstElementChild.classList.add(`rotate${currentValue}`);
             }
           });
 
@@ -1391,6 +1315,10 @@
             // check if drop area already has an element
             if (this.childNodes.length == 1) {
               // remove current element from area
+
+              this.firstChild.style.position = "relative";
+              this.firstChild.style.left = "0";
+              this.firstChild.style.top = "0";
               elementsContainer.appendChild(this.firstChild);
             }
 
@@ -1416,17 +1344,21 @@
               if (document.getElementById(`t${triangleID}`)) {
                 document.getElementById(`t${triangleID}`).style.opacity = "0";
               }
+              // element.draggable[0].classList.remove("draggable-by-jquery-ui");
+            } else {
+              element.draggable[0].style.position = "relative";
+              element.draggable[0].style.left = "0";
+              element.draggable[0].style.top = "0";
             }
 
-            let left = parseInt(
-              element.draggable[0].firstElementChild.style.right.split("rem")[0]
-            );
+            // let left = parseInt(
+            //   element.draggable[0].firstElementChild.style.right.split("rem")[0]
+            // );
 
             checkEndGame();
           },
         });
       });
     </script>
-    <script src="js/desafios/confetti.js"></script>
   </body>
 </html>
