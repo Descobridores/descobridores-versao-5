@@ -200,6 +200,6 @@ const showSucessCard = (gameDivs) => {
     });
     document.getElementById("success__card").style.display = "flex";
 
-    document.querySelector(".game__container").style.justifyContent = "center";
+    // document.querySelector(".game__container").style.justifyContent = "center";
   }, 4000);
 };
