@@ -43,6 +43,7 @@
     <style>
       .game__container {
         height: 90vh;
+        display: flex;
       }
 
       .target__container {
@@ -561,7 +562,7 @@
         <div style="margin-right: -0.75rem; margin-left: -0.75rem">
           <!-- GAME CONTAINER -->
           <div class="game__container">
-            <h2>
+            <h2 class="header__container">
               Deslocamentos restantes: <span id="movements__header">5</span>
             </h2>
             <div class="target__container">
@@ -611,9 +612,7 @@
 
                 <div>
                   <h4>Veja mensagens no</h4>
-                  <button onclick="redirect('triangulos_numericos')">
-                    Chat
-                  </button>
+                  <button onclick="redirect('gincana')">Chat</button>
                   <h4>sobre esse desafio</h4>
                 </div>
               </div>
@@ -732,8 +731,9 @@
 
         // correct answer
         if (checkSolution()) {
-          // show conffeti effect
-          addConfettiEffect();
+          // show conffeti effect and success card
+          showSucessCard([".header__container", ".target__container"]);
+
           movementsHeader.parentElement.style.color = "#00e400";
         }
         // wrong answer
@@ -787,6 +787,5 @@
         .querySelector(".wrong__btn")
         .addEventListener("click", () => location.reload());
     </script>
-    <script src="js/desafios/confetti.js"></script>
   </body>
 </html>
