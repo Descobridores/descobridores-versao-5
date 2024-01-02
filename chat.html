@@ -806,6 +806,21 @@
         const currentChat = document.getElementById("current__chat");
         let activeGameEl = document.getElementById(gameId);
 
+        // set the focus on the current active game
+        activeGameEl.focus();
+        // Check if the child element is not fully visible
+        const gamesContainer = document.querySelector(".desafios__container");
+        const containerRect = gamesContainer.getBoundingClientRect();
+        const activeGameRect = activeGameEl.getBoundingClientRect();
+        if (
+          activeGameRect.bottom > containerRect.bottom ||
+          activeGameRect.top < containerRect.top
+        ) {
+          // Adjust the scroll position to bring the child element into view
+          gamesContainer.scrollTop =
+            activeGameEl.offsetTop - gamesContainer.offsetTop;
+        }
+
         let color =
           activeGameEl.classList[0] == "game__selector"
             ? activeGameEl.classList[1]
