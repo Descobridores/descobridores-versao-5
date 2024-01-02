@@ -56,8 +56,8 @@
         height: 90vh;
         display: flex;
         margin: 0 3rem;
-        justify-content: center;
-        gap: 10rem;
+        /* justify-content: center; */
+        /* gap: 10rem; */
       }
 
       .stick__content {
@@ -208,6 +208,7 @@
         flex-direction: column;
         gap: 8rem;
         align-items: center;
+        margin-left: 10rem;
       }
 
       .selected {
@@ -972,7 +973,7 @@
           correctBtn.style.display = "block";
           document.querySelector(".wrong__btn").style.display = "none";
           correctBtn.addEventListener("click", () => location.reload());
-          document.querySelector(".game__container").style.gap = "5rem";
+          // document.querySelector(".game__container").style.gap = "5rem";
         }
         // wrong answer
         else {

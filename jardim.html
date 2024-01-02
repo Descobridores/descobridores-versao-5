@@ -858,6 +858,9 @@
 
           // correct answer
           if (result) {
+            // remove wrong button
+            document.querySelector(".wrong__btn").style.display = "none";
+
             // show conffeti effect and success card
             showSucessCard([".target__container", ".elements__container"]);
 
