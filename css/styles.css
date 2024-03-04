@@ -11128,3 +11128,8 @@ section#contact form#contactForm :-ms-input-placeholder {
   display: flex;
   gap: 15px;
 }
+
+/* For Firefox specifically */
+.ui-draggable-dragging {
+  cursor: -moz-grabbing;
+}
