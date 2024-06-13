@@ -1074,6 +1074,30 @@
             <div id="caption"></div>
           </div>
 
+          <div id="triangulos__amigos__instrucoes" class="modal">
+            <div id="instrucoes__div">
+              <h4>Quando precisar girar o triângulo ...</h4>
+              <div>
+                <h6>Primeiro, clique e segure</h6>
+                <img
+                  src="assets/img/Desafios-img/triangulos_amigos_instrucoes.gif"
+                />
+              </div>
+              <div>
+                <h6>Depois use a rodinha do mouse para girar</h6>
+                <img
+                  style="width: 165px"
+                  src="assets/img/Desafios-img/gif3.gif"
+                />
+                <img
+                  style="height: 100px"
+                  src="assets/img/Desafios-img/gif2.gif"
+                />
+              </div>
+              <button id="instrucoes__btn">Começar desafio</button>
+            </div>
+          </div>
+
           <div class="desafio__btn__container">
             <button
               class="btn btn-primary desafio__btn__primary"
@@ -1145,6 +1169,15 @@
     <script>
       // MODEL with the rules of the challenge (its an image that pops up, basically)
       showRulesModel(17); // receives challenge index as param
+
+      // close instructions button
+      document
+        .getElementById("instrucoes__btn")
+        .addEventListener("click", () => {
+          document.getElementById(
+            "triangulos__amigos__instrucoes"
+          ).style.display = "none";
+        });
 
       const elementsContainer = document.querySelector(
         ".elements__container div"
