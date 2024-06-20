@@ -120,6 +120,16 @@
         outline: none;
       }
 
+      input[type="number"]::-webkit-outer-spin-button,
+      input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+
       .answers img {
         width: 8rem;
         height: fit-content;
@@ -136,15 +146,15 @@
 
       #input__container {
         flex-direction: row;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
         gap: 4px 0px;
         margin: 0;
       }
 
       #input__container input {
-        width: 15%;
+        width: 20%;
       }
-      #input__container div {
+      .input__container__column div {
         display: flex;
         flex-direction: row;
         margin: 0;
@@ -173,10 +183,12 @@
         border: none;
         box-shadow: 1px 1px 3px 0px black;
         padding: 2px 8px;
-        margin-left: 1rem;
+        /* margin-left: 1rem; */
         margin-top: 15px;
       }
-
+      .input__container__column .answer__btn {
+        margin-right: 9rem;
+      }
       .answer__btn:active {
         transform: scale(1.2);
         transition: all 1s;
@@ -697,44 +709,62 @@
                           possibilidades?
                         </h6>
                         <div id="input__container">
-                          <div>
-                            <input id="input__3" type="number" min="0" /><label
-                              >quadrados</label
-                            >
+                          <div class="input__container__column">
+                            <div>
+                              <input
+                                id="input__3"
+                                type="number"
+                                min="0"
+                              /><label>quadrados</label>
+                            </div>
+                            <div>
+                              <input
+                                id="input__4"
+                                type="number"
+                                min="0"
+                              /><label>quadrados</label>
+                            </div>
+                            <div>
+                              <input
+                                id="input__5"
+                                type="number"
+                                min="0"
+                              /><label>quadrados</label>
+                            </div>
+                            <div>
+                              <input
+                                id="input__6"
+                                type="number"
+                                min="0"
+                              /><label>quadrados</label>
+                            </div>
                           </div>
-                          <div>
-                            <input id="input__4" type="number" min="0" /><label
-                              >quadrados</label
-                            >
+                          <div class="input__container__column">
+                            <div>
+                              <input
+                                id="input__7"
+                                type="number"
+                                min="0"
+                              /><label>quadrados</label>
+                            </div>
+                            <div>
+                              <input
+                                id="input__8"
+                                type="number"
+                                min="0"
+                              /><label>quadrados</label>
+                            </div>
+                            <div>
+                              <input
+                                id="input__9"
+                                type="number"
+                                min="0"
+                              /><label>quadrados</label>
+                            </div>
+                            <button id="answer__btn__2" class="answer__btn">
+                              Responder
+                            </button>
                           </div>
-                          <div>
-                            <input id="input__5" type="number" min="0" /><label
-                              >quadrados</label
-                            >
-                          </div>
-                          <div>
-                            <input id="input__6" type="number" min="0" /><label
-                              >quadrados</label
-                            >
-                          </div>
-                          <div>
-                            <input id="input__7" type="number" min="0" /><label
-                              >quadrados</label
-                            >
-                          </div>
-                          <div>
-                            <input id="input__8" type="number" min="0" /><label
-                              >quadrados</label
-                            >
-                          </div>
-                          <div>
-                            <input id="input__9" type="number" min="0" /><label
-                              >quadrados</label
-                            >
-                          </div>
-                          <button id="answer__btn__2" class="answer__btn">
-                            Responder
-                          </button>
                         </div>
                       </div>
                     </div>
@@ -931,6 +961,8 @@
       document.querySelectorAll(".answers").forEach((el) => {
         answers.push(el.querySelectorAll("input"));
       });
+
+      answers.forEach((el) => el.forEach((element) => (element.value = "")));
 
       // problem 1
       document

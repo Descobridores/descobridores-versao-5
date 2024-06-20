@@ -1,28 +1,20 @@
-Arquivos alterados:
-curral.html
-
-Arquivos criados:
-curral.css
-enviarResposta.html
-monstros.html
-triangulosAmigos
-triangulosNumericos
-torre
-...
-...
-
-
-Arquivos sem uso:
-tic-tac-toe.js
+SARAH:
 
 coisas que podem ser comuns nos desafios:
 game__container{
  height: 70vh
 }
 
+no chat é necessario formatar as mensagens (nao permitir certos caracteres) pensando em como 
+elas vao ser armazenadas no data-set
 
-Seme:
-novos botoes de reiniciar, voltar...
-desafios que eu nao soube como implementar
-nova tela de sucesso
+
+
+SEME:
+
 o que é o "banco de problemas"
+ilustração do dragão
+ilustração das flores do "desafio do jardim"
+título para a página do chat
+efeitos sonoros
+avatares para o chat
