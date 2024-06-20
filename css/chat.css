@@ -210,12 +210,21 @@
   margin: 15px;
   padding-left: 8px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.message__container div:last-of-type {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
 }
 
 .message__div {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 5px;
 }
 
 .message__container img {
@@ -231,6 +240,10 @@
   border-radius: 26px;
   font-size: 0.8rem;
   line-height: 1;
+  min-width: 90%;
+  max-width: 90%;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 
 .message__container span:first-of-type {
@@ -325,4 +338,103 @@
 
 #send__icon:hover {
   cursor: pointer;
+}
+
+#msgSettings {
+  display: none;
+  position: absolute;
+  left: 31%;
+  border: solid 1px #9a1b20;
+  border-radius: 10px;
+  box-shadow: 2px 3px 4px #cfc3c3;
+  padding: 30px;
+}
+
+#msgSettings img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+#msgSettings {
+  color: #9a1b20;
+  font-weight: 600;
+}
+
+#msgSettings input {
+  padding: 10px;
+}
+
+#msgSettings input[type="radio"] {
+  display: none;
+}
+
+#msgSettings label {
+  cursor: pointer;
+  display: inline-block;
+  border: 2px solid transparent;
+  border-radius: 50%;
+}
+
+#msgSettings label:hover {
+  border: 2px solid #9a1b20;
+  transform: scale(1.1);
+}
+
+#msgSettings input[type="radio"]:checked + label {
+  border: 2px solid #9a1b20;
+  transform: scale(1.1);
+  padding: 3px;
+}
+
+#msgSettings label img {
+  display: block;
+  max-width: 80px;
+  max-height: 80px;
+}
+
+#msgSettings h4 {
+  color: #9a1b20;
+  margin-bottom: 15px;
+}
+
+#msgSettings div {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+#send__message__btn {
+  margin-left: 5px;
+  background-color: #9a1b20;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.chat__form__btn {
+  margin-left: 5px;
+  color: #9a1b20;
+  border: 1px solid #9a1b20;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
+}
+
+#user__message {
+  width: 100%;
+}
+
+.invalid__field {
+  border: red 1px solid;
+  box-shadow: red 2px 1px 5px;
+  border-radius: 10px;
+  padding: 8px;
+  margin-bottom: 7px;
+}
+
+.g-recaptcha {
+  width: fit-content;
+  position: relative;
+  left: 22%;
 }
