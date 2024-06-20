@@ -1,4 +1,4 @@
-// model popup with challenge rules
+// modal popup with challenge rules
 const showRulesModel = (index) => {
   document.getElementById("show__rules__btn").addEventListener("click", () => {
     const modal = document.getElementById("myModal");
