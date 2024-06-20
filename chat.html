@@ -15,6 +15,11 @@
       src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Google reCaptcha-->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script 6LdJt_IpAAAAAKcvhN6iungdLePbX4s7vDSoNP6n></script>
+
     <!-- Google fonts-->
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
@@ -498,7 +503,7 @@
           <hr class="linha" />
         </section>
         <div class="page__container">
-          <div>
+          <div id="desafios">
             <h3>DESAFIOS</h3>
             <div class="desafios__container">
               <div id="soma" class="game__selector red">
@@ -593,7 +598,16 @@
               <img />
               <h5></h5>
             </div>
-            <div class="messages">
+            <div class="messages" id="messages">
+              <div
+                style="display: none"
+                id="messages-data"
+                data-messages='[
+                {"name": "user1", "date": "Mon May 27 2024 17:21:07 GMT-0300 (Hora padrão de Brasília)", "image": "avatar1", "message": "there will be a users message here. Not a long one."},
+                {"name": "user2", "date": "15/02/2024", "image": "avatar2", "message": "there will be a users message here. Not a long one."},
+                {"name": "user3", "date": "15/02/2024", "image": "avatar3", "message": "there will be a users message here. Not a long one."}
+            ]'
+              ></div>
               <div class="user__message message__container">
                 <div class="message__div">
                   <img src="./assets/img/Desafios-img/descobridor.png" alt="" />
@@ -604,16 +618,20 @@
                     ipsum lorem ipsum lorem ipsum
                   </p>
                 </div>
-                <span>Marcos</span>
-                <span>4:00 PM, ontem</span>
+                <div>
+                  <span>Marcos</span>
+                  <span>16:50, 10/04/2024</span>
+                </div>
               </div>
               <div class="monitor__message message__container">
                 <div class="message__div">
                   <img src="./assets/img/Desafios-img/me.jpeg" alt="" />
                   <p>Ei Marcos, muito boa essa sua ideia, você acha ......</p>
                 </div>
-                <span>Sarah</span>
-                <span>8:50 AM, hoje</span>
+                <div>
+                  <span>Sarah</span>
+                  <span>8:50, 01/02/2024</span>
+                </div>
               </div>
               <div class="user__message message__container">
                 <div class="message__div">
@@ -623,8 +641,10 @@
                     ...
                   </p>
                 </div>
-                <span>João</span>
-                <span>1:00 PM, hoje</span>
+                <div>
+                  <span>João</span>
+                  <span>11:00, 03/06/2024</span>
+                </div>
               </div>
               <div class="user__message message__container">
                 <div class="message__div">
@@ -633,16 +653,20 @@
                     Olá, eu tenho essa opinião sobre esse desafio e é assim ...
                   </p>
                 </div>
-                <span>Nina</span>
-                <span>1:00 PM, hoje</span>
+                <div>
+                  <span>Nina</span>
+                  <span>13:00, 15/06/2024</span>
+                </div>
               </div>
               <div class="monitor__message message__container">
                 <div class="message__div">
                   <img src="./assets/img/Desafios-img/Marcelo.jpg" alt="" />
                   <p>Ei Marcos, muito boa essa sua ideia, você acha ......</p>
                 </div>
-                <span>Marcelo</span>
-                <span>8:50 AM, hoje</span>
+                <div>
+                  <span>Marcelo</span>
+                  <span>8:50, 25/06/2023</span>
+                </div>
               </div>
               <div class="user__message message__container">
                 <div class="message__div">
@@ -654,16 +678,20 @@
                     lorem ipsum lorem ipsum
                   </p>
                 </div>
-                <span>Marcos</span>
-                <span>4:00 PM, ontem</span>
+                <div>
+                  <span>Marcos</span>
+                  <span>16:50, 10/04/2024</span>
+                </div>
               </div>
               <div class="monitor__message message__container">
                 <div class="message__div">
                   <img src="./assets/img/Desafios-img/me.jpeg" alt="" />
                   <p>Ei Marcos, muito boa essa sua ideia, você acha ......</p>
                 </div>
-                <span>Sarah</span>
-                <span>8:50 AM, hoje</span>
+                <div>
+                  <span>Sarah</span>
+                  <span>8:50, 01/02/2024</span>
+                </div>
               </div>
               <div class="user__message message__container">
                 <div class="message__div">
@@ -672,8 +700,10 @@
                     Olá, eu tenho essa opinião sobre esse desafio e é assim ...
                   </p>
                 </div>
-                <span>João</span>
-                <span>1:00 PM, hoje</span>
+                <div>
+                  <span>João</span>
+                  <span>11:00, 03/06/2024</span>
+                </div>
               </div>
               <div class="user__message message__container">
                 <div class="message__div">
@@ -682,16 +712,20 @@
                     Olá, eu tenho essa opinião sobre esse desafio e é assim ...
                   </p>
                 </div>
-                <span>Nina</span>
-                <span>1:00 PM, hoje</span>
+                <div>
+                  <span>Nina</span>
+                  <span>13:00, 15/06/2024</span>
+                </div>
               </div>
               <div class="monitor__message message__container">
                 <div class="message__div">
                   <img src="./assets/img/Desafios-img/Marcelo.jpg" alt="" />
                   <p>Ei Marcos, muito boa essa sua ideia, você acha ......</p>
                 </div>
-                <span>Marcelo</span>
-                <span>8:50 AM, hoje</span>
+                <div>
+                  <span>Marcelo</span>
+                  <span>11:00, 03/06/2024</span>
+                </div>
               </div>
               <div class="user__message message__container">
                 <div class="message__div">
@@ -701,16 +735,20 @@
                     ......
                   </p>
                 </div>
-                <span>Marcos</span>
-                <span>4:00 PM, ontem</span>
+                <div>
+                  <span>Marcos</span>
+                  <span>16:50, 10/04/2024</span>
+                </div>
               </div>
               <div class="monitor__message message__container">
                 <div class="message__div">
                   <img src="./assets/img/Desafios-img/me.jpeg" alt="" />
                   <p>Ei Marcos, muito boa essa sua ideia, você acha ......</p>
                 </div>
-                <span>Sarah</span>
-                <span>8:50 AM, hoje</span>
+                <div>
+                  <span>Sarah</span>
+                  <span>8:50, 01/02/2024</span>
+                </div>
               </div>
               <div class="user__message message__container">
                 <div class="message__div">
@@ -719,8 +757,10 @@
                     Olá, eu tenho essa opinião sobre esse desafio e é assim ...
                   </p>
                 </div>
-                <span>João</span>
-                <span>1:00 PM, hoje</span>
+                <div>
+                  <span>João</span>
+                  <span>11:00, 03/06/2024</span>
+                </div>
               </div>
               <div class="user__message message__container">
                 <div class="message__div">
@@ -729,25 +769,137 @@
                     Olá, eu tenho essa opinião sobre esse desafio e é assim ...
                   </p>
                 </div>
-                <span>Nina</span>
-                <span>1:00 PM, hoje</span>
+                <div>
+                  <span>Nina</span>
+                  <span>13:00, 15/06/2024</span>
+                </div>
               </div>
               <div class="monitor__message message__container">
                 <div class="message__div">
                   <img src="./assets/img/Desafios-img/Marcelo.jpg" alt="" />
                   <p>Ei Marcos, muito boa essa sua ideia, você acha ......</p>
                 </div>
-                <span>Marcelo</span>
-                <span>8:50 AM, hoje</span>
+                <div>
+                  <span>Marcela</span>
+                  <span>11:00, 03/06/2024</span>
+                </div>
               </div>
             </div>
             <div class="send__message__area">
+              <!-- TODO -->
               <input
                 id="send__message__input"
                 placeholder="Digite sua mensagem"
+                pattern="[^']*"
+                title="Nao permite aspas simples (')"
               />
               <img id="send__icon" src="./assets/img/send.png" />
             </div>
+          </div>
+
+          <div id="msgSettings">
+            <form
+              id="chat__form"
+              action="http://httpbin.org/post"
+              method="POST"
+            >
+              <h4>Escolha um avatar</h4>
+              <div class="avatar__container">
+                <input
+                  type="radio"
+                  id="avatar1"
+                  name="avatar"
+                  value="avatar1"
+                />
+                <label for="avatar1">
+                  <img src="./assets/img/chat/avatar1.jpg" />
+                </label>
+
+                <input
+                  type="radio"
+                  id="avatar2"
+                  name="avatar"
+                  value="avatar2"
+                />
+                <label for="avatar2">
+                  <img src="./assets/img/chat/avatar2.jpg" />
+                </label>
+
+                <input
+                  type="radio"
+                  id="avatar3"
+                  name="avatar"
+                  value="avatar3"
+                />
+                <label for="avatar3">
+                  <img src="./assets/img/chat/avatar3.jpg" />
+                </label>
+
+                <input
+                  type="radio"
+                  id="avatar4"
+                  name="avatar"
+                  value="avatar4"
+                />
+                <label for="avatar4">
+                  <img src="./assets/img/chat/avatar4.jpg" />
+                </label>
+
+                <input
+                  type="radio"
+                  id="avatar5"
+                  name="avatar"
+                  value="avatar5"
+                />
+                <label for="avatar5">
+                  <img src="./assets/img/chat/avatar5.jpg" />
+                </label>
+
+                <input
+                  type="radio"
+                  id="avatar6"
+                  name="avatar"
+                  value="avatar6"
+                />
+                <label for="avatar6">
+                  <img src="./assets/img/chat/avatar6.jpg" />
+                </label>
+                <br /><br />
+              </div>
+              <label for="user__name">Nome</label><br />
+              <input
+                type="text"
+                id="user__name"
+                name="name"
+                value=""
+                placeholder="Seu nome"
+              /><br /><br />
+
+              <label for="user__message">Mensagem</label><br />
+              <input
+                type="text"
+                id="user__message"
+                name="message"
+                value=""
+              /><br /><br />
+              <div
+                class="g-recaptcha"
+                data-sitekey="6LdJt_IpAAAAAKcvhN6iungdLePbX4s7vDSoNP6n
+              "
+              ></div>
+              <br />
+              <div>
+                <button class="chat__form__btn" id="cancel__message">
+                  Cancelar
+                </button>
+                <input
+                  class="chat__form__btn"
+                  id="send__message__btn"
+                  type="submit"
+                  value="Enviar"
+                />
+              </div>
+            </form>
           </div>
         </div>
       </main>
@@ -785,12 +937,19 @@
       </footer>
     </div>
     <script src="./js/popUp.js"></script>
-    <!-- Bootstrap core JS-->
+    <!-- Bootstrap-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- Core theme JS-->
+
+    <!-- reCaptcha-->
+    <script>
+      function onSubmit(token) {
+        document.getElementById("demo-form").submit();
+      }
+    </script>
+
     <script src="js/scripts.js"></script>
     <script src="js/chat.js"></script>
     <script>
