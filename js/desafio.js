@@ -68,7 +68,7 @@ var Descricoes = [
   "",
   "Ana e Beatriz decidiram brincar com o jogo Triângulo Numérico. O objetivo do jogo é completar as peças não preenchidas em cada triângulo ao lado, respeitando a regra: O número de uma peça é igual à soma dos dois números abaixo dele.",
 ];
-var Tamanho = Titulos.length - 1;
+var Tamanho = titles.length - 1;
 
 function AbrirPDF(setter) {
   var pdf;
@@ -102,12 +102,10 @@ function AntesProximo(elem, type, random, setIndice) {
     }
   }
 
-  // console.log()
-  // console.log(Tamanho)
   document.getElementById("Anterior").setAttribute("name", indice);
   document.getElementById("Proximo").setAttribute("name", indice);
   // Troca de Titulo
-  var texto = document.createTextNode(Titulos[indice]);
+  var texto = document.createTextNode(titles[indice]);
   $("#TituloDesafio").empty();
   document.getElementById("TituloDesafio").append(texto);
 
@@ -143,7 +141,7 @@ function AntesProximo(elem, type, random, setIndice) {
   ChecaSetas(indice);
 }
 
-// Checa se as setas estão aparecendo e desaparecendo nos finais
+// Testa se as setas estão aparecendo e desaparecendo nos finais
 function ChecaSetas(indice) {
   if (indice == Tamanho) {
     document
@@ -217,8 +215,8 @@ function inserir_imagens(busca) {
   var buscaSimplificada = retiraAcentos(busca.toLowerCase());
 
   // converte strings para letras minusculas sem acento
-  for (var i = 0; i < Titulos.length; i++) {
-    var tituloTemp = retiraAcentos(Titulos[i].toLowerCase());
+  for (var i = 0; i < titles.length; i++) {
+    var tituloTemp = retiraAcentos(titles[i].toLowerCase());
     if (tituloTemp.includes(buscaSimplificada)) {
       indexs.push(i);
     }
