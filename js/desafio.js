@@ -1,4 +1,4 @@
-var Titulos = [
+var titles = [
   "APOSTE NA SOMA", //0
   "CONSTRUINDO PIPAS", //1
   "DESAFIO DA ESCADA", //2
