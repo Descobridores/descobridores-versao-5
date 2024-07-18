@@ -42,7 +42,7 @@
 
     <style>
       .container {
-        margin: 0 9rem;
+        margin: 0 5rem;
       }
 
       .game__container {
@@ -431,6 +431,24 @@
         top: -30rem;
         /* bottom: 35rem; */
         right: -9rem;
+      }
+
+      .element__parent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 7rem;
+        height: 7rem;
+      }
+
+      .spinning__arrow {
+        position: relative;
+        width: 24px !important;
+        top: 2.2rem;
+      }
+
+      .spinning__arrow:hover {
+        cursor: pointer;
       }
     </style>
   </head>
@@ -965,67 +983,130 @@
 
             <div class="elements__container">
               <div class="drop__area initial__drop__area">
-                <div class="element draggable-by-jquery-ui brown">
+                <div class="element__parent">
+                  <div class="element draggable-by-jquery-ui brown">
+                    <img
+                      id="img1"
+                      src="assets/img/Desafios-img/t_amigo_1.png"
+                      class="rotate0"
+                    />
+                  </div>
                   <img
-                    id="img1"
-                    src="assets/img/Desafios-img/t_amigo_1.png"
-                    class="rotate0"
+                    id="arrow__1"
+                    class="spinning__arrow"
+                    src="assets/img/Desafios-img/spinning__arrow.png"
                   />
                 </div>
-                <div class="element draggable-by-jquery-ui brown">
+                <div class="element__parent">
+                  <div class="element draggable-by-jquery-ui brown">
+                    <img
+                      id="img2"
+                      src="assets/img/Desafios-img/t_amigo_2.png"
+                      class="rotate0"
+                    />
+                  </div>
                   <img
-                    id="img2"
-                    src="assets/img/Desafios-img/t_amigo_2.png"
-                    class="rotate0"
+                    id="arrow__2"
+                    class="spinning__arrow"
+                    src="assets/img/Desafios-img/spinning__arrow.png"
                   />
                 </div>
-                <div class="element draggable-by-jquery-ui brown">
+                <div class="element__parent">
+                  <div class="element draggable-by-jquery-ui brown">
+                    <img
+                      id="img3"
+                      src="assets/img/Desafios-img/t_amigo_3.png"
+                      class="rotate0"
+                    />
+                  </div>
                   <img
-                    id="img3"
-                    src="assets/img/Desafios-img/t_amigo_3.png"
-                    class="rotate0"
+                    id="arrow__3"
+                    class="spinning__arrow"
+                    src="assets/img/Desafios-img/spinning__arrow.png"
                   />
                 </div>
-                <div class="element draggable-by-jquery-ui brown">
+                <div class="element__parent">
+                  <div class="element draggable-by-jquery-ui brown">
+                    <img
+                      id="img4"
+                      src="assets/img/Desafios-img/t_amigo_4.png"
+                      class="rotate0"
+                    />
+                  </div>
                   <img
-                    id="img4"
-                    src="assets/img/Desafios-img/t_amigo_4.png"
-                    class="rotate0"
+                    id="arrow__4"
+                    class="spinning__arrow"
+                    src="assets/img/Desafios-img/spinning__arrow.png"
                   />
                 </div>
-                <div class="element draggable-by-jquery-ui blue">
+                <div class="element__parent">
+                  <div class="element draggable-by-jquery-ui blue">
+                    <img
+                      id="img5"
+                      src="assets/img/Desafios-img/t_amigo_5.png"
+                      class="rotate0"
+                    />
+                  </div>
                   <img
-                    id="img5"
-                    src="assets/img/Desafios-img/t_amigo_5.png"
-                    class="rotate0"
+                    id="arrow__5"
+                    class="spinning__arrow"
+                    src="assets/img/Desafios-img/spinning__arrow.png"
                   />
                 </div>
-                <div class="element draggable-by-jquery-ui blue">
+                <div class="element__parent">
+                  <div class="element draggable-by-jquery-ui blue">
+                    <img
+                      id="img6"
+                      src="assets/img/Desafios-img/t_amigo_6.png"
+                      class="rotate0"
+                    />
+                  </div>
                   <img
-                    id="img6"
-                    src="assets/img/Desafios-img/t_amigo_6.png"
-                    class="rotate0"
+                    id="arrow__6"
+                    class="spinning__arrow"
+                    src="assets/img/Desafios-img/spinning__arrow.png"
                   />
                 </div>
-                <div class="element draggable-by-jquery-ui orange">
+                <div class="element__parent">
+                  <div class="element draggable-by-jquery-ui orange">
+                    <img
+                      id="img7"
+                      src="assets/img/Desafios-img/t_amigo_7.png"
+                      class="rotate0"
+                    />
+                  </div>
                   <img
-                    id="img7"
-                    src="assets/img/Desafios-img/t_amigo_7.png"
-                    class="rotate0"
+                    id="arrow__7"
+                    class="spinning__arrow"
+                    src="assets/img/Desafios-img/spinning__arrow.png"
                   />
                 </div>
-                <div class="element draggable-by-jquery-ui orange">
+                <div class="element__parent">
+                  <div class="element draggable-by-jquery-ui orange">
+                    <img
+                      id="img8"
+                      src="assets/img/Desafios-img/t_amigo_8.png"
+                      class="rotate0"
+                    />
+                  </div>
                   <img
-                    id="img8"
-                    src="assets/img/Desafios-img/t_amigo_8.png"
-                    class="rotate0"
+                    id="arrow__8"
+                    class="spinning__arrow"
+                    src="assets/img/Desafios-img/spinning__arrow.png"
                   />
                 </div>
-                <div class="element draggable-by-jquery-ui green">
+                <div class="element__parent">
+                  <div class="element draggable-by-jquery-ui green">
+                    <img
+                      id="img9"
+                      src="assets/img/Desafios-img/t_amigo_9.png"
+                      class="rotate0"
+                    />
+                  </div>
                   <img
-                    id="img9"
-                    src="assets/img/Desafios-img/t_amigo_9.png"
-                    class="rotate0"
+                    id="arrow__9"
+                    class="spinning__arrow"
+                    src="assets/img/Desafios-img/spinning__arrow.png"
                   />
                 </div>
               </div>
@@ -1078,6 +1159,17 @@
             <div id="instrucoes__div">
               <h4>Quando precisar girar o triângulo ...</h4>
               <div>
+                <h6>Clique na setinha ao lado do triângulo</h6>
+                <img src="assets/img/Desafios-img/gif.gif" />
+              </div>
+
+              <button id="instrucoes__btn">Começar desafio</button>
+            </div>
+
+            <!-- INSTRUÇOES ANTIGAS 
+            <div id="instrucoes__div">
+              <h4>Quando precisar girar o triângulo ...</h4>
+              <div>
                 <h6>Primeiro, clique e segure</h6>
                 <img
                   src="assets/img/Desafios-img/triangulos_amigos_instrucoes.gif"
@@ -1095,7 +1187,7 @@
                 />
               </div>
               <button id="instrucoes__btn">Começar desafio</button>
-            </div>
+            </div> -->
           </div>
 
           <div class="desafio__btn__container">
@@ -1318,6 +1410,56 @@
         "3.5rem",
       ];
 
+      // ROTATE TRIANGLES FUNCTION (CLICKING THE ARROW BUTTON/IMG)
+      document.querySelectorAll(".spinning__arrow").forEach((el) => {
+        el.addEventListener("click", () => {
+          rotateTriangle(el.parentElement.firstElementChild.firstElementChild);
+        });
+
+        el.addEventListener("mousedown", () => {
+          el.style.transform = "scale(1.15)";
+        });
+
+        el.addEventListener("mouseup", () => {
+          el.style.transform = "scale(1)";
+        });
+      });
+
+      const rotateTriangle = (triangle) => {
+        if (
+          triangle.style.transform == "" ||
+          triangle.style.transform == "rotate(0deg)"
+        ) {
+          triangle.style.transform = "rotate(60deg)";
+          currentValue = 60;
+        } else {
+          currentValue =
+            parseInt(
+              triangle.style.transform.split("rotate(")[1].replace("deg)", "")
+            ) + 60;
+
+          if (currentValue == 360) {
+            currentValue = 0;
+          }
+
+          triangle.style.transform = `rotate(${currentValue}deg)`;
+        }
+        // remove current rotation class
+        triangle.classList.remove(triangle.classList[0]);
+
+        // add new rotation class accordingly to the new applied rotation
+        triangle.classList.add(`rotate${currentValue}`);
+      };
+
+      // insert triangle back to initial position
+      const insertInitPosition = (element) => {
+        const arrow = document.getElementById(
+          `arrow__${element.draggable[0].firstElementChild.id.split("img")[1]}`
+        );
+
+        arrow.parentElement.style.display = "flex";
+      };
+
       $(function () {
         $(".draggable-by-jquery-ui")
           .draggable({
@@ -1377,16 +1519,13 @@
               }
 
               // accepts only NOT rotated triangles
-            } else {
-              if (
-                element[0].firstElementChild.style.transform !=
-                  "rotate(60deg)" &&
-                element[0].firstElementChild.style.transform !=
-                  "rotate(180deg)" &&
-                element[0].firstElementChild.style.transform != "rotate(300deg)"
-              ) {
-                return $(element[0]).hasClass("draggable-by-jquery-ui");
-              }
+            } else if (
+              element[0].firstElementChild.style.transform != "rotate(60deg)" &&
+              element[0].firstElementChild.style.transform !=
+                "rotate(180deg)" &&
+              element[0].firstElementChild.style.transform != "rotate(300deg)"
+            ) {
+              return $(element[0]).hasClass("draggable-by-jquery-ui");
             }
 
             return false;
@@ -1403,13 +1542,26 @@
               this.firstChild.style.position = "relative";
               this.firstChild.style.left = "0";
               this.firstChild.style.top = "0";
-              elementsContainer.appendChild(this.firstChild);
+              // elementsContainer.appendChild(this.firstChild);
+
+              // if element is being dropped back into the initial area, we insert it
+              // into the parent container
+              // display the element__parent div again
+              const id =
+                this.firstElementChild.firstElementChild.id.split("img")[1];
+
+              const containerParent = document.getElementById(
+                `arrow__${id}`
+              ).parentElement;
+              containerParent.style.display = "flex";
+
+              console.log(this.firstElementChild);
+              containerParent.prepend(this.firstElementChild);
             }
 
             // check if element had already been placed in a triangle area before
             let prevParentID =
               element.draggable[0].parentElement.id.split("")[2];
-            console.log(element.draggable[0].parentElement.id);
 
             if (
               prevParentID &&
@@ -1437,6 +1589,28 @@
               element.draggable[0].style.position = "relative";
               element.draggable[0].style.left = "0";
               element.draggable[0].style.top = "0";
+            }
+
+            // remove spinning arrow
+            document.getElementById(
+              `arrow__${
+                element.draggable[0].firstElementChild.id.split("img")[1]
+              }`
+            ).parentElement.style.display = "none";
+
+            // if element is being dropped back into the initial area, we insert it
+            // into the parent container
+            if (this.classList.contains("initial__drop__area")) {
+              // display the element__parent div again
+              const id =
+                element.draggable[0].firstElementChild.id.split("img")[1];
+
+              const containerParent = document.getElementById(
+                `arrow__${id}`
+              ).parentElement;
+              containerParent.style.display = "flex";
+
+              containerParent.prepend(element.draggable[0]);
             }
 
             checkEndGame();
