@@ -982,7 +982,7 @@
             </div>
 
             <div class="elements__container">
-              <div class="drop__area initial__drop__area">
+              <div id="initial__area" class="drop__area initial__drop__area">
                 <div class="element__parent">
                   <div class="element draggable-by-jquery-ui brown">
                     <img
@@ -1451,14 +1451,14 @@
         triangle.classList.add(`rotate${currentValue}`);
       };
 
-      // insert triangle back to initial position
-      const insertInitPosition = (element) => {
-        const arrow = document.getElementById(
-          `arrow__${element.draggable[0].firstElementChild.id.split("img")[1]}`
-        );
+      // insert triangle back to initial position   NEVER USED
+      //const insertInitPosition = (element) => {
+      //  const arrow = document.getElementById(
+      //    `arrow__${element.draggable[0].firstElementChild.id.split("img")[1]}`
+      //  );
 
-        arrow.parentElement.style.display = "flex";
-      };
+      //  arrow.parentElement.style.display = "flex";
+     // };
 
       $(function () {
         $(".draggable-by-jquery-ui")
@@ -1525,6 +1525,11 @@
                 "rotate(180deg)" &&
               element[0].firstElementChild.style.transform != "rotate(300deg)"
             ) {
+              return $(element[0]).hasClass("draggable-by-jquery-ui");
+               
+              // original area
+            } else if(this.id == "initial__area")
+            {
               return $(element[0]).hasClass("draggable-by-jquery-ui");
             }
 
