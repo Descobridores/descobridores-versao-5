@@ -493,208 +493,34 @@
         <!-- Pagina -->
         <section class="container">
           <hr class="linha" />
-          <h1 class="TituloPagina">Vídeos</h1>
+          <h1 class="TituloPagina">Admin</h1>
           <hr class="linha" />
-        </section>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_1.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Triângulos Amigos (Vídeo 1)
-                </p>
-              </section>
+
+          <div class="admin__container">
+            <div class="admin__container__btns">
+              <button id="edit__games__btn">Gerenciar desafios</button>
+              <a id="edit__chat__btn" href="./chatAdmin.html">Gerenciar chat</a>
+              <button id="add__game__btn">Criar novo desafio</button>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_0.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Triângulos Amigos (Vídeo 2)
-                </p>
-              </section>
+
+            <!--EDIT GAMES-->
+            <div id="edit__games__container" class="admin__container__child">
+              <div class="game__list"></div>
+              <div style="border-left: #9a1b20 1px solid"></div>
+              <div class="game__list"></div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_2.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Organizando o Curral (Vídeo 1)
-                </p>
-              </section>
+
+            <!--ADD GAME-->
+            <div id="add__game__container" class="admin__container__child">
+              <label>Criar novo desafio</label>
+              <input id="add__input" placeholder="Nome do desafio" />
+              <div>
+                <button id="create__game__btn">Confirmar</button>
+              </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_4.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Palitos Coloridos (Vídeo 1)
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_5.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Palitos Coloridos (Vídeo 2)
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_6.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Organizando o Curral (Vídeo 2)
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_21.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do Problema <br />
-                  Gincana das Alturas
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_23.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do Desafio <br />
-                  Torre da Matilda
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_7.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  8a Febrat<br />2020 Projeto Problemateca
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_9.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Semana do conhecimento<br />UFMG 2020<br /><br />
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_11.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Centro Pedagógico<br />Feira Explora Medelin<br />
-                  Colombia - 2019
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_10.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Os Descobridores<br />E.M. Lidia Angélica<br /><br />
-                </p>
-              </section>
-            </div>
+            <button id="admin__back__btn">Voltar</button>
           </div>
-        </div>
+        </section>
       </main>
       <footer class="footer py-2">
         <div class="container">
@@ -739,5 +565,6 @@
     <script src="js/scripts.js"></script>
     <script src="js/database.js"></script>
     <script src="js/headerInfo.js"></script>
+    <script src="js/admin.js"></script>
   </body>
 </html>

@@ -9,7 +9,7 @@
     <meta name="description" content="Viver é aprender" />
     <meta name="author" content="WebDevelopers" />
     <title>Os Descobridores da Matemática</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/Logos/Logo.jpg" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/Logos/Logo.jpg" />
     <!-- Font Awesome icons (free version)-->
     <script
       src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"
@@ -34,10 +34,132 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/little_styles.css" rel="stylesheet" />
+    <link href="css/conffeti.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Allura&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      .game__container {
+        height: 90vh;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .target__container {
+        width: 670px;
+        height: 306px;
+        margin: 1rem 1rem;
+        position: relative;
+      }
+
+      .target__container .drop__area {
+        width: 16%;
+        height: 32%;
+        text-align: center;
+      }
+
+      #jardim_img {
+        width: 100%;
+        position: absolute;
+      }
+
+      .elements__container {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        margin-top: 2rem;
+        min-width: 40%;
+      }
+
+      .elements__container .drop__area {
+        min-width: 40%;
+      }
+
+      .drop__area {
+        border: solid 1px red;
+      }
+
+      #area__1 {
+        position: absolute;
+        /* left: 3.7rem; */
+        /* top: -25.6rem; */
+        left: 63px;
+        top: 68px;
+      }
+      #area__2 {
+        position: absolute;
+        /* left: 3.9rem; */
+        /* top: -22.1rem; */
+        left: 63px;
+        top: 232px;
+      }
+      #area__3 {
+        position: absolute;
+        /* left: 3.8rem; */
+        /* top: -18.7rem; */
+        left: 63px;
+        top: 395px;
+      }
+      #area__4 {
+        position: absolute;
+        /* left: 13.3rem; */
+        /* top: -24.8rem; */
+        left: 226px;
+        top: 395px;
+      }
+
+      #area__5 {
+        position: absolute;
+        /* left: 22.8rem; */
+        /* top: -30.8rem; */
+        left: 389px;
+        top: 395px;
+      }
+      #area__6 {
+        position: absolute;
+        /* left: 32.4rem; */
+        /* top: -37rem; */
+        left: 552px;
+        top: 395px;
+      }
+      #area__7 {
+        position: absolute;
+        /* left: 32.3rem; */
+        /* top: -52.5rem; */
+        left: 552px;
+        top: 232px;
+      }
+      #area__8 {
+        position: absolute;
+        /* left: 32.3rem; */
+        /* top: -68.1rem; */
+        left: 552px;
+        top: 68px;
+      }
+      #area__9 {
+        position: absolute;
+        /* left: 22.5rem; */
+        /* top: -74rem; */
+        left: 389px;
+        top: 68px;
+      }
+      #area__10 {
+        position: absolute;
+        /* left: 13.3rem; */
+        /* top: -80.1rem; */
+        left: 226px;
+        top: 68px;
+      }
+
+      .wrong__correct_btns {
+        position: absolute;
+        top: 54rem;
+        left: 55rem; /*differetn*/
+        width: 25%;
+      }
+    </style>
   </head>
   <body id="page-top">
     <div
@@ -493,250 +615,326 @@
         <!-- Pagina -->
         <section class="container">
           <hr class="linha" />
-          <h1 class="TituloPagina">Vídeos</h1>
+          <h1 class="TituloPagina">Flores no Jardim</h1>
           <hr class="linha" />
         </section>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_1.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Triângulos Amigos (Vídeo 1)
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_0.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Triângulos Amigos (Vídeo 2)
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_2.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Organizando o Curral (Vídeo 1)
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_4.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Palitos Coloridos (Vídeo 1)
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_5.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Palitos Coloridos (Vídeo 2)
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_6.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Organizando o Curral (Vídeo 2)
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_21.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do Problema <br />
-                  Gincana das Alturas
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_23.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do Desafio <br />
-                  Torre da Matilda
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_7.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  8a Febrat<br />2020 Projeto Problemateca
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_9.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Semana do conhecimento<br />UFMG 2020<br /><br />
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_11.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Centro Pedagógico<br />Feira Explora Medelin<br />
-                  Colombia - 2019
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_10.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Os Descobridores<br />E.M. Lidia Angélica<br /><br />
-                </p>
-              </section>
-            </div>
-          </div>
-        </div>
       </main>
-      <footer class="footer py-2">
-        <div class="container">
-          <div class="row mt-3">
-            <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-              <a target="_blank" href="https://ufmg.br/">
-                <img
-                  class="logo img-thumbnail"
-                  src="assets/img/Logos/ufmg.png"
-                />
-              </a>
+      <br />
+      <div class="container">
+        <div style="margin-right: -0.75rem; margin-left: -0.75rem">
+          <!-- GAME CONTAINER -->
+          <div class="game__container">
+            <div class="target__container">
+              <img
+                id="jardim_img"
+                src="assets/img/Desafios-img/jardim_img1.png"
+              />
+              <div id="area__1" class="drop__area"></div>
+              <div id="area__2" class="drop__area"></div>
+              <div id="area__3" class="drop__area"></div>
+              <div id="area__4" class="drop__area"></div>
+              <div id="area__5" class="drop__area"></div>
+              <div id="area__6" class="drop__area"></div>
+              <div id="area__7" class="drop__area"></div>
+              <div id="area__8" class="drop__area"></div>
+              <div id="area__9" class="drop__area"></div>
+              <div id="area__10" class="drop__area"></div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-              <a target="_blank" href="https://www.cp.ufmg.br/">
-                <img class="logo img-thumbnail" src="assets/img/Logos/cp.svg" />
-              </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-              <a target="_blank" href="https://www.icex.ufmg.br/">
+
+            <div class="elements__container">
+              <div class="drop__area">
                 <img
-                  class="logo img-thumbnail"
-                  src="assets/img/Logos/icex.svg"
+                  class="elemen draggable-by-jquery-ui"
+                  id="drag-element1"
+                  src="./assets/img/Desafios-img/jardim_1.png"
+                  alt=""
                 />
-              </a>
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element2"
+                  src="./assets/img/Desafios-img/jardim_2.png"
+                  alt=""
+                />
+
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element3"
+                  src="./assets/img/Desafios-img/jardim_3.png"
+                  alt=""
+                />
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element4"
+                  src="./assets/img/Desafios-img/jardim_4.png"
+                  alt=""
+                />
+
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element5"
+                  src="./assets/img/Desafios-img/jardim_5.png"
+                  alt=""
+                />
+              </div>
+              <div class="drop__area">
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element6"
+                  src="./assets/img/Desafios-img/jardim_6.png"
+                  alt=""
+                />
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element7"
+                  src="./assets/img/Desafios-img/jardim_7.png"
+                  alt=""
+                />
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element8"
+                  src="./assets/img/Desafios-img/jardim_8.png"
+                  alt=""
+                />
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element9"
+                  src="./assets/img/Desafios-img/jardim_9.png"
+                  alt=""
+                />
+                <img
+                  class="element draggable-by-jquery-ui"
+                  id="drag-element10"
+                  src="./assets/img/Desafios-img/jardim_10.png"
+                  alt=""
+                />
+              </div>
+            </div>
+
+            <button
+              class="wrong__btn wrong__correct_btns"
+              style="display: none; margin-top: 30px"
+            >
+              Tente de novo!
+            </button>
+
+            <div id="success__card">
+              <h3>Parabéns!<br />Você descobriu!</h3>
+
+              <div id="success__card__text">
+                <div>
+                  <button>Compartilhe</button>
+                  <h4>sua solução com os monitores</h4>
+                </div>
+
+                <div>
+                  <h4>Veja mensagens no</h4>
+                  <button onclick="redirect('chat-8')">Chat</button>
+                  <h4>sobre esse desafio</h4>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-12">Copyright © Descobridores 2021</div>
+          <!-- end of GAME CONTAINER -->
+
+          <!-- challenge RULES -->
+          <div id="myModal" class="modal">
+            <span id="fechar" class="close">&times;</span>
+            <img class="modal-content" id="img01" />
+            <div id="caption"></div>
+          </div>
+
+          <div class="desafio__btn__container">
+            <button
+              class="btn btn-primary desafio__btn__primary"
+              onclick="location.reload();"
+            >
+              <a id="replay__btn"> Reiniciar </a>
+            </button>
+
+            <button
+              class="btn btn-primary desafio__btn__primary"
+              onclick="location.assign('./desafio.html');"
+              onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 8);"
+            >
+              <a> Voltar </a>
+            </button>
+
+            <button
+              id="show__rules__btn"
+              class="btn btn-primary desafio__btn__primary"
+            >
+              <a>Regras do Desafio</a>
+            </button>
+
+            <button
+              id="proximo__desafio__btn"
+              class="btn btn-primary desafio__btn__primary"
+              style="display: none"
+            >
+              <a> Próximo desafio </a>
+            </button>
           </div>
         </div>
-      </footer>
+
+        <footer class="footer py-2">
+          <div class="container">
+            <div class="row mt-3">
+              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+                <a target="_blank" href="https://ufmg.br/">
+                  <img
+                    class="logo img-thumbnail"
+                    src="./assets/img/Logos/ufmg.png"
+                  />
+                </a>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+                <a target="_blank" href="https://www.cp.ufmg.br/">
+                  <img
+                    class="logo img-thumbnail"
+                    src="./assets/img/Logos/cp.svg"
+                  />
+                </a>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+                <a target="_blank" href="https://www.icex.ufmg.br/">
+                  <img
+                    class="logo img-thumbnail"
+                    src="./assets/img/Logos/icex.svg"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-12">Copyright © Descobridores 2021</div>
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
-    <script src="./js/popUp.js"></script>
     <!-- Bootstrap core JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Third party plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="js/popUp.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./js/gamesLogic.js"></script>
+
+    <!-- JS Game Logic -->
+    <script>
+      // MODEL with the rules of the challenge (its an image that pops up, basically)
+      showRulesModel(8); // receives challenge index as param
+
+      const elementsContainer = document.querySelector(
+        ".elements__container div"
+      );
+
+      const containers = document.querySelectorAll(
+        ".target__container .drop__area"
+      );
+
+      // verifies if solution is correct or wrong
+      let array = new Array(10);
+      const checkSolution = () => {
+        let correct = false;
+
+        const possibleSolutions = [
+          "1048239765",
+          "5048239761",
+          "1048329765",
+          "5048329761", //
+          "2840156793",
+          "2840516793",
+          "3840156792",
+          "3840516792", //
+          "2976150483",
+          "2976510483",
+          "3976150482",
+          "3976510482", //
+          "1679238405",
+          "1679328405",
+          "5679238401",
+          "5679328401",
+        ];
+
+        containers.forEach((el) => {
+          array[el.id[el.id.length - 1]] =
+            el.firstElementChild.id[el.firstElementChild.id.length - 1];
+        });
+
+        const solution = array.join("");
+
+        possibleSolutions.forEach((el) => {
+          if (el == solution) correct = true;
+        });
+
+        return correct;
+      };
+
+      const checkEndGame = () => {
+        // check if all elements have been placed
+        let endGame = true;
+        containers.forEach((el) => {
+          if (el.childNodes.length == 0) endGame = false;
+        });
+
+        if (endGame) {
+          // show result
+          let result = checkSolution();
+
+          // correct answer
+          if (result) {
+            // remove wrong button
+            document.querySelector(".wrong__btn").style.display = "none";
+
+            // show conffeti effect and success card
+            showSucessCard([".target__container", ".elements__container"]);
+
+            // fix answer - dont allow changes anymore
+            document.querySelectorAll(".element").forEach((el) => {
+              el.classList.remove("draggable-by-jquery-ui");
+              el.classList.remove("ui-draggable");
+              el.classList.remove("ui-draggable-handle");
+              el.style.position = "static";
+            });
+          }
+          // wrong answer
+          else {
+            // add wrong button
+            const correctBtn = document.querySelector(".wrong__btn");
+            correctBtn.style.display = "block";
+            correctBtn.addEventListener("click", () => location.reload());
+          }
+        }
+      };
+
+      $(function () {
+        $(".draggable-by-jquery-ui").draggable({
+          revert: "invalid",
+        });
+        $(".drop__area").droppable({
+          accept: ".draggable-by-jquery-ui",
+
+          // called when element is dropped
+          drop: function (event, element) {
+            // check if drop area already has an element
+            if (this.childNodes.length == 1) {
+              // remove current element from area
+              elementsContainer.appendChild(this.firstChild);
+            }
+
+            // adds new element to area
+            this.appendChild(element.draggable[0]);
+            element.draggable[0].style.left = "0";
+            element.draggable[0].style.top = "0";
+            element.draggable[0].style.bottom = "0";
+            element.draggable[0].style.right = "0";
+
+            checkEndGame();
+          },
+        });
+      });
+    </script>
     <script src="js/database.js"></script>
     <script src="js/headerInfo.js"></script>
   </body>

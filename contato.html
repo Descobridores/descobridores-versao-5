@@ -10,6 +10,11 @@
     <meta name="author" content="WebDevelopers" />
     <title>Os Descobridores da Matemática</title>
     <link rel="icon" type="image/x-icon" href="assets/img/Logos/Logo.jpg" />
+
+    <!-- Google reCaptcha-->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script 6LdJt_IpAAAAAKcvhN6iungdLePbX4s7vDSoNP6n></script>
+
     <!-- Font Awesome icons (free version)-->
     <script
       src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"
@@ -38,6 +43,26 @@
       href="https://fonts.googleapis.com/css2?family=Allura&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      #contact__capcha {
+        /* background-color: white; */
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal__contact {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 3rem;
+        padding: 40px;
+        border-radius: 20px;
+      }
+    </style>
   </head>
   <body id="page-top">
     <div
@@ -554,19 +579,36 @@
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
+
               <b>*Campos com preenchimento obrigatório</b>
             </div>
             <div class="text-center">
               <div id="success"></div>
               <button
                 class="btn btn-primary btn-xl text-uppercase"
-                id="sendMessageButton"
-                type="submit"
-                value="Send"
-                style="background-color: #9a1b20"
+                style="background-color: #9a1b20; display: none"
               >
                 Enviar Mensagem
               </button>
+
+              <div
+                id="contact__send__btn"
+                class="btn btn-primary btn-xl text-uppercase"
+                style="background-color: #9a1b20"
+              >
+                Enviar Mensagem
+              </div>
+
+              <div class="modal" id="contact__capcha">
+                <div class="modal__contact">
+                  <h6>Por favor, confirme que você não é um robô</h6>
+                  <div
+                    class="g-recaptcha"
+                    data-sitekey="6LdJt_IpAAAAAKcvhN6iungdLePbX4s7vDSoNP6n
+                  "
+                  ></div>
+                </div>
+              </div>
             </div>
           </form>
         </section>
@@ -583,7 +625,7 @@
               </a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-              <a target="_blank" href="http://www.cp.ufmg.br/">
+              <a target="_blank" href="https://www.cp.ufmg.br/">
                 <img class="logo img-thumbnail" src="assets/img/Logos/cp.svg" />
               </a>
             </div>
@@ -604,6 +646,15 @@
         </div>
       </footer>
     </div>
+
+    <script>
+      document
+        .getElementById("contact__send__btn")
+        .addEventListener("click", () => {
+          document.getElementById("contact__capcha").style.display = "flex";
+        });
+    </script>
+
     <script src="./js/popUp.js"></script>
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -612,5 +663,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/headerInfo.js"></script>
   </body>
 </html>

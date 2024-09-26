@@ -34,6 +34,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/little_styles.css" rel="stylesheet" />
+    <link href="css/chat.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Allura&display=swap"
       rel="stylesheet"
@@ -493,208 +494,228 @@
         <!-- Pagina -->
         <section class="container">
           <hr class="linha" />
-          <h1 class="TituloPagina">Vídeos</h1>
+          <h1 class="TituloPagina">Admin</h1>
           <hr class="linha" />
-        </section>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_1.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Triângulos Amigos (Vídeo 1)
-                </p>
-              </section>
+
+            <!--EDIT CHAT-->
+            <div id="edit__chat__container">
+              <div class="page__container">
+                <div id="desafios">
+                  <h3>DESAFIOS</h3>
+                  <div class="desafios__container">
+                    <div id="chat-0" class="game__selector red">
+                      <img src="./assets/img/Desafios-img/chat-0.png" />
+                      <label>APOSTE NA SOMA</label>
+                    </div>
+                    <div id="chat-19" class="game__selector dark__blue">
+                      <img src="./assets/img/Desafios-img/chat-19.png" />
+                      <label>TRIÂNGULOS NUMÉRICOS</label>
+                    </div>
+                    <div id="chat-11" class="game__selector pink">
+                      <img src="./assets/img/Desafios-img/chat-11.png" />
+                      <label>MONSTROS NA RODA</label>
+                    </div>
+                    <div id="chat-2" class="game__selector black">
+                      <img src="./assets/img/Desafios-img/chat-2.png" />
+                      <label>DESAFIO DA ESCADA</label>
+                    </div>
+                    <div id="chat-1" class="game__selector orange">
+                      <img src="./assets/img/Desafios-img/chat-1.png" />
+                      <label>CONSTRUINDO PIPAS</label>
+                    </div>
+                    <div id="chat-8" class="game__selector green">
+                      <img src="./assets/img/Desafios-img/chat-8.png" />
+                      <label>FLORES NO JARDIM</label>
+                    </div>
+                    <div id="chat-15" class="game__selector black">
+                      <img src="./assets/img/Desafios-img/chat-15.png" />
+                      <label>SEQUÊNCIA DE TRIÂNGULOS</label>
+                    </div>
+                    <div id="chat-9" class="game__selector pink">
+                      <img src="./assets/img/Desafios-img/chat-9.png" />
+                      <label>GINCANA NAS ALTURAS</label>
+                    </div>
+                    <div id="chat-4" class="game__selector black">
+                      <img src="./assets/img/Desafios-img/chat-4.png" />
+                      <label>DESAFIO DA PÁ SUJA</label>
+                    </div>
+                    <div
+                      id="chat-14"
+                      class="game__selector dark__blue"
+                      style="--background: #fec5034a"
+                    >
+                      <img src="./assets/img/Desafios-img/chat-14.png" />
+                      <label>QUANTOS RETÂNGULOS?</label>
+                    </div>
+                    <div id="chat-10" class="game__selector pink">
+                      <img src="./assets/img/Desafios-img/chat-10.png" />
+                      <label>MILU E NALA</label>
+                    </div>
+                    <div id="chat-12" class="game__selector black">
+                      <img src="./assets/img/Desafios-img/chat-12.png" />
+                      <label>ORGANIZANDO O CURRAL</label>
+                    </div>
+                    <div id="chat-3" class="game__selector green">
+                      <img src="./assets/img/Desafios-img/chat-3.png" />
+                      <label>DESAFIO DA ILHA</label>
+                    </div>
+                    <div id="chat-6" class="game__selector black">
+                      <img src="./assets/img/Desafios-img/chat-6.png" />
+                      <label>DESAFIO DAS VARETAS</label>
+                    </div>
+
+                    <div id="chat-5" class="game__selector black">
+                      <img src="./assets/img/Desafios-img/chat-5.png" />
+                      <label>DESAFIO DAS BANDEIRAS</label>
+                    </div>
+                    <div id="chat-7" class="game__selector black">
+                      <img src="./assets/img/Desafios-img/chat-7.png" />
+                      <label>DESAFIO DO DRAGÃO</label>
+                    </div>
+                    <div id="chat-13" class="game__selector blue">
+                      <img src="./assets/img/Desafios-img/chat-13.png" />
+                      <label>PALITOS COLORIDOS</label>
+                    </div>
+                    <div id="chat-17" class="game__selector red">
+                      <img src="./assets/img/Desafios-img/chat-17.png" />
+                      <label>TRIÂNGULOS AMIGOS</label>
+                    </div>
+                    <div id="chat-16" class="game__selector pink">
+                      <img src="./assets/img/Desafios-img/chat-16.png" />
+                      <label>TORRE DA MATILDA</label>
+                    </div>
+                    <div id="chat-18" class="game__selector red">
+                      <img src="./assets/img/Desafios-img/chat-18.png" />
+                      <label>TRIÂNGULOS NO PENTÁGONO</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="messages__wrap">
+                  <div id="current__chat">
+                    <img />
+                    <h5></h5>
+                  </div>
+                  <div class="messages" id="messages"></div>
+                  <div class="send__message__area">
+                    <!-- TODO -->
+                    <input
+                      id="send__message__input"
+                      placeholder="Digite sua mensagem"
+                      pattern="[^']*"
+                      title="Nao permite aspas simples (')"
+                    />
+                    <img id="send__icon" src="./assets/img/send.png" />
+                  </div>
+                </div>
+
+                <div id="msgSettings">
+                  <form id="chat__form__admin" action="" method="POST">
+                    <h4>Escolha um avatar</h4>
+                    <div class="avatar__container">
+                      <input
+                        type="radio"
+                        id="avatar1"
+                        name="avatar"
+                        value="avatar1"
+                      />
+                      <label class="avatar" for="avatar1">
+                        <img src="./assets/img/chat/avatar1.jpg" />
+                      </label>
+
+                      <input
+                        type="radio"
+                        id="avatar2"
+                        name="avatar"
+                        value="avatar2"
+                      />
+                      <label class="avatar" for="avatar2">
+                        <img src="./assets/img/chat/avatar2.jpg" />
+                      </label>
+
+                      <input
+                        type="radio"
+                        id="avatar3"
+                        name="avatar"
+                        value="avatar3"
+                      />
+                      <label class="avatar" for="avatar3">
+                        <img src="./assets/img/chat/avatar3.jpg" />
+                      </label>
+
+                      <input
+                        type="radio"
+                        id="avatar4"
+                        name="avatar"
+                        value="avatar4"
+                      />
+                      <label class="avatar" for="avatar4">
+                        <img src="./assets/img/chat/avatar4.jpg" />
+                      </label>
+
+                      <input
+                        type="radio"
+                        id="avatar5"
+                        name="avatar"
+                        value="avatar5"
+                      />
+                      <label class="avatar" for="avatar5">
+                        <img src="./assets/img/chat/avatar5.jpg" />
+                      </label>
+
+                      <input
+                        type="radio"
+                        id="avatar6"
+                        name="avatar"
+                        value="avatar6"
+                      />
+                      <label class="avatar" for="avatar6">
+                        <img src="./assets/img/chat/avatar6.jpg" />
+                      </label>
+                      <br /><br />
+                    </div>
+                    <label for="user__name">Nome</label><br />
+                    <input
+                      type="text"
+                      id="user__name"
+                      name="name"
+                      value=""
+                      placeholder="Seu nome"
+                    /><br /><br />
+
+                    <label for="user__message">Mensagem</label><br />
+                    <input
+                      type="text"
+                      id="user__message"
+                      name="message"
+                      value=""
+                    /><br /><br />
+           
+                    <br />
+                    <div>
+                      <button class="chat__form__btn" id="cancel__message">
+                        Cancelar
+                      </button>
+                      <input
+                        class="chat__form__btn"
+                        id="send__message__btn"
+                        type="submit"
+                        value="Enviar"
+                      />
+                    </div>
+                  </form>
+                </div>
+
+                <div id="remove__message">
+                  <img src="assets/img/trash-icon.png" />
+                  <span>Remover</span>
+                </div>
+              </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_0.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Triângulos Amigos (Vídeo 2)
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_2.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Organizando o Curral (Vídeo 1)
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_4.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Palitos Coloridos (Vídeo 1)
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_5.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Palitos Coloridos (Vídeo 2)
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_6.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do desafio<br />Organizando o Curral (Vídeo 2)
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_21.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do Problema <br />
-                  Gincana das Alturas
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_23.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Resolução do Desafio <br />
-                  Torre da Matilda
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_7.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  8a Febrat<br />2020 Projeto Problemateca
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_9.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Semana do conhecimento<br />UFMG 2020<br /><br />
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_11.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Centro Pedagógico<br />Feira Explora Medelin<br />
-                  Colombia - 2019
-                </p>
-              </section>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <section class="hall bg-dark text-light pt-3">
-                <video
-                  style="display: block; margin-left: auto; margin-right: auto"
-                  width="320"
-                  height="240"
-                  controls
-                >
-                  <source src="./assets/videos/video_10.mp4" type="video/mp4" />
-                  Seu navegador não suporta esse formato de vídeo.
-                </video>
-                <p style="font-size: 24px" class="text-center">
-                  Os Descobridores<br />E.M. Lidia Angélica<br /><br />
-                </p>
-              </section>
-            </div>
+
+    
+            <button id="admin__back__btn">Voltar</button>
           </div>
-        </div>
+        </section>
       </main>
       <footer class="footer py-2">
         <div class="container">
@@ -739,5 +760,7 @@
     <script src="js/scripts.js"></script>
     <script src="js/database.js"></script>
     <script src="js/headerInfo.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/chatAdmin.js"></script>
   </body>
 </html>

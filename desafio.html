@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="http://fonts.cdnfonts.com/css/gotham" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/gotham" rel="stylesheet" />
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -42,7 +42,7 @@
 
     <script src="./js/jquery.js"></script>
 
-    <script>
+    <!-- <script>
       window.onload = function () {
         AntesProximo(
           0,
@@ -51,10 +51,10 @@
           window.localStorage.getItem("indice")
         );
       };
-    </script>
+    </script> -->
   </head>
   <style>
-    @import url("http://fonts.cdnfonts.com/css/gotham");
+    @import url("https://fonts.cdnfonts.com/css/gotham");
     * {
       font-family: "Gotham" !important;
     }
@@ -511,6 +511,7 @@
           </div>
         </nav>
         <!-- Desafio -->
+
         <div class="row">
           <hr class="linha" />
           <h1
@@ -555,7 +556,6 @@
                   class="col-lg-1 col-md-2 col-3"
                   name="0"
                   style="margin-right: auto; margin-left: auto"
-                  onclick="AntesProximo(this, 0, false, -1)"
                 >
                   <img src="./assets/img/Antes.png" alt="Anterior" />
                 </button>
@@ -564,7 +564,6 @@
                   class="col-lg-1 col-md-2 col-3"
                   name="0"
                   style="margin-left: auto; margin-right: auto"
-                  onclick="AntesProximo(this, 1, false, -1)"
                 >
                   <img src="./assets/img/Proximo.png" alt="Proximo" />
                 </button>
@@ -608,54 +607,6 @@
               >
                 Descobridores em Casa
               </button>
-              <div class="resposta text-center container mt-3">
-                <h2 class="mb-3 mt-2" style="font-size: 1.5rem">Resposta</h2>
-                <form
-                  name="sentMessage"
-                  action="https://formspree.io/f/mleoaqyb"
-                  method="POST"
-                >
-                  <div class="form-group">
-                    <input
-                      class="form-control"
-                      id="email"
-                      type="email"
-                      name="E-mail"
-                      placeholder="E-mail"
-                      required="required"
-                      data-validation-required-message="Por Favor, insira seu E-mail."
-                    />
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group form-group-textarea mb-md-0">
-                    <textarea
-                      class="form-control"
-                      id="message"
-                      name="Mensagem"
-                      placeholder="Resposta"
-                      required="required"
-                      style="height: 200px"
-                      data-validation-required-message="Por Favor, insira sua resposta."
-                    ></textarea>
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <label class="BotaoInstrucoes">
-                    Upload <input type="file" hidden />
-                  </label>
-                  <div class="text-center">
-                    <div id="success"></div>
-                    <button
-                      class="mb-3 BotaoInstrucoes"
-                      id="sendMessageButton"
-                      type="submit"
-                      value="Send"
-                      data-target="_blank"
-                    >
-                      Enviar Mensagem
-                    </button>
-                  </div>
-                </form>
-              </div>
             </section>
           </div>
         </div>
@@ -673,7 +624,7 @@
               </a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-              <a target="_blank" href="http://www.cp.ufmg.br/">
+              <a target="_blank" href="https://www.cp.ufmg.br/">
                 <img class="logo img-thumbnail" src="assets/img/Logos/cp.svg" />
               </a>
             </div>
@@ -696,7 +647,6 @@
     </div>
 
     <script src="./js/popUp.js"></script>
-    <script src="./js/desafio.js"></script>
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
@@ -704,5 +654,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/headerInfo.js"></script>
+    <script src="./js/gamePage.js"></script>
   </body>
 </html>

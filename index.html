@@ -40,8 +40,8 @@
     />
     <script>
       window.onload = function () {
-        shuffle_images()
-      }
+        shuffle_images();
+      };
     </script>
   </head>
   <body id="page-top">
@@ -765,7 +765,7 @@
               </a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-              <a target="_blank" href="http://www.cp.ufmg.br/">
+              <a target="_blank" href="https://www.cp.ufmg.br/">
                 <img class="logo img-thumbnail" src="assets/img/Logos/cp.svg" />
               </a>
             </div>
@@ -796,5 +796,63 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/headerInfo.js"></script>
+
+    <script>
+      const gamesContainer = document.getElementById("imagensIndex");
+      gamesContainer.innerHTML = "";
+
+      fetchGames().then((gamesInfo) => {
+        const numRows = Math.floor(gamesInfo.length / 4);
+        let id = 0;
+        for (let i = 0; i < numRows; i++) {
+          let div = document.createElement("div");
+          div.id = i;
+          div.classList += "row";
+
+          for (let j = 0; j < 4; j++) {
+            div.innerHTML += `<div id="vinheta${id}" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+              onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', ${id});"
+              href="./desafio.html">
+              <img
+              class="img-fluid img-thumbnail zoom VinhetasIMG"
+              src="./assets/img/Vinhetas/vinheta-${id
+                .toString()
+                .padStart(2, "0")}.svg"
+                  />
+                  </a>
+                  </div>`;
+            id++;
+          }
+          gamesContainer.appendChild(div);
+        }
+
+        if (gamesInfo.length % 4 != 0) {
+          let div = document.createElement("div");
+          div.id = numRows;
+          div.classList += "row";
+
+          for (let j = 0; j < gamesInfo.length % 4; j++) {
+            div.innerHTML += `<div id="vinheta${id}" class="col-lg-3 col-md-6 col-sm-12 Vinheta">
+              <a
+              onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', ${id});"
+              href="./desafio.html">
+              <img
+              class="img-fluid img-thumbnail zoom VinhetasIMG"
+              src="./assets/img/Vinhetas/vinheta-${id
+                .toString()
+                .padStart(2, "0")}.svg"
+                  />
+                  </a>
+                  </div>`;
+            id++;
+          }
+
+          gamesContainer.appendChild(div);
+        }
+      });
+    </script>
   </body>
 </html>

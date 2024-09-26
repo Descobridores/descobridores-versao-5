@@ -982,7 +982,7 @@
             </div>
 
             <div class="elements__container">
-              <div id="initial__area" class="drop__area initial__drop__area">
+              <div class="drop__area initial__drop__area">
                 <div class="element__parent">
                   <div class="element draggable-by-jquery-ui brown">
                     <img
@@ -1140,7 +1140,7 @@
 
                 <div>
                   <h4>Veja mensagens no</h4>
-                  <button onclick="redirect('amigos')">Chat</button>
+                  <button onclick="redirect('chat-17')">Chat</button>
                   <h4>sobre esse desafio</h4>
                 </div>
               </div>
@@ -1227,7 +1227,7 @@
                 </a>
               </div>
               <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-                <a target="_blank" href="http://www.cp.ufmg.br/">
+                <a target="_blank" href="https://www.cp.ufmg.br/">
                   <img
                     class="logo img-thumbnail"
                     src="./assets/img/Logos/cp.svg"
@@ -1257,7 +1257,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="./js/challengesLogic.js"></script>
+    <script src="./js/gamesLogic.js"></script>
     <script>
       // MODEL with the rules of the challenge (its an image that pops up, basically)
       showRulesModel(17); // receives challenge index as param
@@ -1451,14 +1451,14 @@
         triangle.classList.add(`rotate${currentValue}`);
       };
 
-      // insert triangle back to initial position   NEVER USED
-      //const insertInitPosition = (element) => {
-      //  const arrow = document.getElementById(
-      //    `arrow__${element.draggable[0].firstElementChild.id.split("img")[1]}`
-      //  );
+      // insert triangle back to initial position
+      const insertInitPosition = (element) => {
+        const arrow = document.getElementById(
+          `arrow__${element.draggable[0].firstElementChild.id.split("img")[1]}`
+        );
 
-      //  arrow.parentElement.style.display = "flex";
-     // };
+        arrow.parentElement.style.display = "flex";
+      };
 
       $(function () {
         $(".draggable-by-jquery-ui")
@@ -1525,11 +1525,6 @@
                 "rotate(180deg)" &&
               element[0].firstElementChild.style.transform != "rotate(300deg)"
             ) {
-              return $(element[0]).hasClass("draggable-by-jquery-ui");
-               
-              // original area
-            } else if(this.id == "initial__area")
-            {
               return $(element[0]).hasClass("draggable-by-jquery-ui");
             }
 
@@ -1623,5 +1618,7 @@
         });
       });
     </script>
+    <script src="js/database.js"></script>
+    <script src="js/headerInfo.js"></script>
   </body>
 </html>
