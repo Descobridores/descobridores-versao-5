@@ -14,6 +14,7 @@
   display: flex;
   margin: 3rem 2rem 2rem 3rem;
   gap: 3rem;
+  justify-content: center;
 }
 
 .desafios__container {
@@ -142,7 +143,7 @@
 }
 
 .messages {
-  background-image: url("../assets/img/Desafios-img/soma.png");
+  background-image: url("../assets/img/Desafios-img/chat-0.png");
   background-repeat: no-repeat;
   background-position: center;
   background-color: #fff;
@@ -214,10 +215,11 @@
   flex-direction: column;
 }
 
-.message__container div:last-of-type {
+.info__message__div {
   display: flex;
   justify-content: space-between;
-  width: 85%;
+  width: 95%;
+  padding-left: 2px;
 }
 
 .message__div {
@@ -234,7 +236,7 @@
 }
 
 .message__container p {
-  margin-left: 10px;
+  margin: 0px 10px;
   padding: 9px 17px;
   font-family: monospace;
   border-radius: 26px;
@@ -246,19 +248,18 @@
   word-wrap: break-word;
 }
 
-.message__container span:first-of-type {
+.info__message__div span:first-of-type {
   color: black;
-  position: relative;
-  bottom: 0.8rem;
-  left: 0.2rem;
-  font-size: 0.6rem;
+  /* position: relative; */
+  /* left: 0.2rem; */
+  font-size: 0.75rem;
 }
 
-.message__container span:last-of-type {
+.info__message__div span:last-of-type {
   color: black;
-  position: relative;
-  bottom: 0.8rem;
-  left: 3rem;
+  /* position: relative; */
+  /* bottom: 0.8rem; */
+  /* left: 3rem; */
   font-size: 0.6rem;
 }
 
@@ -375,7 +376,7 @@
   border-radius: 50%;
 }
 
-#msgSettings label:hover {
+.avatar:hover {
   border: 2px solid #9a1b20;
   transform: scale(1.1);
 }
@@ -437,4 +438,44 @@
   width: fit-content;
   position: relative;
   left: 22%;
+}
+
+.selected__message {
+  border: solid 1px var(--blue);
+  box-shadow: 1px 1px 4px var(--blue);
+  width: 60%;
+  height: fit-content;
+  padding: 15px;
+  background-color: #fff;
+}
+
+#remove__message {
+  display: none;
+  justify-content: center;
+  border-radius: 10px;
+  gap: 6px;
+  width: 30%;
+  align-items: center;
+  background-color: #ff3f5b;
+  margin-top: 20px;
+  padding: 2px;
+}
+
+#remove__message:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+#remove__message img {
+  width: 29px;
+  height: min-content;
+}
+
+#remove__message span {
+  color: white;
+}
+
+.admin__message__container:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }

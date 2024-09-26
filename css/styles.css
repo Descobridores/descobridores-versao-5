@@ -230,7 +230,9 @@ a {
 }
 a:hover {
   /* color: #e6b301; */
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  /* box-shadow: #fcdac4 1px 1px 1px; */
+  transform: scale(1.05);
 }
 
 a:not([href]) {
@@ -690,7 +692,7 @@ pre code {
   .container-md,
   .container-sm,
   .container {
-    max-width: 1140px;
+    max-width: 1220px;
   }
 }
 .row {
@@ -698,6 +700,7 @@ pre code {
   flex-wrap: wrap;
   margin-right: -0.75rem;
   margin-left: -0.75rem;
+  justify-content: center;
 }
 
 .no-gutters {
@@ -11172,4 +11175,164 @@ section#contact form#contactForm :-ms-input-placeholder {
   position: relative;
   left: 14rem;
   top: -3rem;
+}
+
+#contact__send__btn:hover {
+  transform: scale(1.005);
+}
+
+.login__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+#login__btn {
+  width: 15%;
+  border: none;
+  color: white;
+  background-color: #9a1b20;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.admin__container {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin__container__btns {
+  display: flex;
+  gap: 70px;
+  margin-bottom: 90px;
+}
+
+.admin__container button {
+  margin-top: 20px;
+  background-color: #9a1b20;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.admin__container button:hover {
+  transform: scale(1.05);
+}
+
+.admin__container__child {
+  display: none;
+}
+
+#admin__back__btn {
+  display: none;
+}
+
+#edit__games__container img {
+  margin-left: 8px;
+}
+
+#edit__games__container img:hover {
+  cursor: pointer;
+}
+
+.trash__icon,
+.cancel__edit__game {
+  width: 29px;
+  height: min-content;
+}
+
+.edit__icon,
+.submit__edit__game {
+  width: 29px;
+}
+
+#edit__games__container {
+  gap: 50px;
+  width: 90%;
+  justify-content: space-between;
+  /* flex-direction: ; */
+}
+
+.game__list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 50%;
+}
+
+.game__list__div {
+  border-bottom: #9a1b20 1px solid;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.game__list div div {
+  border: none;
+}
+
+.game__list label {
+  /* margin-right: 165px; */
+  width: 80%;
+  overflow: auto;
+}
+
+.edit__game__input {
+  display: none;
+  border: none;
+  box-shadow: 1px 1px 4px -1px gray;
+  width: 80%;
+}
+
+.edit__game__input:focus {
+  outline: none !important;
+}
+
+.submit__icons__div {
+  display: none;
+}
+
+#add__game__container {
+  flex-direction: column;
+  width: 45%;
+}
+
+#add__game__container div {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+#add__game__container label {
+  font-size: x-large;
+  margin-bottom: 25px;
+}
+
+#add__game__container button {
+  background-color: gray;
+  padding: 5px;
+}
+
+.edit__chat__names label {
+  border-bottom: solid 1px black;
+  margin-top: 13px;
+  font-size: small;
+}
+
+.edit__chat__names label:hover {
+  cursor: pointer;
+  background-color: #b7d1ce;
+}
+
+.edit__chat__names {
+  display: flex;
+  flex-direction: column;
 }

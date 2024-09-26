@@ -47,7 +47,7 @@ p {
   }
 
   .Instrucoes {
-    margin-left: 5.5rem;
+    /* margin-left: 5.5rem; */
   }
 
   #menu-two-columns {
@@ -78,8 +78,8 @@ p {
 }
 
 .Instrucoes section {
-  /* border-radius: 10px; */
-  padding-bottom: 5px;
+  border-radius: 10px;
+  padding: 5px 12px;
 }
 
 .LinkBusca:hover {
