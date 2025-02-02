@@ -209,12 +209,12 @@
 
       @media (max-width: 1024px) {
         .game__container {
-          height: 60vh;
+          height: 65vh;
           margin-top: 3rem;
         }
 
         .elements__container__child {
-          gap: 4rem;
+          gap: 0.5rem;
         }
       }
     </style>
@@ -855,27 +855,8 @@
         // // Get the size and position of the image
         const gameContainerRect = gameContainer.getBoundingClientRect();
 
-        // // Define relative positions for the drop areas as percentages of the image size
-        // const positions = [
-        //   { top: 13, left: 10 }, // 1
-        //   { top: 45, left: 10 },
-        //   { top: 76.5, left: 10 }, // 3
-        //   { top: 76.5, left: 34.5 },
-        //   { top: 76.5, left: 58.5 }, // 5
-        //   { top: 76.5, left: 83 },
-        //   { top: 45, left: 83 }, // 7
-        //   { top: 13, left: 83 },
-        //   { top: 13, left: 58.5 }, // 9
-        //   { top: 13, left: 34.5 },
-        // ];
-
         // Loop through each drop area and position it
         dropAreas.forEach((area) => {
-          // position the element using absolute positioning
-          // area.style.position = "absolute";
-          // area.style.top = `${top}px`;
-          // area.style.left = `${left}px`;
-
           // set a fixed size for the areas
           area.style.width = `${gameContainerRect.width * 0.18}px`;
           area.style.height = `${gameContainerRect.width * 0.18}px`;
@@ -984,33 +965,60 @@
           }
         }
       };
+    </script>
 
-      $(function () {
-        $(".draggable-by-jquery-ui").draggable({
-          revert: "invalid",
-        });
-        $(".drop__area").droppable({
-          accept: ".draggable-by-jquery-ui",
-
-          // called when element is dropped
-          drop: function (event, element) {
-            // check if drop area already has an element
-            if (this.childNodes.length == 1) {
-              // remove current element from area
-              elementsContainer.appendChild(this.firstChild);
-            }
-
-            // adds new element to area
-            this.appendChild(element.draggable[0]);
-            element.draggable[0].style.left = "0";
-            element.draggable[0].style.top = "0";
-            element.draggable[0].style.bottom = "0";
-            element.draggable[0].style.right = "0";
-
-            checkEndGame();
-          },
-        });
+    <!-- drag and drop logic -->
+    <script>
+      document.querySelectorAll(".draggable-by-jquery-ui").forEach((el) => {
+        el.addEventListener("pointerdown", startDrag);
       });
+
+      function startDrag(event) {
+        const element = event.target;
+        element.setPointerCapture(event.pointerId);
+
+        // Get the offset relative to the element
+        let rect = element.getBoundingClientRect();
+        let offsetX = event.clientX - rect.left;
+        let offsetY = event.clientY - rect.top - 500;
+
+        function move(event) {
+          element.style.position = "absolute";
+          element.style.zIndex = "1000";
+          element.style.left = event.clientX - offsetX + "px";
+          element.style.top = event.clientY - offsetY + "px";
+        }
+
+        function stopDrag(event) {
+          element.releasePointerCapture(event.pointerId);
+          document.removeEventListener("pointermove", move);
+          document.removeEventListener("pointerup", stopDrag);
+
+          // Check if dropped inside a drop area
+          let dropAreas = document.querySelectorAll(".drop__area");
+          dropAreas.forEach((area) => {
+            let rect = area.getBoundingClientRect();
+            if (
+              event.clientX > rect.left &&
+              event.clientX < rect.right &&
+              event.clientY > rect.top &&
+              event.clientY < rect.bottom
+            ) {
+              if (area.childNodes.length === 1) {
+                document
+                  .querySelector(".elements__container__child")
+                  .appendChild(area.firstChild);
+              }
+              area.appendChild(element);
+              element.style.position = "static"; // Reset position to fit inside the drop area
+              checkEndGame();
+            }
+          });
+        }
+
+        document.addEventListener("pointermove", move);
+        document.addEventListener("pointerup", stopDrag);
+      }
     </script>
     <script src="js/database.js"></script>
     <!-- <script src="js/headerInfo.js"></script> -->
