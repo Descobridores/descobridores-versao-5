@@ -183,12 +183,15 @@ const addConfettiEffect = () => {
   div.classList.add("root");
   div.innerHTML = confetti;
 
-  document.querySelector(".game__container").appendChild(div);
+  document.querySelector(".game__container").prepend(div);
 };
 
 // show when user successfully completed the challenge
 const showSucessCard = (gameDivs) => {
   addConfettiEffect();
+
+  const sound = new Audio("./assets/sounds/correct_4.wav");
+  sound.play();
 
   const containers = gameDivs.map((className) => {
     return document.querySelector(className);
