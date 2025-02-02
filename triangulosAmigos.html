@@ -49,6 +49,7 @@
         height: 90vh;
         display: flex;
         gap: 0rem;
+        margin-bottom: 20px;
       }
 
       .target__container {
@@ -449,6 +450,35 @@
 
       .spinning__arrow:hover {
         cursor: pointer;
+      }
+
+      @supports (-moz-appearance: none) {
+        .game__container {
+          margin-top: 20px;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .game__container {
+          flex-direction: column;
+          height: 78vh;
+        }
+
+        .target__container {
+          max-height: 35vh;
+        }
+
+        /* .elements__container {
+          gap: 2rem;
+        } */
+
+        .elements__container .drop__area {
+          padding: 0px 12%;
+        }
+
+        #instrucoes__div {
+          width: 70%;
+        }
       }
     </style>
   </head>
@@ -1618,7 +1648,7 @@
         });
       });
     </script>
-    <script src="js/database.js"></script>
-    <script src="js/headerInfo.js"></script>
+    <!-- <script src="js/database.js"></script> -->
+    <!-- <script src="js/headerInfo.js"></script> -->
   </body>
 </html>

@@ -79,11 +79,11 @@
         padding: 15px;
       }
 
-      /* curral css */
       .game__container {
         height: 90vh;
         display: flex;
-        margin-left: 6rem;
+        /* margin-left: 6rem; */
+        justify-content: center;
       }
 
       .drop__area,
@@ -113,6 +113,7 @@
         width: 39.5rem;
         height: 39.5rem;
         padding: 10px;
+        position: relative;
       }
       .target__container div {
         display: flex;
@@ -194,9 +195,27 @@
       }
 
       .elements__container__child .drop__area {
-        min-height: 5.25rem;
+        min-height: fit-content;
         min-width: 25.856rem;
         height: 0;
+      }
+
+      /* Styles specific to Firefox */
+      @supports (-moz-appearance: none) {
+        .elements__container__child {
+          gap: 6rem;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .game__container {
+          height: 60vh;
+          margin-top: 3rem;
+        }
+
+        .elements__container__child {
+          gap: 4rem;
+        }
       }
     </style>
   </head>
@@ -825,6 +844,60 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/gamesLogic.js"></script>
+
+    <!-- positioning elements -->
+    <script>
+      window.onload = function () {
+        // const image = document.getElementById("jardim_img");
+        const gameContainer = document.querySelector(".target__container");
+        const dropAreas = gameContainer.querySelectorAll(".drop__area");
+
+        // // Get the size and position of the image
+        const gameContainerRect = gameContainer.getBoundingClientRect();
+
+        // // Define relative positions for the drop areas as percentages of the image size
+        // const positions = [
+        //   { top: 13, left: 10 }, // 1
+        //   { top: 45, left: 10 },
+        //   { top: 76.5, left: 10 }, // 3
+        //   { top: 76.5, left: 34.5 },
+        //   { top: 76.5, left: 58.5 }, // 5
+        //   { top: 76.5, left: 83 },
+        //   { top: 45, left: 83 }, // 7
+        //   { top: 13, left: 83 },
+        //   { top: 13, left: 58.5 }, // 9
+        //   { top: 13, left: 34.5 },
+        // ];
+
+        // Loop through each drop area and position it
+        dropAreas.forEach((area) => {
+          // position the element using absolute positioning
+          // area.style.position = "absolute";
+          // area.style.top = `${top}px`;
+          // area.style.left = `${left}px`;
+
+          // set a fixed size for the areas
+          area.style.width = `${gameContainerRect.width * 0.18}px`;
+          area.style.height = `${gameContainerRect.width * 0.18}px`;
+          // area.style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+        });
+
+        // squares size
+        const square = document.querySelectorAll(".element");
+        square.forEach((sq) => {
+          // set a fixed size
+          sq.style.width = `${gameContainerRect.width * 0.13}px`;
+          sq.style.height = `${gameContainerRect.width * 0.13}px`;
+          // sq.style.marginTop = `${imageRect.width * 0.01}px`;
+        });
+      };
+      window.onload();
+      // If the screen size changes
+      window.addEventListener("resize", () => {
+        window.onload(); // Recalculate positions on resize
+      });
+    </script>
+
     <script>
       // MODEL with the rules of the challenge (its an image that pops up, basically)
       showRulesModel(16); // receives challenge index as param
@@ -939,8 +1012,7 @@
         });
       });
     </script>
-    <script src="js/desafios/confetti.js"></script>
     <script src="js/database.js"></script>
-    <script src="js/headerInfo.js"></script>
+    <!-- <script src="js/headerInfo.js"></script> -->
   </body>
 </html>

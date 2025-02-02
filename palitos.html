@@ -56,8 +56,40 @@
         height: 90vh;
         display: flex;
         margin: 0 3rem;
-        /* justify-content: center; */
-        /* gap: 10rem; */
+      }
+
+      .ink__container {
+        display: flex;
+        flex-direction: column;
+        gap: 8rem;
+        align-items: center;
+        margin-left: 10rem;
+      }
+
+      @media (max-width: 1024px) {
+        .game__container {
+          flex-direction: column;
+          align-items: center;
+          height: 70vh;
+        }
+
+        .ink__container {
+          margin-left: 0;
+          gap: 5rem;
+        }
+        .stick__content {
+          height: 25%;
+        }
+
+        #question__img {
+          position: relative;
+          left: 18rem;
+        }
+
+        .colors__container {
+          position: relative;
+          right: 6rem;
+        }
       }
 
       .stick__content {
@@ -201,14 +233,6 @@
 
       .colors__container {
         display: flex;
-      }
-
-      .ink__container {
-        display: flex;
-        flex-direction: column;
-        gap: 8rem;
-        align-items: center;
-        margin-left: 10rem;
       }
 
       .selected {
@@ -717,80 +741,82 @@
       <div class="container">
         <div style="margin-right: -0.75rem; margin-left: -0.75rem">
           <!-- GAME CONTAINER -->
-          <div class="game__container">
-            <div id="custom-cursor"></div>
-            <div class="stick__container">
-              <div id="x">
-                <h4>X</h4>
+          <div class="other">
+            <div class="game__container">
+              <div id="custom-cursor"></div>
+              <div class="stick__container">
+                <div id="x">
+                  <h4>X</h4>
+                </div>
+                <div class="black stick__bw change" id="b1"></div>
+                <div class="red stick__rb"></div>
+                <div class="white stick__bw change" id="w1"></div>
+                <div class="black stick__bw change rotate__black" id="b2"></div>
+                <div class="white stick__bw change rotate__white" id="w2"></div>
+                <div class="blue stick__rb"></div>
+                <div class="black stick__bw change" id="b3"></div>
+                <div class="red stick__rb" id="r2"></div>
+                <div class="white stick__bw change" id="w3"></div>
+                <div class="black stick__bw change rotate__black" id="b4"></div>
+                <div class="white stick__bw change rotate__white" id="w4"></div>
+                <div class="stick__bw change" id="b5"></div>
+                <div class="white stick__bw change" id="w5"></div>
+
+                <div class="black stick__bw change" id="b6"></div>
+                <div class="white stick__bw change" id="w6"></div>
+
+                <button
+                  class="correct__btn wrong__correct_btns"
+                  style="display: none; margin-top: 30px"
+                >
+                  Você descobriu! Parabéns!
+                </button>
+                <button
+                  class="wrong__btn wrong__correct_btns"
+                  style="display: none; margin-top: 30px"
+                >
+                  Tente de novo!
+                </button>
               </div>
-              <div class="black stick__bw change" id="b1"></div>
-              <div class="red stick__rb"></div>
-              <div class="white stick__bw change" id="w1"></div>
-              <div class="black stick__bw change rotate__black" id="b2"></div>
-              <div class="white stick__bw change rotate__white" id="w2"></div>
-              <div class="blue stick__rb"></div>
-              <div class="black stick__bw change" id="b3"></div>
-              <div class="red stick__rb" id="r2"></div>
-              <div class="white stick__bw change" id="w3"></div>
-              <div class="black stick__bw change rotate__black" id="b4"></div>
-              <div class="white stick__bw change rotate__white" id="w4"></div>
-              <div class="stick__bw change" id="b5"></div>
-              <div class="white stick__bw change" id="w5"></div>
 
-              <div class="black stick__bw change" id="b6"></div>
-              <div class="white stick__bw change" id="w6"></div>
-
-              <button
-                class="correct__btn wrong__correct_btns"
-                style="display: none; margin-top: 30px"
-              >
-                Você descobriu! Parabéns!
-              </button>
-              <button
-                class="wrong__btn wrong__correct_btns"
-                style="display: none; margin-top: 30px"
-              >
-                Tente de novo!
-              </button>
-            </div>
-
-            <div class="ink__container">
-              <div class="colors__container">
-                <div class="color__box selected">
-                  <div class="color" id="blue__color">
-                    <img
-                      id="paint__bucket__img"
-                      src="assets/img/Desafios-img/paint-bucket.png"
-                    />
+              <div class="ink__container">
+                <div class="colors__container">
+                  <div class="color__box selected">
+                    <div class="color" id="blue__color">
+                      <img
+                        id="paint__bucket__img"
+                        src="assets/img/Desafios-img/paint-bucket.png"
+                      />
+                    </div>
+                  </div>
+                  <div class="color__box">
+                    <div class="color" id="green__color"></div>
+                  </div>
+                  <div class="color__box">
+                    <div class="color" id="red__color"></div>
                   </div>
                 </div>
-                <div class="color__box">
-                  <div class="color" id="green__color"></div>
-                </div>
-                <div class="color__box">
-                  <div class="color" id="red__color"></div>
-                </div>
+
+                <img
+                  id="question__img"
+                  src="assets/img/Desafios-img/palitos_1.png"
+                />
               </div>
 
-              <img
-                id="question__img"
-                src="assets/img/Desafios-img/palitos_1.png"
-              />
-            </div>
+              <div id="success__card">
+                <h3>Parabéns!<br />Você descobriu!</h3>
 
-            <div id="success__card">
-              <h3>Parabéns!<br />Você descobriu!</h3>
+                <div id="success__card__text">
+                  <div>
+                    <button>Compartilhe</button>
+                    <h4>sua solução com os monitores</h4>
+                  </div>
 
-              <div id="success__card__text">
-                <div>
-                  <button>Compartilhe</button>
-                  <h4>sua solução com os monitores</h4>
-                </div>
-
-                <div>
-                  <h4>Veja mensagens no</h4>
-                  <button onclick="redirect('chat-13')">Chat</button>
-                  <h4>sobre esse desafio</h4>
+                  <div>
+                    <h4>Veja mensagens no</h4>
+                    <button onclick="redirect('chat-13')">Chat</button>
+                    <h4>sobre esse desafio</h4>
+                  </div>
                 </div>
               </div>
             </div>
@@ -982,7 +1008,7 @@
         }
       };
     </script>
-    <script src="js/database.js"></script>
-    <script src="js/headerInfo.js"></script>
+    <!-- <script src="js/database.js"></script> -->
+    <!-- <script src="js/headerInfo.js"></script> -->
   </body>
 </html>

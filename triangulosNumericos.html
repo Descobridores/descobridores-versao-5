@@ -56,6 +56,21 @@
         flex-direction: column;
         /* width: 92%; */
         align-items: center;
+        position: relative;
+        width: 100%;
+        height: 93%;
+      }
+
+      /* Styles specific to Firefox */
+      @supports (-moz-appearance: none) {
+        .game__elements__container {
+          height: 100%; /* Height only for Firefox */
+          margin-top: 25px;
+        }
+
+        .game__container {
+          height: 100vh;
+        }
       }
 
       .game__elements__container div {
@@ -66,9 +81,21 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        position: relative;
+        /* position: relative; */
         width: 25rem;
         height: 25rem;
+      }
+
+      .triangle__container {
+        position: absolute;
+      }
+
+      #t__container1 {
+        justify-content: center;
+      }
+
+      #t__container2 {
+        justify-content: space-between;
       }
 
       #t1 {
@@ -91,9 +118,10 @@
         background-color: #fbdac3;
         border-radius: 50%;
         box-shadow: -4px 0px 2px #1c203f;
+        z-index: 1;
       }
       .circle__input:hover {
-        /* transform: scale(1.4); */
+        transform: scale(1.1);
 
         width: 6.5rem;
         height: 6.5rem;
@@ -104,8 +132,7 @@
         all: unset;
         /* color: #009f98; */
         color: #1a69a1;
-        width: -webkit-fill-available;
-        height: -webkit-fill-available;
+        width: 100%;
         text-align: center;
         font-size: 2rem;
         font-family: "Roboto Slab";
@@ -120,8 +147,7 @@
         all: unset;
         /* color: #009f98; */
         color: #1a69a1;
-        width: -webkit-fill-available;
-        height: -webkit-fill-available;
+        width: 100%;
         text-align: center;
         font-size: 2rem;
         font-family: "Roboto Slab";
@@ -130,6 +156,7 @@
       .triangle .row {
         justify-content: center;
         gap: 0.6rem;
+        /* width: fit-content; */
       }
 
       .correct__btn {
@@ -140,20 +167,6 @@
         top: 58rem;
         right: 33rem;
       }
-
-      /* #success__card__footer {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      #success__card__footer button {
-        display: flex;
-        justify-content: space-between;
-      } */
-
-      /* .game__elements__container {
-        opacity: 0.2;
-      } */
     </style>
   </head>
   <body id="page-top">
@@ -614,22 +627,22 @@
           <hr class="linha" />
         </section>
       </main>
-      <br />
+
       <div class="container">
         <div style="margin-right: -0.75rem; margin-left: -0.75rem">
           <!-- GAME CONTAINER -->
           <div class="game__container">
             <div class="game__elements__container">
-              <div>
+              <div class="triangle__container" id="t__container1">
                 <div id="t1" class="triangle">
                   <div class="row">
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                   </div>
                   <div class="row">
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                     <div class="circle">
                       <input type="text" disabled="disabled" value="32" />
@@ -640,15 +653,15 @@
                       <input type="text" disabled="disabled" value="29" />
                     </div>
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row" id="standard-circle">
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                     <div class="circle">
                       <input type="text" disabled="disabled" value="4" />
@@ -657,24 +670,24 @@
                       <input type="text" disabled="disabled" value="12" />
                     </div>
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                   </div>
                 </div>
               </div>
-              <div>
+              <div class="triangle__container" id="t__container2">
                 <div id="t2" class="triangle">
                   <div class="row">
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                   </div>
                   <div class="row">
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                   </div>
                   <div class="row">
@@ -682,7 +695,7 @@
                       <input type="text" disabled="disabled" value="28" />
                     </div>
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                     <div class="circle">
                       <input type="text" disabled="disabled" value="23" />
@@ -693,13 +706,13 @@
                       <input type="text" disabled="disabled" value="16" />
                     </div>
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                     <div class="circle">
                       <input type="text" disabled="disabled" value="12" />
                     </div>
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                   </div>
                 </div>
@@ -714,15 +727,15 @@
                       <input type="text" disabled="disabled" value="42" />
                     </div>
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                   </div>
                   <div class="row">
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                     <div class="circle">
                       <input type="text" disabled="disabled" value="24" />
@@ -730,13 +743,13 @@
                   </div>
                   <div class="row">
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                     <div class="circle circle__input">
-                      <input type="text" />
+                      <input type="text" class="open__input" />
                     </div>
                     <div class="circle">
                       <input type="text" disabled="disabled" value="10" />
@@ -841,6 +854,87 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/gamesLogic.js"></script>
+
+    <!-- positioning elements -->
+    <script>
+      window.onload = function () {
+        // clean inputs
+        document.querySelectorAll(".open__input").forEach((el) => {
+          el.value = "";
+        });
+
+        const gameContainer = document.querySelector(
+          ".game__elements__container"
+        );
+        const trianglesEl = document.querySelectorAll(".triangle");
+        const t_containers = document.querySelectorAll(".triangle__container");
+
+        // Get the size and position of the image
+        const gameContainerRect = gameContainer.getBoundingClientRect();
+
+        // Define relative positions for the drop areas as percentages of the image size
+        const positions = [
+          { top: 0, right: 0 },
+          { top: 20, right: 0 },
+          // { top: 27, right: 1 },
+        ];
+
+        // Loop through each triangle and position it
+        // trianglesEl.forEach((triangle, index) => {
+        //   if (positions[index]) {
+        //     const top = (gameContainerRect.height * positions[index].top) / 100;
+        //     const right =
+        //       (gameContainerRect.width * positions[index].right) / 100;
+
+        //     // position the element using absolute positioning
+        //     triangle.style.position = "absolute";
+        //     triangle.style.top = `${top}px`;
+        //     triangle.style.right = `${right}px`;
+
+        //   }
+        // });
+
+        t_containers.forEach((contianer, index) => {
+          if (positions[index]) {
+            const top = (gameContainerRect.height * positions[index].top) / 100;
+            const right =
+              (gameContainerRect.width * positions[index].right) / 100;
+
+            // position the element using absolute positioning
+            // contianer.style.position = "absolute";
+            contianer.style.top = `${top}px`;
+            contianer.style.right = `${right}px`;
+
+            contianer.style.width = `${gameContainerRect.width * 1}px`;
+            contianer.style.height = `${gameContainerRect.width * 0.6}px`;
+          }
+        });
+
+        // flower size
+        const circles = document.querySelectorAll(".circle");
+
+        circles.forEach((circle, index) => {
+          // set a fixed size
+          circle.style.width = `${gameContainerRect.width * 0.065}px`;
+          circle.style.height = `${gameContainerRect.width * 0.065}px`;
+
+          circle.firstElementChild.style.fontSize = `${
+            gameContainerRect.width * 0.026
+          }px`;
+
+          circle.firstElementChild.style.width = `${
+            gameContainerRect.width * 0.065
+          }px`;
+        });
+      };
+
+      // If the screen size changes
+      window.addEventListener("resize", () => {
+        window.onload(); // Recalculate positions on resize
+      });
+    </script>
+
+    <!-- specific game logic -->
     <script>
       // MODEL with the rules of the challenge (its an image that pops up, basically)
       showRulesModel(19); // receives challenge index as param
@@ -943,7 +1037,7 @@
         el.addEventListener("change", () => checkEndGame(2));
       });
     </script>
-    <script src="js/database.js"></script>
-    <script src="js/headerInfo.js"></script>
+    <!-- <script src="js/database.js"></script> -->
+    <!-- <script src="js/headerInfo.js"></script> -->
   </body>
 </html>

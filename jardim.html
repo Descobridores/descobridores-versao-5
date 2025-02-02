@@ -51,6 +51,7 @@
         width: 55%;
         height: 100%;
         margin: 1rem 1rem;
+        position: relative;
       }
 
       .target__container .drop__area {
@@ -618,7 +619,7 @@
             <div class="elements__container">
               <div class="drop__area">
                 <img
-                  class="elemen draggable-by-jquery-ui"
+                  class="element draggable-by-jquery-ui"
                   id="drag-element1"
                   src="./assets/img/Desafios-img/jardim_1.png"
                   alt=""
@@ -794,6 +795,64 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/gamesLogic.js"></script>
 
+    <!-- positioning elements -->
+    <script>
+      window.onload = function () {
+        const image = document.getElementById("jardim_img");
+        const dropAreas = document
+          .querySelector(".target__container")
+          .querySelectorAll(".drop__area");
+
+        // Get the size and position of the image
+        const imageRect = image.getBoundingClientRect();
+
+        // Define relative positions for the drop areas as percentages of the image size
+        const positions = [
+          { top: 13, left: 10 }, // 1
+          { top: 45, left: 10 },
+          { top: 76.5, left: 10 }, // 3
+          { top: 76.5, left: 34.5 },
+          { top: 76.5, left: 58.5 }, // 5
+          { top: 76.5, left: 83 },
+          { top: 45, left: 83 }, // 7
+          { top: 13, left: 83 },
+          { top: 13, left: 58.5 }, // 9
+          { top: 13, left: 34.5 },
+        ];
+
+        // Loop through each drop area and position it
+        dropAreas.forEach((area, index) => {
+          if (positions[index]) {
+            const top = (imageRect.height * positions[index].top) / 100;
+            const left = (imageRect.width * positions[index].left) / 100;
+
+            // position the element using absolute positioning
+            area.style.position = "absolute";
+            area.style.top = `${top}px`;
+            area.style.left = `${left}px`;
+
+            // set a fixed size for the areas
+            area.style.width = `${imageRect.width * 0.15}px`;
+            area.style.height = `${imageRect.width * 0.15}px`;
+            // area.style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+          }
+        });
+
+        // flower size
+        const flowers = document.querySelectorAll(".element");
+        flowers.forEach((flower, index) => {
+          // set a fixed size
+          flower.style.width = `${imageRect.width * 0.13}px`;
+          flower.style.height = `${imageRect.width * 0.13}px`;
+          flower.style.marginTop = `${imageRect.width * 0.01}px`;
+        });
+      };
+
+      // If the screen size changes
+      window.addEventListener("resize", () => {
+        window.onload(); // Recalculate positions on resize
+      });
+    </script>
     <!-- JS Game Logic -->
     <script>
       // MODEL with the rules of the challenge (its an image that pops up, basically)
@@ -910,6 +969,6 @@
       });
     </script>
     <script src="js/database.js"></script>
-    <script src="js/headerInfo.js"></script>
+    <!-- <script src="js/headerInfo.js"></script> -->
   </body>
 </html>

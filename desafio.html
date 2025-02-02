@@ -42,7 +42,7 @@
 
     <script src="./js/jquery.js"></script>
 
-    <!-- <script>
+    <script>
       window.onload = function () {
         AntesProximo(
           0,
@@ -51,7 +51,7 @@
           window.localStorage.getItem("indice")
         );
       };
-    </script> -->
+    </script>
   </head>
   <style>
     @import url("https://fonts.cdnfonts.com/css/gotham");
@@ -527,7 +527,7 @@
                   class="row container align-items-center"
                   style="margin-right: 0; margin-left: 0"
                 >
-                  <div id="DivTextoDesafio">
+                  <div id="DivTextoDesafio" style="display: none">
                     <p
                       id="TextoDesafio"
                       class="gotham"
@@ -556,6 +556,7 @@
                   class="col-lg-1 col-md-2 col-3"
                   name="0"
                   style="margin-right: auto; margin-left: auto"
+                  onclick="AntesProximo(this, 0, false, -1)"
                 >
                   <img src="./assets/img/Antes.png" alt="Anterior" />
                 </button>
@@ -564,6 +565,7 @@
                   class="col-lg-1 col-md-2 col-3"
                   name="0"
                   style="margin-left: auto; margin-right: auto"
+                  onclick="AntesProximo(this, 1, false, -1)"
                 >
                   <img src="./assets/img/Proximo.png" alt="Proximo" />
                 </button>
@@ -654,8 +656,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-    <script src="js/database.js"></script>
-    <script src="js/headerInfo.js"></script>
+    <!-- <script src="js/database.js"></script> -->
+    <!-- <script src="js/headerInfo.js"></script> -->
     <script src="./js/gamePage.js"></script>
   </body>
 </html>

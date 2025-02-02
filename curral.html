@@ -75,6 +75,7 @@
         height: 90vh;
         display: flex;
         margin-left: 6rem;
+        justify-content: space-between;
       }
 
       .drop__area,
@@ -113,6 +114,13 @@
       .target__container img {
         width: 8.25rem;
         height: 8.25rem;
+      }
+
+      @media (max-width: 1024px) {
+        .game__container {
+          height: 60vh;
+          margin-top: 4rem;
+        }
       }
     </style>
   </head>
@@ -764,6 +772,63 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/gamesLogic.js"></script>
 
+    <!-- sizing elements -->
+    <script>
+      window.onload = function () {
+        const gameContainerRect = document
+          .querySelector(".game__container")
+          .getBoundingClientRect();
+
+        const dropAreas = document
+          .querySelector(".target__container")
+          .querySelectorAll(".drop__area");
+
+        const moreAreas = document
+          .querySelector(".target__container")
+          .querySelectorAll(".fixed__element__container");
+
+        document.querySelector(".target__container").style.width = `${
+          gameContainerRect.width * 0.5
+        }px`;
+        document.querySelector(".target__container").style.height = `${
+          gameContainerRect.width * 0.5
+        }px`;
+
+        // Loop through each drop area and size it
+        dropAreas.forEach((area) => {
+          area.style.width = `${gameContainerRect.width * 0.15}px`;
+          area.style.height = `${gameContainerRect.width * 0.15}px`;
+        });
+
+        moreAreas.forEach((area) => {
+          area.style.width = `${gameContainerRect.width * 0.15}px`;
+          area.style.height = `${gameContainerRect.width * 0.15}px`;
+        });
+
+        // animals size
+        const animals = document.querySelectorAll(".element");
+        animals.forEach((animal) => {
+          // set a fixed size
+          animal.style.width = `${gameContainerRect.width * 0.11}px`;
+          animal.style.height = `${gameContainerRect.width * 0.11}px`;
+          // animal.style.marginTop = `${gameContainerRect.width * 0.01}px`;
+        });
+
+        const fixedAnimals = document.querySelectorAll(".fixed__element");
+        fixedAnimals.forEach((animal) => {
+          // set a fixed size
+          animal.style.width = `${gameContainerRect.width * 0.12}px`;
+          animal.style.height = `${gameContainerRect.width * 0.12}px`;
+          // animal.style.marginTop = `${gameContainerRect.width * 0.01}px`;
+        });
+      };
+
+      // If the screen size changes
+      window.addEventListener("resize", () => {
+        window.onload(); // Recalculate positions on resize
+      });
+    </script>
+
     <!-- JS Game Logic -->
     <script>
       // MODEL with the rules of the challenge (its an image that pops up, basically)
@@ -884,7 +949,7 @@
         });
       });
     </script>
-    <script src="js/database.js"></script>
-    <script src="js/headerInfo.js"></script>
+    <!-- <script src="js/database.js"></script> -->
+    <!-- <script src="js/headerInfo.js"></script> -->
   </body>
 </html>

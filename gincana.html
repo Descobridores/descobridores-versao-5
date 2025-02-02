@@ -97,6 +97,13 @@
         left: 35%;
         width: 30%;
       }
+
+      @media (max-width: 1024px) {
+        .game__container {
+          height: 70vh;
+          justify-content: center;
+        }
+      }
     </style>
   </head>
   <body id="page-top">
@@ -697,6 +704,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/gamesLogic.js"></script>
+
     <script>
       // MODEL with the rules of the challenge (its an image that pops up, basically)
       showRulesModel(9); // receives challenge index as param
@@ -789,7 +797,7 @@
         .querySelector(".wrong__btn")
         .addEventListener("click", () => location.reload());
     </script>
-    <script src="js/database.js"></script>
-    <script src="js/headerInfo.js"></script>
+    <!-- <script src="js/database.js"></script> -->
+    <!-- <script src="js/headerInfo.js"></script> -->
   </body>
 </html>

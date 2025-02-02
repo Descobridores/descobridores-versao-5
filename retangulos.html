@@ -45,6 +45,7 @@
         height: 90vh;
         display: flex;
         justify-content: center;
+        /* position: relative; */
       }
       .drawing__board {
         height: 90%;
@@ -198,6 +199,30 @@
       .answer__btn:focus {
         outline: none;
         border: none;
+      }
+
+      #line__break__br {
+        display: none;
+      }
+
+      @media (max-width: 1024px) {
+        .game__container {
+          height: 60vh;
+          margin-top: 4rem;
+        }
+
+        .answers {
+          margin-bottom: 6.8rem;
+        }
+
+        #line__break__br {
+          display: block;
+        }
+
+        #answer__bottom {
+          position: relative;
+          right: 14rem;
+        }
       }
     </style>
   </head>
@@ -670,24 +695,26 @@
                   <span id="close__board" class="close">&times;</span>
                   <canvas id="drawing-board"></canvas>
                   <img src="./assets/img/Desafios-img/retangulos_img1.png" />
+
                   <button id="clean">Limpar</button>
                 </div>
               </div>
               <div class="answer__container">
                 <div id="open__canvas__btn">
                   <img src="./assets/img/Desafios-img/quadro3.png" />
+                  <img src="./assets/img//Desafios-img/retangulos_img3.png" />
                   <img src="./assets/img/Desafios-img/arrow.png" />
                   <span> Use o quadro para desenhar </span>
                 </div>
                 <div>
                   <div class="answers">
-                    <img src="./assets/img//Desafios-img/retangulos_img3.png" />
                     <div>
                       <div>
                         <h6>
-                          Com 3 quadrados, quantos retângulos você consegue
-                          formar?
+                          Com 3 quadrados, quantos retângulos
+                          <br id="line__break__br" />você consegue formar?
                         </h6>
+
                         <input id="input__1" type="number" min="0" />
                       </div>
                       <div>
@@ -700,7 +727,7 @@
                     </div>
                   </div>
 
-                  <div class="answers">
+                  <div class="answers" id="answer__bottom">
                     <div>
                       <div>
                         <h6 style="margin-bottom: 2rem">
@@ -1027,7 +1054,7 @@
           }
         });
     </script>
-    <script src="js/database.js"></script>
-    <script src="js/headerInfo.js"></script>
+    <!-- <script src="js/database.js"></script> -->
+    <!-- <script src="js/headerInfo.js"></script> -->
   </body>
 </html>

@@ -44,33 +44,44 @@
     <style>
       .game__container {
         display: flex;
-        justify-content: end;
+        justify-content: space-around;
         min-height: 90vh;
-        margin: 2rem 5rem;
+        margin: 2rem 0rem;
+
+        align-items: start;
+      }
+
+      .circles__container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
       }
 
       .circle {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 7.5rem;
-        height: 7.5rem;
+        /* width: 7.5rem; */
+        /* height: 7.5rem; */
         background-color: white;
         border: solid 2px #030d48;
         border-radius: 50%;
         position: absolute;
-        transform-origin: center center;
+        /* transform-origin: center center; */
+
+        width: 8.5vw;
+        height: 8.5vw;
       }
 
       .big__circle {
         border: solid 2px #030d48;
         border-radius: 50%;
-        width: 30rem;
-        height: 30rem;
-        position: absolute;
-        right: 45rem;
-        top: 35rem;
-        z-index: -1;
+
+        position: relative;
+        width: 35vw;
+        height: 35vw;
       }
 
       .element {
@@ -94,6 +105,13 @@
       .correct__btn {
         left: 5rem;
         width: 20rem;
+      }
+
+      @media (max-width: 1024px) {
+        .element {
+          width: 2rem;
+          height: 3.53rem;
+        }
       }
     </style>
   </head>
@@ -561,18 +579,17 @@
           <!-- GAME CONTAINER -->
           <div class="game__container">
             <div class="circles__container">
-              <div class="circle drop__area"></div>
-              <div class="circle drop__area"></div>
-              <div class="circle drop__area"></div>
-              <div class="circle drop__area"></div>
-              <div class="circle drop__area"></div>
-              <div class="circle drop__area"></div>
-              <div class="circle drop__area"></div>
-              <div class="circle drop__area"></div>
-              <div class="circle drop__area"></div>
-              <div class="circle drop__area"></div>
-
               <div class="big__circle"></div>
+              <div class="circle drop__area"></div>
+              <div class="circle drop__area"></div>
+              <div class="circle drop__area"></div>
+              <div class="circle drop__area"></div>
+              <div class="circle drop__area"></div>
+              <div class="circle drop__area"></div>
+              <div class="circle drop__area"></div>
+              <div class="circle drop__area"></div>
+              <div class="circle drop__area"></div>
+              <div class="circle drop__area"></div>
             </div>
 
             <div class="monsters__container">
@@ -742,22 +759,53 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/gamesLogic.js"></script>
+
+    <script>
+      const positionAndSize = () => {
+        const bigCircle = document.querySelector(".big__circle");
+        const bigCircleSize = bigCircle.offsetWidth; // width = height
+        const radius = bigCircleSize / 2;
+
+        // Get big circle's position relative to the page
+        const bigCircleX = bigCircle.offsetLeft;
+        const bigCircleY = bigCircle.offsetTop;
+
+        // Get all small circles
+        const circles = document.querySelectorAll(".circle");
+        const totalCircles = circles.length;
+
+        const smallCircleSize = bigCircleSize * 0.24; // Each small circle is 20% of the big circle's size
+
+        circles.forEach((circle, index) => {
+          const angle = (index / totalCircles) * 2 * Math.PI;
+
+          // Adjust x and y to be ON the circumference
+          const x =
+            bigCircleX +
+            radius +
+            radius * Math.cos(angle) -
+            smallCircleSize / 2;
+          const y =
+            bigCircleY +
+            radius +
+            radius * Math.sin(angle) -
+            smallCircleSize / 2;
+
+          circle.style.left = `${x}px`;
+          circle.style.top = `${y}px`;
+          circle.style.width = `${smallCircleSize}px`;
+          circle.style.height = `${smallCircleSize}px`;
+        });
+      };
+
+      // Run function on load and resize
+      window.addEventListener("load", positionAndSize);
+      window.addEventListener("resize", positionAndSize);
+    </script>
+
     <script>
       // MODEL with the rules of the challenge (its an image that pops up, basically)
       showRulesModel(11); // receives challenge index as param
-
-      /* DISPLAY CIRCLE */
-      const circles = document.querySelectorAll(".circle");
-      const totalCircles = circles.length;
-      const radius = 15; // Adjust this value to control the size of the circle
-
-      circles.forEach((circle, index) => {
-        const angle = (index / totalCircles) * 2 * Math.PI;
-        const x = Math.cos(angle) * radius + 20;
-        const y = Math.sin(angle) * radius + 46;
-        circle.style.left = x + "rem";
-        circle.style.top = y + "rem";
-      });
 
       /* GAME LOGIC */
       const containers = document.querySelectorAll(".circle");
@@ -901,7 +949,7 @@
         });
       });
     </script>
-    <script src="js/database.js"></script>
-    <script src="js/headerInfo.js"></script>
+    <!-- <script src="js/database.js"></script> -->
+    <!-- <script src="js/headerInfo.js"></script> -->
   </body>
 </html>
