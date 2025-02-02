@@ -209,12 +209,12 @@
 
       @media (max-width: 1024px) {
         .game__container {
-          height: 65vh;
+          height: 60vh;
           margin-top: 3rem;
         }
 
         .elements__container__child {
-          gap: 0.5rem;
+          gap: 4rem;
         }
       }
     </style>
@@ -965,61 +965,37 @@
           }
         }
       };
-    </script>
 
-    <!-- drag and drop logic -->
-    <script>
-      document.querySelectorAll(".draggable-by-jquery-ui").forEach((el) => {
-        el.addEventListener("pointerdown", startDrag);
-      });
+      $(function () {
+        $(".draggable-by-jquery-ui").draggable({
+          revert: "invalid",
+        });
+        $(".drop__area").droppable({
+          accept: ".draggable-by-jquery-ui",
 
-      function startDrag(event) {
-        const element = event.target;
-        element.setPointerCapture(event.pointerId);
-
-        // Get the offset relative to the element
-        let rect = element.getBoundingClientRect();
-        let offsetX = event.clientX - rect.left;
-        let offsetY = event.clientY - rect.top - 500;
-
-        function move(event) {
-          element.style.position = "absolute";
-          element.style.zIndex = "1000";
-          element.style.left = event.clientX - offsetX + "px";
-          element.style.top = event.clientY - offsetY + "px";
-        }
-
-        function stopDrag(event) {
-          element.releasePointerCapture(event.pointerId);
-          document.removeEventListener("pointermove", move);
-          document.removeEventListener("pointerup", stopDrag);
-
-          // Check if dropped inside a drop area
-          let dropAreas = document.querySelectorAll(".drop__area");
-          dropAreas.forEach((area) => {
-            let rect = area.getBoundingClientRect();
-            if (
-              event.clientX > rect.left &&
-              event.clientX < rect.right &&
-              event.clientY > rect.top &&
-              event.clientY < rect.bottom
-            ) {
-              if (area.childNodes.length === 1) {
-                document
-                  .querySelector(".elements__container__child")
-                  .appendChild(area.firstChild);
-              }
-              area.appendChild(element);
-              element.style.position = "static"; // Reset position to fit inside the drop area
-              checkEndGame();
+          // called when element is dropped
+          drop: function (event, element) {
+            // check if drop area already has an element
+            if (this.childNodes.length == 1) {
+              // remove current element from area
+              elementsContainer.appendChild(this.firstChild);
             }
-          });
-        }
 
-        document.addEventListener("pointermove", move);
-        document.addEventListener("pointerup", stopDrag);
-      }
+            // adds new element to area
+            this.appendChild(element.draggable[0]);
+            element.draggable[0].style.left = "0";
+            element.draggable[0].style.top = "0";
+            element.draggable[0].style.bottom = "0";
+            element.draggable[0].style.right = "0";
+
+            checkEndGame();
+          },
+        });
+      });
     </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
     <script src="js/database.js"></script>
     <!-- <script src="js/headerInfo.js"></script> -->
   </body>
