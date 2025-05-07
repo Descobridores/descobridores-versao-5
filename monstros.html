@@ -593,7 +593,7 @@
             </div>
 
             <div class="monsters__container">
-              <div class="drop__area">
+              <div id="m1__container" class="drop__area">
                 <img
                   class="element m_1 draggable-by-jquery-ui"
                   src="./assets/img/Desafios-img/monstro-1.png"
@@ -616,7 +616,7 @@
                 />
               </div>
 
-              <div class="drop__area">
+              <div id="m2__container" class="drop__area">
                 <img
                   class="element m_2 draggable-by-jquery-ui"
                   src="./assets/img/Desafios-img/monstro-2.png"
@@ -634,7 +634,7 @@
                 />
               </div>
 
-              <div class="drop__area">
+              <div id="m3__container" class="drop__area">
                 <img
                   class="element m_3 draggable-by-jquery-ui"
                   src="./assets/img/Desafios-img/monstro-3.png"
@@ -809,6 +809,9 @@
 
       /* GAME LOGIC */
       const containers = document.querySelectorAll(".circle");
+      const m1Container = document.getElementById("m1__container");
+      const m2Container = document.getElementById("m2__container");
+      const m3Container = document.getElementById("m3__container");
 
       // check if two strings are the same
       const checkStrings = (answer, solution) => {
@@ -934,7 +937,11 @@
             // check if drop area already has an element
             if (this.childNodes.length == 1) {
               // remove current element from area
-              elementsContainer.appendChild(this.firstChild);
+              if (this.firstChild.classList.contains("m_1"))
+                m1Container.appendChild(this.firstChild);
+              else if (this.firstChild.classList.contains("m_2"))
+                m2Container.appendChild(this.firstChild);
+              else m3Container.appendChild(this.firstChild);
             }
 
             // adds new element to area
