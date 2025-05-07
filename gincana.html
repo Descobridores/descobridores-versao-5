@@ -103,6 +103,10 @@
           height: 70vh;
           justify-content: center;
         }
+
+        .element {
+          top: 9%;
+        }
       }
     </style>
   </head>
@@ -699,10 +703,9 @@
     <!-- Bootstrap core JS-->
     <script src="js/popUp.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script src="./js/gamesLogic.js"></script>
 
     <script>
@@ -775,7 +778,14 @@
             this.appendChild(element.draggable[0]);
 
             // overwrite jquery default css style
-            element.draggable[0].style.top = "15%";
+            if (window.matchMedia("(max-width: 1024px)").matches) {
+              // screen width is 1024px or less
+              element.draggable[0].style.top = "9%";
+            } else {
+              // screen width is more than 768px
+              element.draggable[0].style.top = "15%";
+            }
+
             if (element.draggable[0].classList.contains("element__2"))
               element.draggable[0].style.left = "5%";
             else element.draggable[0].style.left = "24%";
@@ -797,6 +807,10 @@
         .querySelector(".wrong__btn")
         .addEventListener("click", () => location.reload());
     </script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
     <!-- <script src="js/database.js"></script> -->
     <!-- <script src="js/headerInfo.js"></script> -->
   </body>
